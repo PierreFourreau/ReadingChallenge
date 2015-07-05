@@ -6,4 +6,5 @@ package com.fourreau.readingchallenge.util;
 public final class Utils {
 
     private Utils() {}
+
 }

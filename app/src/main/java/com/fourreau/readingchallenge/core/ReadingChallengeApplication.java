@@ -3,7 +3,7 @@ package com.fourreau.readingchallenge.core;
 import android.app.Application;
 
 import com.fourreau.readingchallenge.BuildConfig;
-import com.fourreau.readingchallenge.core.module.CategoryModule;
+import com.fourreau.readingchallenge.core.module.RestModule;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,7 +39,7 @@ public class ReadingChallengeApplication extends Application {
      * provide additional modules provided they call {@code super.getModules()}.
      */
     protected List<Object> getModules() {
-        return Arrays.<Object>asList(new CategoryModule(this));
+        return Arrays.<Object>asList(new RestModule(this));
     }
 
     public void inject(Object target) {

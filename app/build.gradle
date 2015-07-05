@@ -5,6 +5,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     //retrofit
     compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+    compile 'com.google.code.gson:gson:2.3'
     //timber
     compile 'com.jakewharton.timber:timber:3.0.1'
     //dagger
@@ -16,6 +18,8 @@ dependencies {
 //    compile('com.crashlytics.sdk.android:crashlytics:2.3.2@aar') {
 //        transitive = true;
 //    }
+    //material design library
+    compile 'com.github.navasmdc:MaterialDesign:1.+@aar'
 }
 
 android {
