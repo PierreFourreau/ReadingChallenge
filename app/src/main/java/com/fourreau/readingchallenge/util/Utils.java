@@ -7,4 +7,5 @@ public final class Utils {
 
     private Utils() {}
 
+    public static String BASE_URL_API = "http://pierrefourreau.fr/readingchallenge/api";
 }
