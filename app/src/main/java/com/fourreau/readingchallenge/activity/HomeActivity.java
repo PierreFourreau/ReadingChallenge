@@ -8,9 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import com.fourreau.readingchallenge.R;
+import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.service.ApiService;
@@ -38,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
-        button = (Button) findViewById(R.id.button);
+       button = (Button) findViewById(R.id.button);
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -51,6 +53,9 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         });
+
+        GridView gridView = (GridView)findViewById(R.id.gridview);
+        gridView.setAdapter(new CategoryAdapter(this));
 
         Timber.d("Begin...");
         apiService.listCategories(new Callback<List<Category>>() {
