@@ -1,10 +1,13 @@
 package com.fourreau.readingchallenge.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.fourreau.readingchallenge.R;
@@ -27,11 +30,27 @@ public class HomeActivity extends AppCompatActivity {
     @Inject
     ApiService apiService;
 
+    Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
+
+        button = (Button) findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
+                startActivity(intent);
+
+            }
+
+        });
 
         Timber.d("Begin...");
         apiService.listCategories(new Callback<List<Category>>() {
@@ -47,7 +66,41 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         Timber.d("End...");
+
+//        ObservableListView listView = (ObservableListView) findViewById(R.id.list);
+//        listView.setScrollViewCallbacks(this);
+//
+//        // TODO These are dummy. Populate your data here.
+//        ArrayList<String> items = new ArrayList<String>();
+//        for (int i = 1; i <= 100; i++) {
+//            items.add("Item " + i);
+//        }
+//        listView.setAdapter(new ArrayAdapter<String>(
+//                this, android.R.layout.simple_list_item_1, items));
     }
+
+//    @Override
+//    public void onScrollChanged(int scrollY, boolean firstScroll,
+//                                boolean dragging) {
+//    }
+//
+//    @Override
+//    public void onDownMotionEvent() {
+//    }
+//
+//    @Override
+//    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+//        ActionBar ab = getSupportActionBar();
+//        if (scrollState == ScrollState.UP) {
+//            if (ab.isShowing()) {
+//                ab.hide();
+//            }
+//        } else if (scrollState == ScrollState.DOWN) {
+//            if (!ab.isShowing()) {
+//                ab.show();
+//            }
+//        }
+//    }
 
     public void afficherError() {
         Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();

@@ -32,6 +32,15 @@
             android:label="@string/title_activity_licences"
             android:parentActivityName=".activity.AboutActivity" >
         </activity>
+        <activity
+            android:name=".activity.CategoryActivity"
+            android:label="@string/title_activity_category"
+            android:parentActivityName=".activity.HomeActivity"
+            android:theme="@style/AppTheme.Toolbar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fourreau.readingchallenge.activity.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

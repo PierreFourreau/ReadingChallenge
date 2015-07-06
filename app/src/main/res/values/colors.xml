@@ -15,5 +15,10 @@
         <item>#CAF1E7</item>
     </string-array>
 
+    <color name="primary">#009688</color>
+    <color name="primaryDark">#00796b</color>
+    <color name="accent">#eeff41</color>
+    <color name="accentLight">#F4FF81</color>
+
     <color name="logo">#5EA8D6</color>
 </resources>
