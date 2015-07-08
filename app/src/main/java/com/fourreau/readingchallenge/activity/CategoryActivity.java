@@ -6,10 +6,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fourreau.readingchallenge.R;
+import com.fourreau.readingchallenge.adapter.CategoryAdapter;
+import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
+import com.fourreau.readingchallenge.model.Category;
+import com.fourreau.readingchallenge.model.Suggestion;
+import com.fourreau.readingchallenge.service.ApiService;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -17,7 +23,22 @@ import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+import timber.log.Timber;
+
 public class CategoryActivity extends BaseActivity implements ObservableScrollViewCallbacks {
+
+    @Inject
+    ApiService apiService;
+
+    private List<Suggestion> suggestions;
+    private String categoryId;
 
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
 
@@ -36,6 +57,23 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+        ((ReadingChallengeApplication) getApplication()).inject(this);
+
+        categoryId = ((ReadingChallengeApplication) this.getApplication()).getCategoryId();
+
+        apiService.listSuggestions(categoryId, new Callback<List<Suggestion>>() {
+            @Override
+            public void success(List<Suggestion> suggestions, Response response) {
+                afficherSuggestions(suggestions);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                afficherError();
+                Timber.d("Error : " + error.toString());
+            }
+        });
+
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mFlexibleSpaceShowFabOffset = getResources().getDimensionPixelSize(R.dimen.flexible_space_show_fab_offset);
@@ -77,6 +115,19 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 //mScrollView.scrollTo(0, 0);
             }
         });
+    }
+
+    public void afficherError() {
+        Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void afficherSuggestions(List<Suggestion> suggestions) {
+        Toast.makeText(this,"nb sugg : "+suggestions.size(), Toast.LENGTH_SHORT).show();
+        for(Suggestion sug : suggestions) {
+            Timber.d(""+sug.getSuggestion_label());
+            Timber.d(""+sug.getCategorie_id());
+        }
     }
 
     @Override

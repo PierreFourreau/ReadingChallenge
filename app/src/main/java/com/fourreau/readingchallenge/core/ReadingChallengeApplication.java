@@ -18,6 +18,8 @@ import timber.log.Timber;
  */
 public class ReadingChallengeApplication extends Application {
 
+    public String categoryId;
+
     private ObjectGraph applicationGraph;
 
     @Override public void onCreate() {
@@ -32,6 +34,14 @@ public class ReadingChallengeApplication extends Application {
         }
 
         applicationGraph = ObjectGraph.create(getModules().toArray());
+    }
+
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
     /**

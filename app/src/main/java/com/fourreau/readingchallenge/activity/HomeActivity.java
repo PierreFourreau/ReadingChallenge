@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -32,7 +33,11 @@ public class HomeActivity extends AppCompatActivity {
     @Inject
     ApiService apiService;
 
-    Button button;
+    private List<Category> categories;
+    GridView gridView;
+    CategoryAdapter categoryAdapter;
+
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +45,18 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
-       button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.button);
 
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-
                 Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
                 startActivity(intent);
-
             }
 
         });
 
-        GridView gridView = (GridView)findViewById(R.id.gridview);
-        gridView.setAdapter(new CategoryAdapter(this));
 
         Timber.d("Begin...");
         apiService.listCategories(new Callback<List<Category>>() {
@@ -71,41 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         Timber.d("End...");
-
-//        ObservableListView listView = (ObservableListView) findViewById(R.id.list);
-//        listView.setScrollViewCallbacks(this);
-//
-//        // TODO These are dummy. Populate your data here.
-//        ArrayList<String> items = new ArrayList<String>();
-//        for (int i = 1; i <= 100; i++) {
-//            items.add("Item " + i);
-//        }
-//        listView.setAdapter(new ArrayAdapter<String>(
-//                this, android.R.layout.simple_list_item_1, items));
     }
-
-//    @Override
-//    public void onScrollChanged(int scrollY, boolean firstScroll,
-//                                boolean dragging) {
-//    }
-//
-//    @Override
-//    public void onDownMotionEvent() {
-//    }
-//
-//    @Override
-//    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-//        ActionBar ab = getSupportActionBar();
-//        if (scrollState == ScrollState.UP) {
-//            if (ab.isShowing()) {
-//                ab.hide();
-//            }
-//        } else if (scrollState == ScrollState.DOWN) {
-//            if (!ab.isShowing()) {
-//                ab.show();
-//            }
-//        }
-//    }
 
     public void afficherError() {
         Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
@@ -116,8 +83,24 @@ public class HomeActivity extends AppCompatActivity {
         Toast.makeText(this,"nb cat : "+categories.size(), Toast.LENGTH_SHORT).show();
         for(Category cat : categories) {
             Timber.d(""+cat.getCategorie_label());
+            Timber.d(""+cat.getCategorie_image_path());
         }
+        gridView = (GridView)findViewById(R.id.gridview);
+        CategoryAdapter customGridAdapter = new CategoryAdapter(this, categories);
 
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(HomeActivity.this,
+                        "Item Clicked: " + position, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        gridView.setAdapter(customGridAdapter);
+
+        //gridView.setAdapter(new CategoryAdapter(this, categories));
     }
 
     @Override
