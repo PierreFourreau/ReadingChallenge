@@ -20,9 +20,7 @@
 <ImageView
     android:id="@+id/image"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/flexible_space_image_height"
-    android:scaleType="centerCrop"
-    android:src="@drawable/example" />
+    android:layout_height="@dimen/flexible_space_image_height"/>
 
 <View
     android:id="@+id/overlay"

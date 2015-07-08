@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fourreau.readingchallenge.R;
@@ -28,16 +29,13 @@ import retrofit.client.Response;
 import timber.log.Timber;
 
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     @Inject
     ApiService apiService;
 
-    private List<Category> categories;
-    GridView gridView;
-    CategoryAdapter categoryAdapter;
-
-    private Button button;
+    private GridView gridView;
+    private CategoryAdapter categoryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,62 +43,44 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
-        button = (Button) findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
-                startActivity(intent);
-            }
-
-        });
-
-
-        Timber.d("Begin...");
+        //get categories from api
         apiService.listCategories(new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
-                afficherCategories(categories);
+                displayCategories(categories);
             }
 
             @Override
             public void failure(RetrofitError error) {
-                afficherError();
-                Timber.d("Error : " + error.toString());
+                displayErrorSnackBar(getString(R.string.activity_home_error));
+                Timber.e("Error get categories : " + error.getMessage());
             }
         });
-        Timber.d("End...");
-    }
-
-    public void afficherError() {
-        Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
     }
 
 
-    public void afficherCategories(List<Category> categories) {
-        Toast.makeText(this,"nb cat : "+categories.size(), Toast.LENGTH_SHORT).show();
-        for(Category cat : categories) {
-            Timber.d(""+cat.getCategorie_label());
-            Timber.d(""+cat.getCategorie_image_path());
-        }
+    /**
+     * Display categories from api.
+     * @param categories
+     */
+    public void displayCategories(List<Category> categories) {
+        Timber.d("Number of categories retrieved : " + categories.size());
+
         gridView = (GridView)findViewById(R.id.gridview);
-        CategoryAdapter customGridAdapter = new CategoryAdapter(this, categories);
+        categoryAdapter = new CategoryAdapter(this, categories);
 
+        //on click category item
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(HomeActivity.this,
-                        "Item Clicked: " + position, Toast.LENGTH_SHORT).show();
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //get id category from hidden textview
+                String idCategory = ((TextView) view.findViewById(R.id.id_category)).getText().toString();
+                Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
+                ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setCategoryId(idCategory);
+                startActivity(intent);
             }
         });
-        gridView.setAdapter(customGridAdapter);
-
-        //gridView.setAdapter(new CategoryAdapter(this, categories));
+        gridView.setAdapter(categoryAdapter);
     }
 
     @Override

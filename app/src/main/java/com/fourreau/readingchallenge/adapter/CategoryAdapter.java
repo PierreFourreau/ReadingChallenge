@@ -1,8 +1,6 @@
 package com.fourreau.readingchallenge.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
-import com.fourreau.readingchallenge.activity.CategoryActivity;
-import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
+import com.fourreau.readingchallenge.util.Utils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -35,21 +32,6 @@ public final class CategoryAdapter extends BaseAdapter {
         for(Category cat : categories) {
             mItems.add(new Item(cat.getCategorie_id(), cat.getCategorie_label(), cat.getCategorie_image_path()));
         }
-
-        //TODO : remove
-        for(Category cat : categories) {
-            mItems.add(new Item(cat.getCategorie_id(), cat.getCategorie_label(), cat.getCategorie_image_path()));
-        }
-        for(Category cat : categories) {
-            mItems.add(new Item(cat.getCategorie_id(), cat.getCategorie_label(), cat.getCategorie_image_path()));
-        }
-
-//        mItems.add(new Item("Red",       R.drawable.child_reading));
-//        mItems.add(new Item("Magenta",   R.drawable.mother_reading));
-//        mItems.add(new Item("Dark Gray", R.drawable.child_reading));
-//        mItems.add(new Item("Gray",      R.drawable.child_reading));
-//        mItems.add(new Item("Green",     R.drawable.mother_reading));
-//        mItems.add(new Item("Cyan",      R.drawable.child_reading));
     }
 
     @Override
@@ -59,12 +41,6 @@ public final class CategoryAdapter extends BaseAdapter {
 
     @Override
     public Item getItem(int i) {
-
-//        Item item = mItems.get(i);
-//        Intent intent = new Intent(context, CategoryActivity.class);
-//        ((ReadingChallengeApplication) context.getApplicationContext()).setCategoryId(item.id);
-//        context.startActivity(intent);
-
         return mItems.get(i);
     }
 
@@ -97,7 +73,7 @@ public final class CategoryAdapter extends BaseAdapter {
         id.setText(item.id);
         //image
         if(!item.image_name.isEmpty()) {
-            Picasso.with(context).load("http://pierrefourreau.fr/readingchallenge/upload/" + item.image_name).fit().centerCrop().into(picture);
+            Picasso.with(context).load(Utils.BASE_URL + Utils.URL_UPLOAD + item.image_name).fit().centerCrop().into(picture);
         }
         else {
             Picasso.with(context).load(R.drawable.default_category).fit().centerCrop().into(picture);

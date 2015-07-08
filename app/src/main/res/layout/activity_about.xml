@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/about_projects_button"
-            android:background="@color/logo" />
+            android:background="@color/primary" />
     </LinearLayout>
 </ScrollView>
 </tools:LinearLayout>

@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,12 +17,14 @@ import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.Suggestion;
 import com.fourreau.readingchallenge.service.ApiService;
+import com.fourreau.readingchallenge.util.Utils;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -38,6 +41,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     ApiService apiService;
 
     private List<Suggestion> suggestions;
+    private Category category;
     private String categoryId;
 
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
@@ -61,19 +65,33 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
         categoryId = ((ReadingChallengeApplication) this.getApplication()).getCategoryId();
 
-        apiService.listSuggestions(categoryId, new Callback<List<Suggestion>>() {
+        //get category by choosen id
+        apiService.getCategoryById(categoryId, new Callback<Category>() {
             @Override
-            public void success(List<Suggestion> suggestions, Response response) {
-                afficherSuggestions(suggestions);
+            public void success(Category category, Response response) {
+                displayCategory(category);
             }
 
             @Override
             public void failure(RetrofitError error) {
-                afficherError();
-                Timber.d("Error : " + error.toString());
+                displayErrorSnackBar(getString(R.string.activity_category_error));
+                Timber.e("Error get category by id : " + error.getMessage());
             }
         });
 
+        //get suggestions by category id
+        apiService.listSuggestions(categoryId, new Callback<List<Suggestion>>() {
+            @Override
+            public void success(List<Suggestion> suggestions, Response response) {
+                displaySuggestions(suggestions);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                displayErrorSnackBar(getString(R.string.activity_category_suggestions_error));
+                Timber.e("Error get suggestions : " + error.getMessage());
+            }
+        });
 
         mFlexibleSpaceImageHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_image_height);
         mFlexibleSpaceShowFabOffset = getResources().getDimensionPixelSize(R.dimen.flexible_space_show_fab_offset);
@@ -84,10 +102,10 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         mScrollView = (ObservableScrollView) findViewById(R.id.scroll);
         mScrollView.setScrollViewCallbacks(this);
         mTitleView = (TextView) findViewById(R.id.title);
-        mTitleView.setText("Mother reading book");
+        mFab = findViewById(R.id.fab);
         setTitle(R.string.title_activity_category);
 
-        mFab = findViewById(R.id.fab);
+
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,17 +135,34 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         });
     }
 
-    public void afficherError() {
-        Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+    /**
+     * Display the category choosen.
+     * @param category
+     */
+    public void displayCategory(Category category) {
+        //get imageView
+        mImageView = findViewById(R.id.image);
+
+        //set title
+        if(category.getCategorie_label() != null) {
+            mTitleView.setText(category.getCategorie_label());
+        }
+
+        //set image
+        if(category.getCategorie_image_path() != null && !category.getCategorie_image_path().isEmpty()) {
+            Picasso.with(getApplicationContext()).load(Utils.BASE_URL + Utils.URL_UPLOAD + category.getCategorie_image_path()).fit().centerCrop().into((ImageView)mImageView);
+        }
+        else {
+            Picasso.with(getApplicationContext()).load(R.drawable.example).fit().centerCrop().into((ImageView)mImageView);
+        }
     }
 
-
-    public void afficherSuggestions(List<Suggestion> suggestions) {
-        Toast.makeText(this,"nb sugg : "+suggestions.size(), Toast.LENGTH_SHORT).show();
-        for(Suggestion sug : suggestions) {
-            Timber.d(""+sug.getSuggestion_label());
-            Timber.d(""+sug.getCategorie_id());
-        }
+    /**
+     * Display suggestion by choosen category from api.
+     * @param suggestions
+     */
+    public void displaySuggestions(List<Suggestion> suggestions) {
+        Timber.d("Number of suggestions retrieved : "+ suggestions.size());
     }
 
     @Override
