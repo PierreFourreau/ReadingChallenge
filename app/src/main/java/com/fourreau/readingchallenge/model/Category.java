@@ -7,6 +7,8 @@ public class Category {
     private String categorie_id;
     private String categorie_label;
     private String categorie_label_fr;
+    private String categorie_description;
+    private String categorie_description_fr;
     private String categorie_image_path;
 
     public Category() {}
@@ -25,6 +27,22 @@ public class Category {
 
     public void setCategorie_label(String categorie_label) {
         this.categorie_label = categorie_label;
+    }
+
+    public String getCategorie_description() {
+        return categorie_description;
+    }
+
+    public void setCategorie_description(String categorie_description) {
+        this.categorie_description = categorie_description;
+    }
+
+    public String getCategorie_description_fr() {
+        return categorie_description_fr;
+    }
+
+    public void setCategorie_description_fr(String categorie_description_fr) {
+        this.categorie_description_fr = categorie_description_fr;
     }
 
     public String getCategorie_id() {
@@ -49,6 +67,8 @@ public class Category {
                 "categorie_id='" + categorie_id + '\'' +
                 ", categorie_label='" + categorie_label + '\'' +
                 ", categorie_label_fr='" + categorie_label_fr + '\'' +
+                ", categorie_description='" + categorie_description + '\'' +
+                ", categorie_description_fr='" + categorie_description_fr + '\'' +
                 ", categorie_image_path='" + categorie_image_path + '\'' +
                 '}';
     }

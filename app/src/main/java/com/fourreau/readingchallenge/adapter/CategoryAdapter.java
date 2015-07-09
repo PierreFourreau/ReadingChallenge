@@ -80,7 +80,7 @@ public final class CategoryAdapter extends BaseAdapter {
             Picasso.with(context).load(R.drawable.default_category).fit().centerCrop().into(picture);
         }
         //label
-        if(((ReadingChallengeApplication) context.getApplicationContext()).getLanguage().equals("fr")) {
+        if(((ReadingChallengeApplication) context.getApplicationContext()).getLanguage().equals(Utils.FR)) {
             name.setText(item.name_fr);
         }
         else {

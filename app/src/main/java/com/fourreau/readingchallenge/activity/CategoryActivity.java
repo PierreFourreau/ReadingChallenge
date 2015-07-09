@@ -26,6 +26,8 @@ import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -50,6 +52,8 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private View mOverlayView;
     private ObservableScrollView mScrollView;
     private TextView mTitleView;
+    private TextView textViewTitle;
+    private TextView textViewDescription;
     private View mFab;
     private int mActionBarSize;
     private int mFlexibleSpaceShowFabOffset;
@@ -142,10 +146,31 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     public void displayCategory(Category category) {
         //get imageView
         mImageView = findViewById(R.id.image);
+        textViewTitle = (TextView) findViewById(R.id.text_view_title);
+        textViewDescription = (TextView) findViewById(R.id.text_view_description);
 
-        //set title
-        if(category.getCategorie_label() != null) {
-            mTitleView.setText(category.getCategorie_label());
+
+        if(((ReadingChallengeApplication) getApplicationContext()).getLanguage().equals(Utils.FR)) {
+            //set title category
+            if(category.getCategorie_label_fr() != null) {
+                mTitleView.setText(category.getCategorie_label_fr());
+                textViewTitle.setText(category.getCategorie_label_fr());
+            }
+            //set description category
+            if(category.getCategorie_description_fr() != null) {
+                textViewDescription.setText(category.getCategorie_description_fr() + "\n\n" + getString(R.string.lipsum));
+            }
+        }
+        else {
+            //set title category
+            if(category.getCategorie_label() != null) {
+                mTitleView.setText(category.getCategorie_label());
+                textViewTitle.setText(category.getCategorie_label());
+            }
+            //set description category
+            if(category.getCategorie_description() != null) {
+                textViewDescription.setText(category.getCategorie_description()+ "\n\n" + getString(R.string.lipsum));
+            }
         }
 
         //set image
