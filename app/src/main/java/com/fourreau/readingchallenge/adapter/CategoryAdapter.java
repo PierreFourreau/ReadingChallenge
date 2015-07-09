@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
+import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.util.Utils;
 import com.squareup.picasso.Picasso;
@@ -30,7 +31,7 @@ public final class CategoryAdapter extends BaseAdapter {
         this.context = context;
 
         for(Category cat : categories) {
-            mItems.add(new Item(cat.getCategorie_id(), cat.getCategorie_label(), cat.getCategorie_image_path()));
+            mItems.add(new Item(cat.getCategorie_id(), cat.getCategorie_label(), cat.getCategorie_label_fr(), cat.getCategorie_image_path()));
         }
     }
 
@@ -79,7 +80,12 @@ public final class CategoryAdapter extends BaseAdapter {
             Picasso.with(context).load(R.drawable.default_category).fit().centerCrop().into(picture);
         }
         //label
-        name.setText(item.name);
+        if(((ReadingChallengeApplication) context.getApplicationContext()).getLanguage().equals("fr")) {
+            name.setText(item.name_fr);
+        }
+        else {
+            name.setText(item.name);
+        }
 
         return v;
     }
@@ -87,11 +93,13 @@ public final class CategoryAdapter extends BaseAdapter {
     private static class Item {
         public final String id;
         public final String name;
+        public final String name_fr;
         public final String image_name;
 
-        Item(String id, String name, String image_name) {
+        Item(String id, String name, String name_fr, String image_name) {
             this.id = id;
             this.name = name;
+            this.name_fr = name_fr;
             this.image_name = image_name;
         }
     }

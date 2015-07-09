@@ -6,6 +6,7 @@
 
     <!--Miscellaneous-->
     <string name="error">Error</string>
+    <string name="refresh">Refresh</string>
 
     <!--Home activity-->
     <string name="activity_home_error">Error when getting categories</string>

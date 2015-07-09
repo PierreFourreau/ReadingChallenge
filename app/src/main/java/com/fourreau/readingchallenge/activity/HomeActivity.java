@@ -43,6 +43,12 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
+        //get categories
+        getCategories();
+
+    }
+
+    public void getCategories() {
         //get categories from api
         apiService.listCategories(new Callback<List<Category>>() {
             @Override
@@ -57,7 +63,6 @@ public class HomeActivity extends BaseActivity {
             }
         });
     }
-
 
     /**
      * Display categories from api.
@@ -92,6 +97,11 @@ public class HomeActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        if (id == R.id.action_refresh) {
+            gridView.setAdapter(null);
+            getCategories();
+        }
 
         if (id == R.id.action_about) {
             Intent intent = new Intent(HomeActivity.this, AboutActivity.class);

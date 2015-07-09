@@ -7,6 +7,7 @@ public class Suggestion {
 
     private String suggestion_id;
     private String suggestion_label;
+    private String suggestion_label_fr;
     private String categorie_id;
 
     public Suggestion() {}
@@ -27,6 +28,14 @@ public class Suggestion {
         this.suggestion_label = suggestion_label;
     }
 
+    public String getSuggestion_label_fr() {
+        return suggestion_label_fr;
+    }
+
+    public void setSuggestion_label_fr(String suggestion_label_fr) {
+        this.suggestion_label_fr = suggestion_label_fr;
+    }
+
     public String getCategorie_id() {
         return categorie_id;
     }
@@ -40,6 +49,7 @@ public class Suggestion {
         return "Suggestion{" +
                 "suggestion_id='" + suggestion_id + '\'' +
                 ", suggestion_label='" + suggestion_label + '\'' +
+                ", suggestion_label_fr='" + suggestion_label_fr + '\'' +
                 ", categorie_id='" + categorie_id + '\'' +
                 '}';
     }

@@ -6,12 +6,21 @@ package com.fourreau.readingchallenge.model;
 public class Category {
     private String categorie_id;
     private String categorie_label;
+    private String categorie_label_fr;
     private String categorie_image_path;
 
     public Category() {}
 
     public String getCategorie_label() {
         return categorie_label;
+    }
+
+    public String getCategorie_label_fr() {
+        return categorie_label_fr;
+    }
+
+    public void setCategorie_label_fr(String categorie_label_fr) {
+        this.categorie_label_fr = categorie_label_fr;
     }
 
     public void setCategorie_label(String categorie_label) {
@@ -39,8 +48,8 @@ public class Category {
         return "Category{" +
                 "categorie_id='" + categorie_id + '\'' +
                 ", categorie_label='" + categorie_label + '\'' +
+                ", categorie_label_fr='" + categorie_label_fr + '\'' +
                 ", categorie_image_path='" + categorie_image_path + '\'' +
                 '}';
     }
-
 }

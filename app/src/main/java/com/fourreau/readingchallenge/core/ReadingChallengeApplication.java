@@ -7,6 +7,7 @@ import com.fourreau.readingchallenge.core.module.RestModule;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import dagger.ObjectGraph;
 import timber.log.Timber;
@@ -19,6 +20,7 @@ import timber.log.Timber;
 public class ReadingChallengeApplication extends Application {
 
     public String categoryId;
+    public String language;
 
     private ObjectGraph applicationGraph;
 
@@ -33,6 +35,9 @@ public class ReadingChallengeApplication extends Application {
             //Timber.plant(new CrashReportingTree());
         }
 
+        //set device language
+        setLanguage(Locale.getDefault().getLanguage());
+
         applicationGraph = ObjectGraph.create(getModules().toArray());
     }
 
@@ -42,6 +47,14 @@ public class ReadingChallengeApplication extends Application {
 
     public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     /**
