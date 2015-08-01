@@ -28,6 +28,6 @@ public interface ApiService {
     /****                       Suggestion                                     ****/
     /******************************************************************************/
 
-    @GET("/suggestions/{id}")
+    @GET("/suggestionsByCategory/{id}")
     void listSuggestions(@Path("id") String categoryId, Callback<List<Suggestion>> callback);
 }

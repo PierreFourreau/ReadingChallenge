@@ -6,13 +6,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fourreau.readingchallenge.R;
-import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.Suggestion;
@@ -25,8 +23,6 @@ import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -54,6 +50,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private TextView mTitleView;
     private TextView textViewTitle;
     private TextView textViewDescription;
+    private TextView textViewSuggestions;
     private View mFab;
     private int mActionBarSize;
     private int mFlexibleSpaceShowFabOffset;
@@ -187,6 +184,17 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
      * @param suggestions
      */
     public void displaySuggestions(List<Suggestion> suggestions) {
+        textViewSuggestions = (TextView) findViewById(R.id.text_view_suggestions);
+        if(suggestions.size() > 0) {
+            String suggestionsText = "";
+            for(Suggestion s: suggestions) {
+                suggestionsText += s.getSuggestion_label();
+            }
+            textViewSuggestions.setText(suggestionsText);
+        }
+        else {
+            textViewSuggestions.setText(R.string.none);
+        }
         Timber.d("Number of suggestions retrieved : "+ suggestions.size());
     }
 
