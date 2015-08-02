@@ -41,7 +41,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private List<Suggestion> suggestions;
     private Category category;
     private String categoryId;
-
+    private Boolean frLanguage;
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
 
     private View mImageView;
@@ -65,6 +65,8 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
         categoryId = ((ReadingChallengeApplication) this.getApplication()).getCategoryId();
+
+        frLanguage = ((ReadingChallengeApplication) getApplicationContext()).getLanguage().equals(Utils.FR);
 
         //get category by choosen id
         apiService.getCategoryById(categoryId, new Callback<Category>() {
@@ -147,7 +149,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         textViewDescription = (TextView) findViewById(R.id.text_view_description);
 
 
-        if(((ReadingChallengeApplication) getApplicationContext()).getLanguage().equals(Utils.FR)) {
+        if(frLanguage) {
             //set title category
             if(category.getCategorie_label_fr() != null) {
                 mTitleView.setText(category.getCategorie_label_fr());
@@ -155,7 +157,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             }
             //set description category
             if(category.getCategorie_description_fr() != null) {
-                textViewDescription.setText(category.getCategorie_description_fr() + "\n\n" + getString(R.string.lipsum));
+                textViewDescription.setText(category.getCategorie_description_fr() + "\n\n" + getString(R.string.lipsum_short));
             }
         }
         else {
@@ -166,7 +168,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             }
             //set description category
             if(category.getCategorie_description() != null) {
-                textViewDescription.setText(category.getCategorie_description()+ "\n\n" + getString(R.string.lipsum));
+                textViewDescription.setText(category.getCategorie_description()+ "\n\n" + getString(R.string.lipsum_short));
             }
         }
 
@@ -185,10 +187,18 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
      */
     public void displaySuggestions(List<Suggestion> suggestions) {
         textViewSuggestions = (TextView) findViewById(R.id.text_view_suggestions);
+
         if(suggestions.size() > 0) {
             String suggestionsText = "";
-            for(Suggestion s: suggestions) {
-                suggestionsText += s.getSuggestion_label();
+            if(frLanguage) {
+                for(Suggestion s: suggestions) {
+                    suggestionsText += " - " + s.getSuggestion_label_fr() + "\n";
+                }
+            }
+            else {
+                for(Suggestion s: suggestions) {
+                    suggestionsText += " - " + s.getSuggestion_label() + "\n";
+                }
             }
             textViewSuggestions.setText(suggestionsText);
         }
