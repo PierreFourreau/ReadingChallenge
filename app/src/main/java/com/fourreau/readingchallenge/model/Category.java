@@ -4,72 +4,72 @@ package com.fourreau.readingchallenge.model;
  * Created by Pierre on 05/07/2015.
  */
 public class Category {
-    private String categorie_id;
-    private String categorie_label;
-    private String categorie_label_fr;
-    private String categorie_description;
-    private String categorie_description_fr;
-    private String categorie_image_path;
+    private String id;
+    private String libelle_en;
+    private String libelle_fr;
+    private String description_en;
+    private String description_fr;
+    private String image;
 
     public Category() {}
 
-    public String getCategorie_label() {
-        return categorie_label;
+    public String getId() {
+        return id;
     }
 
-    public String getCategorie_label_fr() {
-        return categorie_label_fr;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setCategorie_label_fr(String categorie_label_fr) {
-        this.categorie_label_fr = categorie_label_fr;
+    public String getLibelle_en() {
+        return libelle_en;
     }
 
-    public void setCategorie_label(String categorie_label) {
-        this.categorie_label = categorie_label;
+    public void setLibelle_en(String libelle_en) {
+        this.libelle_en = libelle_en;
     }
 
-    public String getCategorie_description() {
-        return categorie_description;
+    public String getLibelle_fr() {
+        return libelle_fr;
     }
 
-    public void setCategorie_description(String categorie_description) {
-        this.categorie_description = categorie_description;
+    public void setLibelle_fr(String libelle_fr) {
+        this.libelle_fr = libelle_fr;
     }
 
-    public String getCategorie_description_fr() {
-        return categorie_description_fr;
+    public String getDescription_en() {
+        return description_en;
     }
 
-    public void setCategorie_description_fr(String categorie_description_fr) {
-        this.categorie_description_fr = categorie_description_fr;
+    public void setDescription_en(String description_en) {
+        this.description_en = description_en;
     }
 
-    public String getCategorie_id() {
-        return categorie_id;
+    public String getDescription_fr() {
+        return description_fr;
     }
 
-    public void setCategorie_id(String categorie_id) {
-        this.categorie_id = categorie_id;
+    public void setDescription_fr(String description_fr) {
+        this.description_fr = description_fr;
     }
 
-    public String getCategorie_image_path() {
-        return categorie_image_path;
+    public String getImage() {
+        return image;
     }
 
-    public void setCategorie_image_path(String categorie_image_path) {
-        this.categorie_image_path = categorie_image_path;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override
     public String toString() {
         return "Category{" +
-                "categorie_id='" + categorie_id + '\'' +
-                ", categorie_label='" + categorie_label + '\'' +
-                ", categorie_label_fr='" + categorie_label_fr + '\'' +
-                ", categorie_description='" + categorie_description + '\'' +
-                ", categorie_description_fr='" + categorie_description_fr + '\'' +
-                ", categorie_image_path='" + categorie_image_path + '\'' +
+                "id='" + id + '\'' +
+                ", libelle_en='" + libelle_en + '\'' +
+                ", libelle_fr='" + libelle_fr + '\'' +
+                ", description_en='" + description_en + '\'' +
+                ", description_fr='" + description_fr + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }

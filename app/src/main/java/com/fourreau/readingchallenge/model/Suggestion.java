@@ -5,35 +5,35 @@ package com.fourreau.readingchallenge.model;
  */
 public class Suggestion {
 
-    private String suggestion_id;
-    private String suggestion_label;
-    private String suggestion_label_fr;
+    private String id;
+    private String libelle_en;
+    private String libelle_fr;
     private String categorie_id;
 
     public Suggestion() {}
 
-    public String getSuggestion_id() {
-        return suggestion_id;
+    public String getId() {
+        return id;
     }
 
-    public void setSuggestion_id(String suggestion_id) {
-        this.suggestion_id = suggestion_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getSuggestion_label() {
-        return suggestion_label;
+    public String getLibelle_en() {
+        return libelle_en;
     }
 
-    public void setSuggestion_label(String suggestion_label) {
-        this.suggestion_label = suggestion_label;
+    public void setLibelle_en(String libelle_en) {
+        this.libelle_en = libelle_en;
     }
 
-    public String getSuggestion_label_fr() {
-        return suggestion_label_fr;
+    public String getLibelle_fr() {
+        return libelle_fr;
     }
 
-    public void setSuggestion_label_fr(String suggestion_label_fr) {
-        this.suggestion_label_fr = suggestion_label_fr;
+    public void setLibelle_fr(String libelle_fr) {
+        this.libelle_fr = libelle_fr;
     }
 
     public String getCategorie_id() {
@@ -47,9 +47,9 @@ public class Suggestion {
     @Override
     public String toString() {
         return "Suggestion{" +
-                "suggestion_id='" + suggestion_id + '\'' +
-                ", suggestion_label='" + suggestion_label + '\'' +
-                ", suggestion_label_fr='" + suggestion_label_fr + '\'' +
+                "id='" + id + '\'' +
+                ", libelle_en='" + libelle_en + '\'' +
+                ", libelle_fr='" + libelle_fr + '\'' +
                 ", categorie_id='" + categorie_id + '\'' +
                 '}';
     }

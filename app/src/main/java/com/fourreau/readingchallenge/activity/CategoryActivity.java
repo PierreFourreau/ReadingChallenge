@@ -151,30 +151,30 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
         if(frLanguage) {
             //set title category
-            if(category.getCategorie_label_fr() != null) {
-                mTitleView.setText(category.getCategorie_label_fr());
-                textViewTitle.setText(category.getCategorie_label_fr());
+            if(category.getLibelle_fr() != null) {
+                mTitleView.setText(category.getLibelle_fr());
+                textViewTitle.setText(category.getLibelle_fr());
             }
             //set description category
-            if(category.getCategorie_description_fr() != null) {
-                textViewDescription.setText(category.getCategorie_description_fr() + "\n\n" + getString(R.string.lipsum_short));
+            if(category.getDescription_fr() != null) {
+                textViewDescription.setText(category.getDescription_fr() + "\n\n" + getString(R.string.lipsum_short));
             }
         }
         else {
             //set title category
-            if(category.getCategorie_label() != null) {
-                mTitleView.setText(category.getCategorie_label());
-                textViewTitle.setText(category.getCategorie_label());
+            if(category.getLibelle_en() != null) {
+                mTitleView.setText(category.getLibelle_en());
+                textViewTitle.setText(category.getLibelle_en());
             }
             //set description category
-            if(category.getCategorie_description() != null) {
-                textViewDescription.setText(category.getCategorie_description()+ "\n\n" + getString(R.string.lipsum_short));
+            if(category.getDescription_en() != null) {
+                textViewDescription.setText(category.getDescription_en()+ "\n\n" + getString(R.string.lipsum_short));
             }
         }
 
         //set image
-        if(category.getCategorie_image_path() != null && !category.getCategorie_image_path().isEmpty()) {
-            Picasso.with(getApplicationContext()).load(Utils.BASE_URL + Utils.URL_UPLOAD + category.getCategorie_image_path()).fit().centerCrop().into((ImageView)mImageView);
+        if(category.getImage() != null && !category.getImage().isEmpty()) {
+            Picasso.with(getApplicationContext()).load(Utils.BASE_URL + Utils.URL_UPLOAD + category.getImage()).fit().centerCrop().into((ImageView)mImageView);
         }
         else {
             Picasso.with(getApplicationContext()).load(R.drawable.example).fit().centerCrop().into((ImageView)mImageView);
@@ -192,12 +192,12 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             String suggestionsText = "";
             if(frLanguage) {
                 for(Suggestion s: suggestions) {
-                    suggestionsText += " - " + s.getSuggestion_label_fr() + "\n";
+                    suggestionsText += " - " + s.getLibelle_fr() + "\n";
                 }
             }
             else {
                 for(Suggestion s: suggestions) {
-                    suggestionsText += " - " + s.getSuggestion_label() + "\n";
+                    suggestionsText += " - " + s.getLibelle_en() + "\n";
                 }
             }
             textViewSuggestions.setText(suggestionsText);

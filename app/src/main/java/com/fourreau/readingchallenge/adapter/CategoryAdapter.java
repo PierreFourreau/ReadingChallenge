@@ -17,6 +17,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
+import timber.log.Timber;
+
 /**
  * Created by Pierre on 06/07/2015.
  */
@@ -31,7 +33,7 @@ public final class CategoryAdapter extends BaseAdapter {
         this.context = context;
 
         for(Category cat : categories) {
-            mItems.add(new Item(cat.getCategorie_id(), cat.getCategorie_label(), cat.getCategorie_label_fr(), cat.getCategorie_image_path()));
+            mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
         }
     }
 
