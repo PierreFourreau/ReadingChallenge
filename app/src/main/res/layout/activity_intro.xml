@@ -18,6 +18,37 @@
         android:layout_alignParentBottom="true"
         android:padding="@dimen/padding_normal" />
 
+    <com.gc.materialdesign.views.ButtonFlat
+        android:id="@+id/buttonPassIntro"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/ripple_material_dark"
+        android:text="@string/pass" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkboxRemember"
+            android:textColor="@color/ripple_material_dark"
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:layout_marginTop="13dp"/>
+
+        <com.gc.materialdesign.views.CheckBox
+            android:id="@+id/checkBoxIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/ripple_material_dark" />
+
+    </LinearLayout>
 
 </RelativeLayout>

@@ -1,48 +1,110 @@
 package com.fourreau.readingchallenge.activity;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.model.ColorShades;
 import com.fourreau.readingchallenge.view.CirclePageIndicator;
+import com.gc.materialdesign.views.ButtonFlat;
+import com.gc.materialdesign.views.CheckBox;
 
 
-public class IntroActivity extends AppCompatActivity {
+public class IntroActivity extends BaseActivity {
 
     private static final String SAVING_STATE_SLIDER_ANIMATION = "SliderAnimationSavingState";
     private boolean isSliderAnimation = true;
 
+    private ButtonFlat buttonPassIntro;
+    private CheckBox checkBoxIntro;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //util to clear shared prefs
+//        SharedPreferences sharedPref = IntroActivity.this.getPreferences(Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.clear();
+//        editor.commit();
+
+        //if user doesn't want to see intro
+        if (readSharedPreferences(getString(R.string.intro)) == 1) {
+            Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         Window window = getWindow();
         window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_intro);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-
         viewPager.setAdapter(new ViewPagerAdapter(R.array.icons, R.array.titles, R.array.hints));
-
         CirclePageIndicator mIndicator = (CirclePageIndicator) findViewById(R.id.indicator);
         mIndicator.setViewPager(viewPager);
-
-
         viewPager.setPageTransformer(true, new CustomPageTransformer());
+
+        //check box rememeber intro
+        checkBoxIntro = (CheckBox) findViewById(R.id.checkBoxIntro);
+
+//        checkBoxIntro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView,
+//                                         boolean isChecked) {
+//
+//                if (buttonView.isChecked()) {
+//                    writeSharedPreferences(getString(R.string.intro), 1);
+//                } else {
+//                    writeSharedPreferences(getString(R.string.intro), 0);
+//                }
+//
+//            }
+//
+//        });
+
+        checkBoxIntro.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (checkBoxIntro.isCheck()) {
+                    writeSharedPreferences(getString(R.string.intro), 1);
+                } else {
+                    writeSharedPreferences(getString(R.string.intro), 0);
+                }
+            }
+        });
+
+        //button pass intro
+        buttonPassIntro = (ButtonFlat) findViewById(R.id.buttonPassIntro);
+        buttonPassIntro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkBoxIntro.isCheck()) {
+                    writeSharedPreferences(getString(R.string.intro), 1);
+                } else {
+                    writeSharedPreferences(getString(R.string.intro), 0);
+                }
+                finish();
+                Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
