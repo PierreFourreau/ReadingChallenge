@@ -1,5 +1,7 @@
 package com.fourreau.readingchallenge.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -65,7 +67,6 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
         categoryId = ((ReadingChallengeApplication) this.getApplication()).getCategoryId();
-
         frLanguage = ((ReadingChallengeApplication) getApplicationContext()).getLanguage().equals(Utils.FR);
 
         //get category by choosen id
@@ -108,11 +109,27 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         mFab = findViewById(R.id.fab);
         setTitle(R.string.title_activity_category);
 
+        //get if read or not
+        if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
+            setTitle(getTitle() + " " + getString(R.string.read));
+        } else {
+            setTitle(getTitle() + " " + getString(R.string.unread));
+        }
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CategoryActivity.this, "Category already done?", Toast.LENGTH_SHORT).show();
+                setTitle(R.string.title_activity_category);
+                if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
+                    Toast.makeText(CategoryActivity.this, "Category unread !", Toast.LENGTH_SHORT).show();
+                    writeSharedPreferences(getString(R.string.category_id) + categoryId, 0);
+                    setTitle(getTitle() + " " + getString(R.string.unread));
+                } else {
+                    Toast.makeText(CategoryActivity.this, "Category read !", Toast.LENGTH_SHORT).show();
+                    writeSharedPreferences(getString(R.string.category_id) + categoryId, 1);
+                    setTitle(getTitle() + " " + getString(R.string.read));
+                }
+
             }
         });
         mFabMargin = getResources().getDimensionPixelSize(R.dimen.margin_standard);
@@ -140,6 +157,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
     /**
      * Display the category choosen.
+     *
      * @param category
      */
     public void displayCategory(Category category) {
@@ -149,63 +167,60 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         textViewDescription = (TextView) findViewById(R.id.text_view_description);
 
 
-        if(frLanguage) {
+        if (frLanguage) {
             //set title category
-            if(category.getLibelle_fr() != null) {
-                mTitleView.setText(category.getLibelle_fr());
+            if (category.getLibelle_fr() != null) {
+//                mTitleView.setText(category.getLibelle_fr());
                 textViewTitle.setText(category.getLibelle_fr());
             }
             //set description category
-            if(category.getDescription_fr() != null) {
+            if (category.getDescription_fr() != null) {
                 textViewDescription.setText(category.getDescription_fr() + "\n\n" + getString(R.string.lipsum_short));
             }
-        }
-        else {
+        } else {
             //set title category
-            if(category.getLibelle_en() != null) {
-                mTitleView.setText(category.getLibelle_en());
+            if (category.getLibelle_en() != null) {
+//                mTitleView.setText(category.getLibelle_en());
                 textViewTitle.setText(category.getLibelle_en());
             }
             //set description category
-            if(category.getDescription_en() != null) {
-                textViewDescription.setText(category.getDescription_en()+ "\n\n" + getString(R.string.lipsum_short));
+            if (category.getDescription_en() != null) {
+                textViewDescription.setText(category.getDescription_en() + "\n\n" + getString(R.string.lipsum_short));
             }
         }
 
         //set image
-        if(category.getImage() != null && !category.getImage().isEmpty()) {
-            Picasso.with(getApplicationContext()).load(Utils.BASE_URL + Utils.URL_UPLOAD + category.getImage()).fit().centerCrop().into((ImageView)mImageView);
-        }
-        else {
-            Picasso.with(getApplicationContext()).load(R.drawable.example).fit().centerCrop().into((ImageView)mImageView);
+        if (category.getImage() != null && !category.getImage().isEmpty()) {
+            Picasso.with(getApplicationContext()).load(Utils.BASE_URL + Utils.URL_UPLOAD + category.getImage()).fit().centerCrop().into((ImageView) mImageView);
+        } else {
+            Picasso.with(getApplicationContext()).load(R.drawable.example).fit().centerCrop().into((ImageView) mImageView);
         }
     }
 
     /**
      * Display suggestion by choosen category from api.
+     *
      * @param suggestions
      */
     public void displaySuggestions(List<Suggestion> suggestions) {
         textViewSuggestions = (TextView) findViewById(R.id.text_view_suggestions);
 
-        if(suggestions.size() > 0) {
+        if (suggestions.size() > 0) {
             String suggestionsText = "";
-            if(frLanguage) {
-                for(Suggestion s: suggestions) {
+            if (frLanguage) {
+                for (Suggestion s : suggestions) {
                     suggestionsText += " - " + s.getLibelle_fr() + "\n";
                 }
-            }
-            else {
-                for(Suggestion s: suggestions) {
+            } else {
+                for (Suggestion s : suggestions) {
                     suggestionsText += " - " + s.getLibelle_en() + "\n";
                 }
             }
             textViewSuggestions.setText(suggestionsText);
-        }
-        else {
+        } else {
             textViewSuggestions.setText(R.string.none);
         }
-        Timber.d("Number of suggestions retrieved : "+ suggestions.size());
+        Timber.d("Number of suggestions retrieved : " + suggestions.size());
     }
 
     @Override
