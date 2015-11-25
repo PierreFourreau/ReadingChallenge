@@ -23,4 +23,10 @@
 
     <dimen name="sliding_slop">32dp</dimen>
     <dimen name="sliding_overlay_blur_size">4dp</dimen>
+	
+	<!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="round_rect_radius">8dp</dimen>
+    <dimen name="round_rect_stroke">2dp</dimen>
+    <dimen name="padding_normal">10dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
 </resources>
