@@ -21,6 +21,8 @@
     <string name="read">read</string>
     <string name="unread">unread</string>
     <string name="suggestions_title">Suggestions</string>
+    <string name="category_read">Category read !</string>
+    <string name="category_unread">Category unread !</string>
 
     <string name="activity_category_error">Error when getting category</string>
     <string name="activity_category_suggestions_error">Error when getting suggestions</string>
@@ -48,6 +50,10 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
 
     <!--Licences activity-->
     <string name="title_activity_licences">Licences</string>
+
+    <!--Share action-->
+    <string name="action_share">Share</string>
+    <string name="action_share_category">\@ReadingChallenge I just read a new category in my readingchallenge : </string>
 
     <!--Only for dev-->
     <string name="category_id">cat_id</string>

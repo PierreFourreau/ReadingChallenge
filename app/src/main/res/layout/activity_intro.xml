@@ -20,7 +20,7 @@
 
     <com.gc.materialdesign.views.ButtonFlat
         android:id="@+id/buttonPassIntro"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:background="@color/ripple_material_dark"

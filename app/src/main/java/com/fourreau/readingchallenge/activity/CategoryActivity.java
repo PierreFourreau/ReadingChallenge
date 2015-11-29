@@ -1,6 +1,7 @@
 package com.fourreau.readingchallenge.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -121,11 +122,13 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             public void onClick(View v) {
                 setTitle(R.string.title_activity_category);
                 if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
-                    Toast.makeText(CategoryActivity.this, "Category unread !", Toast.LENGTH_SHORT).show();
+                    displayErrorSnackBar(getString(R.string.category_unread));
+//                    Toast.makeText(CategoryActivity.this, "Category unread !", Toast.LENGTH_SHORT).show();
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 0);
                     setTitle(getTitle() + " " + getString(R.string.unread));
                 } else {
-                    Toast.makeText(CategoryActivity.this, "Category read !", Toast.LENGTH_SHORT).show();
+                    displayErrorSnackBar(getString(R.string.category_read));
+//                    Toast.makeText(CategoryActivity.this, "Category read !", Toast.LENGTH_SHORT).show();
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 1);
                     setTitle(getTitle() + " " + getString(R.string.read));
                 }
@@ -313,6 +316,17 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if (id == R.id.action_share) {
+            TextView title = (TextView) findViewById(R.id.text_view_title);
+            //share content
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_category) + " " + title.getText());
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
             return true;
         }
 
