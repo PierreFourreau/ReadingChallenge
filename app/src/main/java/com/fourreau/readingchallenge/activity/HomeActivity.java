@@ -45,7 +45,6 @@ public class HomeActivity extends BaseActivity {
 
         //get categories
         getCategories();
-
     }
 
     public void getCategories() {
@@ -109,6 +108,31 @@ public class HomeActivity extends BaseActivity {
             startActivity(intent);
         }
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        //all categories
+        if (id == R.id.menu_filter_all) {
+            item.setChecked(true);
+            writeSharedPreferences(getString(R.string.filter), 0);
+            gridView.setAdapter(null);
+            getCategories();
+            return true;
+        }
+        //readed categories
+        if (id == R.id.menu_filter_read) {
+            item.setChecked(true);
+            writeSharedPreferences(getString(R.string.filter), 1);
+            gridView.setAdapter(null);
+            getCategories();
+            return true;
+        }
+        //unreaded categories
+        if (id == R.id.menu_filter_unread) {
+            item.setChecked(true);
+            writeSharedPreferences(getString(R.string.filter), 2);
+            gridView.setAdapter(null);
+            getCategories();
             return true;
         }
 

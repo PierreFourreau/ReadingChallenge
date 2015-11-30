@@ -39,9 +39,30 @@ public final class CategoryAdapter extends BaseAdapter {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
 
-        for (Category cat : categories) {
-            mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
+        SharedPreferences sharedPref = context.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
+        //if categories read
+        if (sharedPref.getInt(context.getString(R.string.filter), 0) == 1) {
+            for (Category cat : categories) {
+                if (sharedPref.getInt(context.getString(R.string.category_id) + cat.getId(), 0) == 1) {
+                    mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
+                }
+            }
         }
+        //if categories unread
+        else if (sharedPref.getInt(context.getString(R.string.filter), 0) == 2) {
+            for (Category cat : categories) {
+                if (sharedPref.getInt(context.getString(R.string.category_id) + cat.getId(), 0) == 0) {
+                    mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
+                }
+            }
+        }
+        //else all categories : no filter
+        else {
+            for (Category cat : categories) {
+                mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
+            }
+        }
+
     }
 
     @Override
@@ -105,7 +126,6 @@ public final class CategoryAdapter extends BaseAdapter {
         } else {
             name.setText(item.name);
         }
-
         return v;
     }
 

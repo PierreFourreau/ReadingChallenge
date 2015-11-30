@@ -193,7 +193,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         if (category.getImage() != null && !category.getImage().isEmpty()) {
             Picasso.with(getApplicationContext()).load(Utils.BASE_URL + Utils.URL_UPLOAD + category.getImage()).fit().centerCrop().into((ImageView) mImageView);
         } else {
-            Picasso.with(getApplicationContext()).load(R.drawable.example).fit().centerCrop().into((ImageView) mImageView);
+            Picasso.with(getApplicationContext()).load(R.drawable.default_category).fit().centerCrop().into((ImageView) mImageView);
         }
     }
 

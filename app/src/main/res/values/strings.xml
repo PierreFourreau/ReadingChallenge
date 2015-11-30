@@ -9,6 +9,7 @@
     <string name="refresh">Refresh</string>
     <string name="none">None</string>
     <string name="pass">Continue</string>
+    <string name="filter">Filter</string>
 
     <!--Intro activity-->
     <string name="checkboxRemember">Do not display anymore</string>
@@ -21,6 +22,9 @@
 
     <!--Home activity-->
     <string name="activity_home_error">Error when getting categories</string>
+    <string name="radio_categories">All categories</string>
+    <string name="radio_categories_read">Readed categories</string>
+    <string name="radio_categories_unread">Unreaded categories</string>
 
     <!--Category activity-->
     <string name="title_activity_category">Category</string>
@@ -63,6 +67,7 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
 
     <!--Only for dev-->
     <string name="category_id">cat_id</string>
+    <string name="filter">filter</string>
     <string name="intro">intro</string>
     <string name="title_activity_intro">Introduction</string>
 </resources>

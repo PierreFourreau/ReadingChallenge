@@ -1,14 +1,41 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".HomeActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeActivity">
     <item
         android:id="@+id/action_refresh"
         android:title="@string/refresh"
         android:icon="@drawable/ic_action_refresh"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
-    <item android:id="@+id/action_about" android:title="@string/action_about"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item
+        android:icon="@drawable/filter_list"
+        app:showAsAction="always"
+        android:title="@string/filter">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_filter_all"
+                    android:title="@string/radio_categories"
+                    android:checked="true" />
+                <item
+                    android:id="@+id/menu_filter_read"
+                    android:title="@string/radio_categories_read" />
+                <item
+                    android:id="@+id/menu_filter_unread"
+                    android:title="@string/radio_categories_unread" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/action_about"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 </menu>
