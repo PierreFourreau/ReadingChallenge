@@ -31,14 +31,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void writeSharedPreferences(String key, int value) {
-        SharedPreferences sharedPref = BaseActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = BaseActivity.this.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt(key, value);
         editor.commit();
     }
 
     protected int readSharedPreferences(String key) {
-        SharedPreferences sharedPref = BaseActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = BaseActivity.this.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
         return sharedPref.getInt(key, 0);
     }
 }

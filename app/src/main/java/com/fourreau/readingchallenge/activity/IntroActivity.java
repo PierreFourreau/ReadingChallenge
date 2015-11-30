@@ -24,6 +24,8 @@ import com.fourreau.readingchallenge.view.CirclePageIndicator;
 import com.gc.materialdesign.views.ButtonFlat;
 import com.gc.materialdesign.views.CheckBox;
 
+import timber.log.Timber;
+
 
 public class IntroActivity extends BaseActivity {
 
@@ -38,7 +40,7 @@ public class IntroActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         //util to clear shared prefs
-//        SharedPreferences sharedPref = IntroActivity.this.getPreferences(Context.MODE_PRIVATE);
+//        SharedPreferences sharedPref = IntroActivity.this.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
 //        SharedPreferences.Editor editor = sharedPref.edit();
 //        editor.clear();
 //        editor.commit();
@@ -62,21 +64,6 @@ public class IntroActivity extends BaseActivity {
 
         //check box rememeber intro
         checkBoxIntro = (CheckBox) findViewById(R.id.checkBoxIntro);
-
-//        checkBoxIntro.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView,
-//                                         boolean isChecked) {
-//
-//                if (buttonView.isChecked()) {
-//                    writeSharedPreferences(getString(R.string.intro), 1);
-//                } else {
-//                    writeSharedPreferences(getString(R.string.intro), 0);
-//                }
-//
-//            }
-//
-//        });
 
         checkBoxIntro.setOnClickListener(new View.OnClickListener() {
 

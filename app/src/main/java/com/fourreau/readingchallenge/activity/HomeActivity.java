@@ -66,12 +66,13 @@ public class HomeActivity extends BaseActivity {
 
     /**
      * Display categories from api.
+     *
      * @param categories
      */
     public void displayCategories(List<Category> categories) {
         Timber.d("Number of categories retrieved : " + categories.size());
 
-        gridView = (GridView)findViewById(R.id.gridview);
+        gridView = (GridView) findViewById(R.id.gridview);
         categoryAdapter = new CategoryAdapter(this, categories);
 
         //on click category item

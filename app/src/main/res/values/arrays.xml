@@ -10,28 +10,25 @@
     </array>
 
     <array name="icons">
-        <item>@drawable/email</item>
-        <item>@drawable/calendar</item>
-        <item>@drawable/shopping</item>
-        <item>@drawable/socialnetwork</item>
+        <item>@drawable/intro_book</item>
+        <item>@drawable/intro_notes</item>
+        <item>@drawable/intro_social</item>
 
     </array>
 
     <string-array name="titles" >
 
-        <item>@string/email</item>
-        <item>@string/calender</item>
-        <item>@string/shopping</item>
-        <item>@string/social_network</item>
+        <item>@string/intro_title1</item>
+        <item>@string/intro_title2</item>
+        <item>@string/intro_title3</item>
 
     </string-array>
 
     <string-array name="hints" >
 
-        <item>@string/email_hint</item>
-        <item>@string/calender_hint</item>
-        <item>@string/shopping_hint</item>
-        <item>@string/social_network_hint</item>
+        <item>@string/intro_content1</item>
+        <item>@string/intro_content2</item>
+        <item>@string/intro_content3</item>
 
     </string-array>
 </resources>

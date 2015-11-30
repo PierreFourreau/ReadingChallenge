@@ -12,6 +12,12 @@
 
     <!--Intro activity-->
     <string name="checkboxRemember">Do not display anymore</string>
+    <string name="intro_title1">WELCOME</string>
+    <string name="intro_title2">MAINTAIN</string>
+    <string name="intro_title3">SOCIAL</string>
+    <string name="intro_content1">to the reading challenge application. Be prepapred to try it !</string>
+    <string name="intro_content2">Note all and maintain all of your reading categories.</string>
+    <string name="intro_content3">Share with yours friends when you have readen a new category !</string>
 
     <!--Home activity-->
     <string name="activity_home_error">Error when getting categories</string>
@@ -59,24 +65,4 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <string name="category_id">cat_id</string>
     <string name="intro">intro</string>
     <string name="title_activity_intro">Introduction</string>
-
-
-
-
-
-
-
-    <string name="email">EMAIL</string>
-    <string name="calender">CALENDAR</string>
-    <string name="shopping">SHOPPING</string>
-    <string name="social_network">SOCIAL NETWORK</string>
-
-
-    <string name="email_hint">A system for sending and receiving messages electronically over a computer network.</string>
-    <string name="calender_hint">Note all your special occasions in calendar and keep them in your finger tips</string>
-    <string name="shopping_hint">Shop and get offers, promo codes and discounts on your future purchase.</string>
-    <string name="social_network_hint">Stay connected with your friends, colleagues and family globally</string>
-    <string name="skip">SKIP</string>
-	
-	
 </resources>

@@ -123,12 +123,10 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 setTitle(R.string.title_activity_category);
                 if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
                     displayErrorSnackBar(getString(R.string.category_unread));
-//                    Toast.makeText(CategoryActivity.this, "Category unread !", Toast.LENGTH_SHORT).show();
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 0);
                     setTitle(getTitle() + " " + getString(R.string.unread));
                 } else {
                     displayErrorSnackBar(getString(R.string.category_read));
-//                    Toast.makeText(CategoryActivity.this, "Category read !", Toast.LENGTH_SHORT).show();
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 1);
                     setTitle(getTitle() + " " + getString(R.string.read));
                 }
@@ -168,7 +166,6 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         mImageView = findViewById(R.id.image);
         textViewTitle = (TextView) findViewById(R.id.text_view_title);
         textViewDescription = (TextView) findViewById(R.id.text_view_description);
-
 
         if (frLanguage) {
             //set title category

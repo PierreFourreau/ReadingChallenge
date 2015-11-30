@@ -6,15 +6,16 @@
     android:minHeight="150dp">
 
     <!-- the hidden id view -->
-    <TextView android:id="@+id/id_category"
+    <TextView
+        android:id="@+id/id_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/picture_category"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/label_category"
@@ -26,6 +27,12 @@
         android:paddingBottom="15dp"
         android:layout_gravity="bottom"
         android:textColor="@android:color/white"
-        android:background="#55000000"/>
+        android:background="#55000000" />
+
+    <ImageView
+        android:id="@+id/picture_category_read"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"/>
 
 </FrameLayout>
