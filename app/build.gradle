@@ -27,6 +27,8 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     //floatingactionbutton
     compile 'com.melnykov:floatingactionbutton:1.3.0'
+
+    compile 'com.github.mrengineer13:snackbar:1.2.0'
 }
 
 android {

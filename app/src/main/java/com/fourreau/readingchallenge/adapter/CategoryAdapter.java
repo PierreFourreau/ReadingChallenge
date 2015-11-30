@@ -2,6 +2,9 @@ package com.fourreau.readingchallenge.adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,7 @@ import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.util.Utils;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +64,8 @@ public final class CategoryAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = view;
         TextView name, id;
-        ImageView picture, pictureRead;
+        ImageView picture;
+        final ImageView pictureRead;
 
         if (v == null) {
             v = mInflater.inflate(R.layout.grid_item, viewGroup, false);
@@ -87,13 +92,9 @@ public final class CategoryAdapter extends BaseAdapter {
         }
         //if book is already read or not
         SharedPreferences sharedPref = context.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
-        String key = context.getString(R.string.category_id) + item.id;
-
-        //TODO!!!
-
-        
-        if (sharedPref.getInt(key, 0) == 1) {
-            Picasso.with(context).load(R.drawable.ic_action_accept).into(pictureRead);
+        if (sharedPref.getInt(context.getString(R.string.category_id) + item.id, 0) == 1) {
+            Picasso.with(context).load(R.drawable.circle_check).into(pictureRead);
+            pictureRead.setVisibility(View.VISIBLE);
         }
         else {
             pictureRead.setVisibility(View.GONE);

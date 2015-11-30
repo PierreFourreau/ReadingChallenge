@@ -16,8 +16,11 @@ import com.gc.materialdesign.widgets.SnackBar;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected void displayErrorSnackBar(String message) {
-        SnackBar snackbar = new SnackBar(BaseActivity.this, message, null, null);
-        snackbar.show();
+        new com.github.mrengineer13.snackbar.SnackBar.Builder(this)
+                .withMessage(message)
+                .withActionMessage("OK")
+                .withDuration(new Short("5000"))
+                .show();
     }
 
     protected int getActionBarSize() {
