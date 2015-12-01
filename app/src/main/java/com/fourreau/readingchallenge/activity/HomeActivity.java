@@ -1,17 +1,14 @@
 package com.fourreau.readingchallenge.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.adapter.CategoryAdapter;
@@ -36,6 +33,7 @@ public class HomeActivity extends BaseActivity {
 
     private GridView gridView;
     private CategoryAdapter categoryAdapter;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +46,22 @@ public class HomeActivity extends BaseActivity {
     }
 
     public void getCategories() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setTitle(getString(R.string.loading_title));
+        mProgressDialog.setMessage(getString(R.string.please_wait));
+        mProgressDialog.show();
+
         //get categories from api
         apiService.listCategories(new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
                 displayCategories(categories);
+                mProgressDialog.dismiss();
             }
 
             @Override
             public void failure(RetrofitError error) {
+                mProgressDialog.dismiss();
                 displayErrorSnackBar(getString(R.string.activity_home_error));
                 Timber.e("Error get categories : " + error.getMessage());
             }
@@ -91,22 +96,38 @@ public class HomeActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
+        int filterCategories = ((ReadingChallengeApplication) this.getApplicationContext()).getFilterCategories();
+        if (filterCategories == 1) {
+            menu.findItem(R.id.menu_filter_read).setChecked(true);
+            setTitle(getString(R.string.radio_categories_read));
+        } else if (filterCategories == 2) {
+            menu.findItem(R.id.menu_filter_unread).setChecked(true);
+            setTitle(getString(R.string.radio_categories_unread));
+        } else {
+            menu.findItem(R.id.menu_filter_all).setChecked(true);
+            setTitle(getString(R.string.radio_categories));
+        }
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_refresh) {
             gridView.setAdapter(null);
             getCategories();
+        }
+
+        if (id == R.id.action_progress) {
+            Intent intent = new Intent(HomeActivity.this, ProgressActivity.class);
+            startActivity(intent);
         }
 
         if (id == R.id.action_about) {
             Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
             startActivity(intent);
         }
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -114,25 +135,29 @@ public class HomeActivity extends BaseActivity {
         //all categories
         if (id == R.id.menu_filter_all) {
             item.setChecked(true);
+            ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setFilterCategories(0);
             writeSharedPreferences(getString(R.string.filter), 0);
             gridView.setAdapter(null);
             getCategories();
+            setTitle(getString(R.string.radio_categories));
             return true;
         }
         //readed categories
         if (id == R.id.menu_filter_read) {
             item.setChecked(true);
-            writeSharedPreferences(getString(R.string.filter), 1);
+            ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setFilterCategories(1);
             gridView.setAdapter(null);
             getCategories();
+            setTitle(getString(R.string.radio_categories_read));
             return true;
         }
         //unreaded categories
         if (id == R.id.menu_filter_unread) {
             item.setChecked(true);
-            writeSharedPreferences(getString(R.string.filter), 2);
+            ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setFilterCategories(2);
             gridView.setAdapter(null);
             getCategories();
+            setTitle(getString(R.string.radio_categories_unread));
             return true;
         }
 

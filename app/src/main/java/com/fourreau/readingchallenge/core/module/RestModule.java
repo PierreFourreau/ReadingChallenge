@@ -2,6 +2,7 @@ package com.fourreau.readingchallenge.core.module;
 
 import com.fourreau.readingchallenge.activity.CategoryActivity;
 import com.fourreau.readingchallenge.activity.HomeActivity;
+import com.fourreau.readingchallenge.activity.ProgressActivity;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.service.ApiService;
 import com.fourreau.readingchallenge.util.Utils;
@@ -17,7 +18,7 @@ import retrofit.android.AndroidLog;
  * Created by Pierre on 05/07/2015.
  */
 @Module(
-        injects = {HomeActivity.class, CategoryActivity.class},
+        injects = {HomeActivity.class, CategoryActivity.class, ProgressActivity.class},
         complete = false,
         library = true
 )

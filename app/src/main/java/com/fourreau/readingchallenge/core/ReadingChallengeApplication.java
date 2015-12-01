@@ -21,6 +21,8 @@ public class ReadingChallengeApplication extends Application {
 
     public String categoryId;
     public String language;
+    //categories filter : 0 -> all, 1 -> read, 2 -> unread
+    public int filterCategories;
 
     private ObjectGraph applicationGraph;
 
@@ -55,6 +57,14 @@ public class ReadingChallengeApplication extends Application {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public int getFilterCategories() {
+        return filterCategories;
+    }
+
+    public void setFilterCategories(int filterCategories) {
+        this.filterCategories = filterCategories;
     }
 
     /**

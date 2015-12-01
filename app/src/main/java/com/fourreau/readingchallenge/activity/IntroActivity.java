@@ -1,8 +1,6 @@
 package com.fourreau.readingchallenge.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,8 +19,6 @@ import com.fourreau.readingchallenge.model.ColorShades;
 import com.fourreau.readingchallenge.view.CirclePageIndicator;
 import com.gc.materialdesign.views.ButtonFlat;
 import com.gc.materialdesign.views.CheckBox;
-
-import timber.log.Timber;
 
 
 public class IntroActivity extends BaseActivity {

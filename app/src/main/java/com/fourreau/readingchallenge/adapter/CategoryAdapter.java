@@ -39,9 +39,10 @@ public final class CategoryAdapter extends BaseAdapter {
         this.mInflater = LayoutInflater.from(context);
         this.context = context;
 
+        int filterCategories = ((ReadingChallengeApplication) context.getApplicationContext()).getFilterCategories();
         SharedPreferences sharedPref = context.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
         //if categories read
-        if (sharedPref.getInt(context.getString(R.string.filter), 0) == 1) {
+        if (filterCategories == 1) {
             for (Category cat : categories) {
                 if (sharedPref.getInt(context.getString(R.string.category_id) + cat.getId(), 0) == 1) {
                     mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
@@ -49,7 +50,7 @@ public final class CategoryAdapter extends BaseAdapter {
             }
         }
         //if categories unread
-        else if (sharedPref.getInt(context.getString(R.string.filter), 0) == 2) {
+        else if (filterCategories == 2) {
             for (Category cat : categories) {
                 if (sharedPref.getInt(context.getString(R.string.category_id) + cat.getId(), 0) == 0) {
                     mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
@@ -62,7 +63,6 @@ public final class CategoryAdapter extends BaseAdapter {
                 mItems.add(new Item(cat.getId(), cat.getLibelle_en(), cat.getLibelle_fr(), cat.getImage()));
             }
         }
-
     }
 
     @Override
@@ -116,8 +116,7 @@ public final class CategoryAdapter extends BaseAdapter {
         if (sharedPref.getInt(context.getString(R.string.category_id) + item.id, 0) == 1) {
             Picasso.with(context).load(R.drawable.circle_check).into(pictureRead);
             pictureRead.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             pictureRead.setVisibility(View.GONE);
         }
         //label
