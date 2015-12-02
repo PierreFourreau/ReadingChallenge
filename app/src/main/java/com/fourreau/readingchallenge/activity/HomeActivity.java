@@ -1,6 +1,5 @@
 package com.fourreau.readingchallenge.activity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,7 +33,6 @@ public class HomeActivity extends BaseActivity {
 
     private GridView gridView;
     private CategoryAdapter categoryAdapter;
-    private ProgressDialog mProgressDialog;
     private PullRefreshLayout layout;
 
     @Override
@@ -55,27 +53,22 @@ public class HomeActivity extends BaseActivity {
     }
 
     public void getCategories() {
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setTitle(getString(R.string.loading_title));
-        mProgressDialog.setMessage(getString(R.string.please_wait));
-        mProgressDialog.show();
-
-
+        layout.setRefreshing(true);
         //get categories from api
         apiService.listCategories(new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
                 displayCategories(categories);
+                layout.setRefreshing(false);
             }
 
             @Override
             public void failure(RetrofitError error) {
                 displayErrorSnackBar(getString(R.string.activity_home_error));
+                layout.setRefreshing(false);
                 Timber.e("Error get categories : " + error.getMessage());
             }
         });
-        mProgressDialog.dismiss();
-        layout.setRefreshing(false);
     }
 
     /**
