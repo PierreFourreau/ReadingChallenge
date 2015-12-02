@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.baoyz.widget.PullRefreshLayout;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
@@ -34,6 +35,7 @@ public class HomeActivity extends BaseActivity {
     private GridView gridView;
     private CategoryAdapter categoryAdapter;
     private ProgressDialog mProgressDialog;
+    private PullRefreshLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,14 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
-        //get categories
+        //listen refresh event
+        layout = (PullRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getCategories();
+            }
+        });
         getCategories();
     }
 
@@ -51,21 +60,22 @@ public class HomeActivity extends BaseActivity {
         mProgressDialog.setMessage(getString(R.string.please_wait));
         mProgressDialog.show();
 
+
         //get categories from api
         apiService.listCategories(new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
                 displayCategories(categories);
-                mProgressDialog.dismiss();
             }
 
             @Override
             public void failure(RetrofitError error) {
-                mProgressDialog.dismiss();
                 displayErrorSnackBar(getString(R.string.activity_home_error));
                 Timber.e("Error get categories : " + error.getMessage());
             }
         });
+        mProgressDialog.dismiss();
+        layout.setRefreshing(false);
     }
 
     /**
