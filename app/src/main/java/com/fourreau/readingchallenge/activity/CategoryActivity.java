@@ -306,26 +306,21 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        if (id == R.id.action_share) {
-            TextView title = (TextView) findViewById(R.id.text_view_title);
-            //share content
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_category) + " " + title.getText());
-            sendIntent.setType("text/plain");
-            startActivity(sendIntent);
-            return true;
-        }
-
         switch (id) {
             case android.R.id.home:
                 finish();
                 overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+                return true;
+
+            case R.id.action_share:
+                TextView title = (TextView) findViewById(R.id.text_view_title);
+                //share content
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_category) + " " + title.getText());
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
                 return true;
         }
 
