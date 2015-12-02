@@ -87,5 +87,8 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <string name="progress_comment40">Very good, continue !</string>
     <string name="progress_comment50">You\'re almost there , still a small effort!</string>
     <string name="progress_comment_all">Congratulations, you have read all of the categories. You can be proud of you. Feel free to share this news !</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

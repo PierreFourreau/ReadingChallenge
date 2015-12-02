@@ -91,6 +91,7 @@ public class HomeActivity extends BaseActivity {
                 Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
                 ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setCategoryId(idCategory);
                 startActivity(intent);
+                overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
             }
         });
         gridView.setAdapter(categoryAdapter);
@@ -124,14 +125,19 @@ public class HomeActivity extends BaseActivity {
         if (id == R.id.action_progress) {
             Intent intent = new Intent(HomeActivity.this, ProgressActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
         }
 
         if (id == R.id.action_about) {
             Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
         }
 
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
             return true;
         }
 
