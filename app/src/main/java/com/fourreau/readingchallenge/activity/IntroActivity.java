@@ -105,7 +105,7 @@ public class IntroActivity extends BaseActivity {
                     final View promptsView = li.inflate(R.layout.dialog_level, null);
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(IntroActivity.this);
                     alertDialogBuilder.setView(promptsView);
-                    radioGroupLevel = (RadioGroup)promptsView.findViewById(R.id.radioGroupLevel);
+                    radioGroupLevel = (RadioGroup) promptsView.findViewById(R.id.radioGroupLevel);
                     alertDialogBuilder
                             .setCancelable(false)
                             .setPositiveButton(R.string.ok,
@@ -114,13 +114,11 @@ public class IntroActivity extends BaseActivity {
                                             int selectedId = radioGroupLevel.getCheckedRadioButtonId();
                                             radioButtonLevel = (RadioButton) promptsView.findViewById(selectedId);
                                             int level = 2;
-                                            if(radioButtonLevel.getText().equals(getString(R.string.level_beginner))) {
+                                            if (radioButtonLevel.getText().equals(getString(R.string.level_beginner))) {
                                                 level = 1;
-                                            }
-                                            else if(radioButtonLevel.getText().equals(getString(R.string.level_intermediate))) {
+                                            } else if (radioButtonLevel.getText().equals(getString(R.string.level_intermediate))) {
                                                 level = 2;
-                                            }
-                                            else if(radioButtonLevel.getText().equals(getString(R.string.level_expert))) {
+                                            } else if (radioButtonLevel.getText().equals(getString(R.string.level_expert))) {
                                                 level = 3;
                                             }
                                             ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(level);
@@ -135,21 +133,14 @@ public class IntroActivity extends BaseActivity {
                     // create alert dialog
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.setTitle(getString(R.string.dialog_level_title));
-                    //hide keyboard when dialog is close
-                    alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            //hideSoftKeyboard();
-                        }
-                    });
                     alertDialog.show();
                 } else {
                     ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(level);
+                    finish();
+                    Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
                 }
-                finish();
-                Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
             }
         });
 

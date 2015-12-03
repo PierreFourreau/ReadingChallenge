@@ -83,8 +83,6 @@ public class ProgressActivity extends BaseActivity {
             }
         }
 
-        mProgressDialog.dismiss();
-
         numberReadCategoriesTextView = (TextView) findViewById(R.id.progress_number_read);
         numberTotalCategoriesTextView = (TextView) findViewById(R.id.progress_number_total);
         progressCommentTextView = (TextView) findViewById(R.id.progress_comment);
@@ -93,27 +91,54 @@ public class ProgressActivity extends BaseActivity {
         numberTotalCategoriesTextView.setText(" " + categories.size() + " ");
 
         //if user read all categories
-        if(numberReadCategories == categories.size()) {
+        if (numberReadCategories == categories.size()) {
             progressCommentTextView.setText(getString(R.string.progress_comment_all));
         }
-        else if(numberReadCategories == 0) {
+        //no one
+        else if (numberReadCategories == 0) {
             progressCommentTextView.setText(getString(R.string.progress_comment0));
         }
-        else if(numberReadCategories < 10) {
-            progressCommentTextView.setText(getString(R.string.progress_comment10));
+        //beginner
+        else if (level == "1") {
+            if (numberReadCategories < 2)
+                progressCommentTextView.setText(getString(R.string.progress_comment10));
+            else if (numberReadCategories < 4)
+                progressCommentTextView.setText(getString(R.string.progress_comment20));
+            else if (numberReadCategories < 6)
+                progressCommentTextView.setText(getString(R.string.progress_comment30));
+            else if (numberReadCategories < 8)
+                progressCommentTextView.setText(getString(R.string.progress_comment40));
+            else if (numberReadCategories < 10)
+                progressCommentTextView.setText(getString(R.string.progress_comment50));
         }
-        else if(numberReadCategories < 20) {
-            progressCommentTextView.setText(getString(R.string.progress_comment20));
+        //intermediate
+        else if (level == "2") {
+            if (numberReadCategories < 4)
+                progressCommentTextView.setText(getString(R.string.progress_comment10));
+            else if (numberReadCategories < 8)
+                progressCommentTextView.setText(getString(R.string.progress_comment20));
+            else if (numberReadCategories < 12)
+                progressCommentTextView.setText(getString(R.string.progress_comment30));
+            else if (numberReadCategories < 16)
+                progressCommentTextView.setText(getString(R.string.progress_comment40));
+            else if (numberReadCategories < 20)
+                progressCommentTextView.setText(getString(R.string.progress_comment50));
         }
-        else if(numberReadCategories < 30) {
-            progressCommentTextView.setText(getString(R.string.progress_comment30));
+        //expert
+        else if (level == "3") {
+            if (numberReadCategories < 10)
+                progressCommentTextView.setText(getString(R.string.progress_comment10));
+            else if (numberReadCategories < 20)
+                progressCommentTextView.setText(getString(R.string.progress_comment20));
+            else if (numberReadCategories < 30)
+                progressCommentTextView.setText(getString(R.string.progress_comment30));
+            else if (numberReadCategories < 40)
+                progressCommentTextView.setText(getString(R.string.progress_comment40));
+            else if (numberReadCategories < 50)
+                progressCommentTextView.setText(getString(R.string.progress_comment50));
         }
-        else if(numberReadCategories < 40) {
-            progressCommentTextView.setText(getString(R.string.progress_comment40));
-        }
-        else if(numberReadCategories < 50) {
-            progressCommentTextView.setText(getString(R.string.progress_comment50));
-        }
+
+        mProgressDialog.dismiss();
     }
 
     @Override
