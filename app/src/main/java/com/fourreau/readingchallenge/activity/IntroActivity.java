@@ -1,20 +1,27 @@
 package com.fourreau.readingchallenge.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
+import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.ColorShades;
 import com.fourreau.readingchallenge.view.CirclePageIndicator;
 import com.gc.materialdesign.views.ButtonFlat;
@@ -28,6 +35,9 @@ public class IntroActivity extends BaseActivity {
 
     private ButtonFlat buttonPassIntro;
     private CheckBox checkBoxIntro;
+    private LinearLayout layoutNotAnymore;
+    private RadioGroup radioGroupLevel;
+    private RadioButton radioButtonLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +56,14 @@ public class IntroActivity extends BaseActivity {
             finish();
         }
 
+        //set user level
+        ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(readSharedPreferences(getString(R.string.level)));
+
         Window window = getWindow();
         window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         setContentView(R.layout.activity_intro);
+
+        layoutNotAnymore = (LinearLayout) findViewById(R.id.layoutNotAnymore);
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new ViewPagerAdapter(R.array.icons, R.array.titles, R.array.hints));
@@ -81,6 +96,56 @@ public class IntroActivity extends BaseActivity {
                 } else {
                     writeSharedPreferences(getString(R.string.intro), 0);
                 }
+
+                int level = readSharedPreferences(getString(R.string.level));
+                //if user doesn't want to see intro
+                if (level == 0) {
+                    //dialog level
+                    LayoutInflater li = LayoutInflater.from(IntroActivity.this);
+                    final View promptsView = li.inflate(R.layout.dialog_level, null);
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(IntroActivity.this);
+                    alertDialogBuilder.setView(promptsView);
+                    radioGroupLevel = (RadioGroup)promptsView.findViewById(R.id.radioGroupLevel);
+                    alertDialogBuilder
+                            .setCancelable(false)
+                            .setPositiveButton(R.string.ok,
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            int selectedId = radioGroupLevel.getCheckedRadioButtonId();
+                                            radioButtonLevel = (RadioButton) promptsView.findViewById(selectedId);
+                                            int level = 2;
+                                            if(radioButtonLevel.getText().equals(getString(R.string.level_beginner))) {
+                                                level = 1;
+                                            }
+                                            else if(radioButtonLevel.getText().equals(getString(R.string.level_intermediate))) {
+                                                level = 2;
+                                            }
+                                            else if(radioButtonLevel.getText().equals(getString(R.string.level_expert))) {
+                                                level = 3;
+                                            }
+                                            ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(level);
+                                            writeSharedPreferences(getString(R.string.level), level);
+                                            finish();
+                                            Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
+                                            startActivity(intent);
+                                            overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+                                        }
+                                    })
+                    ;
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.setTitle(getString(R.string.dialog_level_title));
+                    //hide keyboard when dialog is close
+                    alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            //hideSoftKeyboard();
+                        }
+                    });
+                    alertDialog.show();
+                } else {
+                    ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(level);
+                }
                 finish();
                 Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
                 startActivity(intent);
@@ -102,11 +167,16 @@ public class IntroActivity extends BaseActivity {
                         .setShade(positionOffset);
 
                 landingBGView.setBackgroundColor(shades.generate());
-
             }
 
             public void onPageSelected(int position) {
-
+                if (position == 2) {
+                    layoutNotAnymore.setVisibility(View.VISIBLE);
+                    buttonPassIntro.setVisibility(View.VISIBLE);
+                } else {
+                    layoutNotAnymore.setVisibility(View.INVISIBLE);
+                    buttonPassIntro.setVisibility(View.INVISIBLE);
+                }
             }
 
             public void onPageScrollStateChanged(int state) {

@@ -23,6 +23,8 @@ public class ReadingChallengeApplication extends Application {
     public String language;
     //categories filter : 0 -> all, 1 -> read, 2 -> unread
     public int filterCategories;
+    //level -> 1 : beginner, 2 -> intermediate, 3 -> expert
+    public int level;
 
     private ObjectGraph applicationGraph;
 
@@ -65,6 +67,14 @@ public class ReadingChallengeApplication extends Application {
 
     public void setFilterCategories(int filterCategories) {
         this.filterCategories = filterCategories;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     /**

@@ -37,11 +37,15 @@ public class ProgressActivity extends BaseActivity {
     private int numberReadCategories = 0;
     private ProgressDialog mProgressDialog;
 
+    private String level;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
         ((ReadingChallengeApplication) getApplication()).inject(this);
+
+        level = String.valueOf(((ReadingChallengeApplication) this.getApplication()).getLevel());
 
         getCategories();
     }
@@ -53,7 +57,7 @@ public class ProgressActivity extends BaseActivity {
         mProgressDialog.show();
 
         //get categories from api
-        apiService.listCategories(new Callback<List<Category>>() {
+        apiService.listCategories(level, new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
                 calculateNumberOfReadCategories(categories);

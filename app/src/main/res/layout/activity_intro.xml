@@ -23,15 +23,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="right"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:visibility="invisible"
         android:paddingRight="10dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
-        android:background="@color/ripple_material_dark"
+        android:background="@color/primary_text_default_material_dark"
         android:text="@string/pass" />
 
     <LinearLayout
+        android:id="@+id/layoutNotAnymore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="20dp"
@@ -42,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/checkboxRemember"
-            android:textColor="@color/ripple_material_dark"
+            android:textColor="@color/primary_text_default_material_dark"
             android:textAppearance="@android:style/TextAppearance.Small"
             android:layout_marginTop="13dp"/>
 

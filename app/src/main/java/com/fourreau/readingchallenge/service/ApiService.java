@@ -18,8 +18,8 @@ public interface ApiService {
     /****                       Category                                       ****/
     /******************************************************************************/
 
-    @GET("/categories")
-    void listCategories(Callback<List<Category>> callback);
+    @GET("/categories/{level}")
+    void listCategories(@Path("level") String level, Callback<List<Category>> callback);
 
     @GET("/categories/{id}")
     void getCategoryById(@Path("id") String categoryId, Callback<Category> callback);

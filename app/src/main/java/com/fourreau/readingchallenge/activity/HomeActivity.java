@@ -35,11 +35,15 @@ public class HomeActivity extends BaseActivity {
     private CategoryAdapter categoryAdapter;
     private PullRefreshLayout layout;
 
+    private String level;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
+
+        gridView = (GridView) findViewById(R.id.gridview);
 
         //listen refresh event
         layout = (PullRefreshLayout) findViewById(R.id.swipeRefreshLayout);
@@ -54,8 +58,9 @@ public class HomeActivity extends BaseActivity {
 
     public void getCategories() {
         layout.setRefreshing(true);
+        level = String.valueOf(((ReadingChallengeApplication) this.getApplication()).getLevel());
         //get categories from api
-        apiService.listCategories(new Callback<List<Category>>() {
+        apiService.listCategories(level, new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
                 displayCategories(categories);
@@ -78,8 +83,6 @@ public class HomeActivity extends BaseActivity {
      */
     public void displayCategories(List<Category> categories) {
         Timber.d("Number of categories retrieved : " + categories.size());
-
-        gridView = (GridView) findViewById(R.id.gridview);
         categoryAdapter = new CategoryAdapter(this, categories);
 
         //on click category item
