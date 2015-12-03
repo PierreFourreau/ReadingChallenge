@@ -66,15 +66,13 @@ public class SettingsActivity extends BaseActivity {
     }
 
     protected void getAndSetLevelByRadio() {
-        if(radioButtonLevel1.isChecked()) {
+        if (radioButtonLevel1.isChecked()) {
             ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(1);
             writeSharedPreferences(getString(R.string.level), 1);
-        }
-        else if(radioButtonLevel2.isChecked()) {
+        } else if (radioButtonLevel2.isChecked()) {
             ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(2);
             writeSharedPreferences(getString(R.string.level), 2);
-        }
-        else if(radioButtonLevel3.isChecked()) {
+        } else if (radioButtonLevel3.isChecked()) {
             ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setLevel(3);
             writeSharedPreferences(getString(R.string.level), 3);
         }

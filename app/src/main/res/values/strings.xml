@@ -62,6 +62,8 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <string name="about_more2">If you found errors in the app, please report them to me and the app will be updated as soon as possible. Thanks.</string>
     <string name="about_projects_button">Open source licenses</string>
     <string name="title_activity_open_source_projects_used">Licences</string>
+    <string name="donate_label">Want to support us? Want to donate? Thank you.</string>
+    <string name="button_donate">Donate</string>
 
     <!--Licences activity-->
     <string name="title_activity_licences">Licences</string>
