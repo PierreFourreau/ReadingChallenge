@@ -33,7 +33,7 @@ public class ProgressActivity extends BaseActivity {
     @Inject
     ApiService apiService;
 
-    private TextView numberReadCategoriesTextView, numberTotalCategoriesTextView, progressCommentTextView;
+    private TextView numberReadCategoriesTextView, numberTotalCategoriesTextView, progressCommentTextView, percentageRead;
     private int numberReadCategories = 0;
     private ProgressDialog mProgressDialog;
 
@@ -86,9 +86,12 @@ public class ProgressActivity extends BaseActivity {
         numberReadCategoriesTextView = (TextView) findViewById(R.id.progress_number_read);
         numberTotalCategoriesTextView = (TextView) findViewById(R.id.progress_number_total);
         progressCommentTextView = (TextView) findViewById(R.id.progress_comment);
+        percentageRead = (TextView) findViewById(R.id.progress_percentage);
 
         numberReadCategoriesTextView.setText(" " + numberReadCategories + " ");
         numberTotalCategoriesTextView.setText(" " + categories.size() + " ");
+        //percentage
+        percentageRead.setText(categories.size()/numberReadCategories + " %");
 
         //if user read all categories
         if (numberReadCategories == categories.size()) {
