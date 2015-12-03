@@ -60,7 +60,7 @@ public class HomeActivity extends BaseActivity {
         layout.setRefreshing(true);
         level = String.valueOf(((ReadingChallengeApplication) this.getApplication()).getLevel());
         //get categories from api
-        apiService.listCategories(level, new Callback<List<Category>>() {
+        apiService.listCategoriesByLevel(level, new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
                 displayCategories(categories);
