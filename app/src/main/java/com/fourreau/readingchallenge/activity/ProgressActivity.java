@@ -57,7 +57,7 @@ public class ProgressActivity extends BaseActivity {
         mProgressDialog.show();
 
         //get categories from api
-        apiService.listCategories(level, new Callback<List<Category>>() {
+        apiService.listCategoriesByLevel(level, new Callback<List<Category>>() {
             @Override
             public void success(List<Category> categories, Response response) {
                 calculateNumberOfReadCategories(categories);
