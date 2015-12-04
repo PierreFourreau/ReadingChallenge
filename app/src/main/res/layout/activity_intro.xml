@@ -48,7 +48,7 @@
             android:text="@string/checkboxRemember"
             android:textColor="@color/primary_text_default_material_dark"
             android:textAppearance="@android:style/TextAppearance.Small"
-            android:layout_marginTop="13dp"/>
+            android:layout_marginTop="14dp"/>
 
         <com.gc.materialdesign.views.CheckBox
             android:id="@+id/checkBoxIntro"

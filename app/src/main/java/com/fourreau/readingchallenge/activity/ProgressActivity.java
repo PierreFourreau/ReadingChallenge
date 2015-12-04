@@ -34,7 +34,7 @@ public class ProgressActivity extends BaseActivity {
     ApiService apiService;
 
     private TextView numberReadCategoriesTextView, numberTotalCategoriesTextView, progressCommentTextView, percentageRead;
-    private int numberReadCategories = 0;
+    private int numberReadCategories = 0, totalCategories = 0;
     private ProgressDialog mProgressDialog;
 
     private String level;
@@ -83,18 +83,23 @@ public class ProgressActivity extends BaseActivity {
             }
         }
 
+        totalCategories = categories.size();
         numberReadCategoriesTextView = (TextView) findViewById(R.id.progress_number_read);
         numberTotalCategoriesTextView = (TextView) findViewById(R.id.progress_number_total);
         progressCommentTextView = (TextView) findViewById(R.id.progress_comment);
         percentageRead = (TextView) findViewById(R.id.progress_percentage);
 
         numberReadCategoriesTextView.setText(" " + numberReadCategories + " ");
-        numberTotalCategoriesTextView.setText(" " + categories.size() + " ");
+        numberTotalCategoriesTextView.setText(" " + totalCategories + " ");
         //percentage
-        percentageRead.setText(categories.size()/numberReadCategories + " %");
+        if (numberReadCategories == 0) {
+            percentageRead.setText("0 %");
+        } else {
+            percentageRead.setText(totalCategories / numberReadCategories + " %");
+        }
 
         //if user read all categories
-        if (numberReadCategories == categories.size()) {
+        if (numberReadCategories == totalCategories) {
             progressCommentTextView.setText(getString(R.string.progress_comment_all));
         }
         //no one
@@ -156,6 +161,13 @@ public class ProgressActivity extends BaseActivity {
             case android.R.id.home:
                 finish();
                 overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+                return true;
+            case R.id.action_share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_progress1) + " " + numberReadCategories + " " + getString(R.string.action_share_progress2) + " " + totalCategories + " " + getString(R.string.action_share_progress3));
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
                 return true;
         }
 

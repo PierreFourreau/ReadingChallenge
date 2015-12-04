@@ -2,10 +2,10 @@
 <resources>
 
     <array name="landing_bg">
-        <item>@color/light_purple</item>
+        <item>@color/light_orange</item>
         <item>@color/light_cyan</item>
         <item>@color/light_green</item>
-        <item>@color/light_orange</item>
+        <item>@color/light_purple</item>
 
     </array>
 

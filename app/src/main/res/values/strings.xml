@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Reading challenge</string>
+    <string name="app_name">Challenge</string>
 
     <string name="action_about">About</string>
     <string name="action_settings">Settings</string>
@@ -14,6 +14,13 @@
     <string name="level_beginner">Beginner</string>
     <string name="level_intermediate">Intermediate</string>
     <string name="level_expert">Expert</string>
+
+    <!--Only for dev-->
+    <string name="category_id">cat_id</string>
+    <string name="filter">filter</string>
+    <string name="intro">intro</string>
+    <string name="level">level</string>
+    <string name="title_activity_intro">Introduction</string>
 
     <!--Intro activity-->
     <string name="checkboxRemember">Do not display anymore</string>
@@ -52,6 +59,8 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <string name="title_activity_about">About</string>
     <string name="about_application_label">Application</string>
     <string name="about_application">ReadingChallenge</string>
+    <string name="about_contact_label">Contact</string>
+    <string name="about_contact">readingchallenge.contact@gmail.com</string>
     <string name="about_developer_label">Developer</string>
     <string name="about_developer"><a href="www.pierrefourreau.fr">www.pierrefourreau.fr</a></string>
     <string name="about_more_label">More</string>
@@ -68,13 +77,9 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
     <!--Share action-->
     <string name="action_share">Share</string>
     <string name="action_share_category">\@ReadingChallenge I just read a new category in my readingchallenge : </string>
-
-    <!--Only for dev-->
-    <string name="category_id">cat_id</string>
-    <string name="filter">filter</string>
-    <string name="intro">intro</string>
-    <string name="level">level</string>
-    <string name="title_activity_intro">Introduction</string>
+    <string name="action_share_progress1">\@ReadingChallenge I have already read</string>
+    <string name="action_share_progress2">of</string>
+    <string name="action_share_progress3">in my reading challenge !</string>
 
     <!--Progress activity-->
     <string name="action_progress">My progress</string>

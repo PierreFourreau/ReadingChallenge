@@ -109,6 +109,6 @@
     android:layout_gravity="left|top"
     android:scaleType="center"
     android:src="@drawable/ic_action_accept"
-    app:fab_colorNormal="@color/primaryDark"
-    app:fab_colorPressed="@color/accent" />
+    app:fab_colorNormal="@color/accent"
+    app:fab_colorPressed="@color/primary" />
 </tools:FrameLayout>
