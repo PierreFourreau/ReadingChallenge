@@ -76,6 +76,17 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:layout_marginLeft="5dp"/>
 
+
+        <com.gc.materialdesign.views.ButtonRectangle
+            android:id="@+id/button_add_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/button_add_suggestion"
+            android:background="@color/primary" />
+
     </LinearLayout>
 </com.github.ksoichiro.android.observablescrollview.ObservableScrollView>
 
@@ -100,6 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/flexible_space_image_height"
         android:background="@android:color/transparent" />
+
 </LinearLayout>
 
 <com.melnykov.fab.FloatingActionButton
@@ -111,4 +123,5 @@
     android:src="@drawable/ic_action_accept"
     app:fab_colorNormal="@color/accent"
     app:fab_colorPressed="@color/primary" />
+
 </tools:FrameLayout>

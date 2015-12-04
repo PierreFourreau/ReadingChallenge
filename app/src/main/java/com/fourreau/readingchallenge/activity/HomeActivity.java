@@ -37,6 +37,8 @@ public class HomeActivity extends BaseActivity {
 
     private String level;
 
+    static final int CATEGORY_REQUEST = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +84,6 @@ public class HomeActivity extends BaseActivity {
      * @param categories
      */
     public void displayCategories(List<Category> categories) {
-        Timber.d("Number of categories retrieved : " + categories.size());
         categoryAdapter = new CategoryAdapter(this, categories);
 
         //on click category item
@@ -93,11 +94,26 @@ public class HomeActivity extends BaseActivity {
                 String idCategory = ((TextView) view.findViewById(R.id.id_category)).getText().toString();
                 Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
                 ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setCategoryId(idCategory);
-                startActivity(intent);
+                startActivityForResult(intent, CATEGORY_REQUEST);
                 overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
             }
         });
         gridView.setAdapter(categoryAdapter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CATEGORY_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Boolean categoryChanged = data.getExtras().getBoolean("categoryChanged");
+                if(categoryChanged) {
+                    gridView.setAdapter(null);
+                    getCategories();
+                }
+            }
+        }
+
     }
 
     @Override

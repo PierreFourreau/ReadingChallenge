@@ -6,7 +6,10 @@ import com.fourreau.readingchallenge.model.Suggestion;
 import java.util.List;
 
 import retrofit.Callback;
+import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Path;
 
 /**
@@ -33,4 +36,8 @@ public interface ApiService {
 
     @GET("/suggestionsByCategory/{id}")
     void listSuggestions(@Path("id") String categoryId, Callback<List<Suggestion>> callback);
+
+    @FormUrlEncoded
+    @POST("/propositions")
+    void addProposition(@Field("libelle_fr") String libelle_fr, @Field("libelle_en") String libelle_en, @Field("categorie_id") String last, Callback<Integer> callback);
 }

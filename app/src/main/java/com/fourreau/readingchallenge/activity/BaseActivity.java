@@ -4,7 +4,9 @@ package com.fourreau.readingchallenge.activity;
  * Created by Pierre on 06/07/2015.
  */
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +23,18 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .withActionMessage("OK")
                 .withDuration(new Short("5000"))
                 .show();
+    }
+
+    protected void displayAlertDialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     protected int getActionBarSize() {

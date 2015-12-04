@@ -1,13 +1,19 @@
 package com.fourreau.readingchallenge.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
@@ -16,6 +22,7 @@ import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.Suggestion;
 import com.fourreau.readingchallenge.service.ApiService;
 import com.fourreau.readingchallenge.util.Utils;
+import com.gc.materialdesign.views.ButtonRectangle;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
@@ -42,6 +49,10 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private Category category;
     private String categoryId;
     private Boolean frLanguage;
+    private ButtonRectangle buttonAddSuggestion;
+    private EditText editTextLibelle;
+    private int statusBefore, statusAfter;
+
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
 
     private View mImageView;
@@ -105,15 +116,72 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         mScrollView.setScrollViewCallbacks(this);
         mTitleView = (TextView) findViewById(R.id.title);
         mFab = findViewById(R.id.fab);
+        buttonAddSuggestion = (ButtonRectangle) findViewById(R.id.button_add_suggestion);
         setTitle(R.string.title_activity_category);
 
         //get if read or not
         if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
             setTitle(getTitle() + " " + getString(R.string.read));
+            statusBefore = 1;
+            statusAfter = 1;
         } else {
             setTitle(getTitle() + " " + getString(R.string.unread));
+            statusBefore = 0;
+            statusAfter = 0;
         }
 
+        //add suggestion open a dialog
+        buttonAddSuggestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater li = LayoutInflater.from(CategoryActivity.this);
+                final View promptsView = li.inflate(R.layout.dialog_add_suggestion, null);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(CategoryActivity.this);
+                alertDialogBuilder.setView(promptsView);
+                editTextLibelle = (EditText) promptsView.findViewById(R.id.editTextLibelle);
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton(R.string.ok,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                        String libelle_fr = "";
+                                        String libelle_en = "";
+
+                                        if (editTextLibelle.getText() != null) {
+                                            String lib = editTextLibelle.getText().toString();
+                                            if (lib != null && lib.trim() != "" && lib.length() > 1) {
+                                                //detect language
+                                                if (frLanguage) {
+                                                    libelle_fr = lib;
+                                                } else {
+                                                    libelle_en = lib;
+                                                }
+
+                                                apiService.addProposition(libelle_fr, libelle_en, categoryId, new Callback<Integer>() {
+                                                    @Override
+                                                    public void success(Integer id, Response response) {
+                                                        displayAlertDialog(getString(R.string.dialog_suggestion_success));
+                                                    }
+
+                                                    @Override
+                                                    public void failure(RetrofitError error) {
+                                                        displayErrorSnackBar(getString(R.string.dialog_suggestion_error));
+                                                        Timber.e("Error add suggestion : " + error.getMessage());
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+                                });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setTitle(getString(R.string.button_add_suggestion));
+                alertDialog.show();
+            }
+        });
+
+        //read/unread button
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,10 +190,12 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                     displayErrorSnackBar(getString(R.string.category_unread));
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 0);
                     setTitle(getTitle() + " " + getString(R.string.unread));
+                    statusAfter = 0;
                 } else {
                     displayErrorSnackBar(getString(R.string.category_read));
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 1);
                     setTitle(getTitle() + " " + getString(R.string.read));
+                    statusAfter = 1;
                 }
 
             }
@@ -306,6 +376,13 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         int id = item.getItemId();
         switch (id) {
             case android.R.id.home:
+                Intent intent = new Intent();
+                if (statusBefore == statusAfter) {
+                    intent.putExtra("categoryChanged", false);
+                } else {
+                    intent.putExtra("categoryChanged", true);
+                }
+                setResult(RESULT_OK, intent);
                 finish();
                 overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
                 return true;
@@ -327,6 +404,13 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     @Override
     public void onBackPressed() {
         // finish() is called in super: we only override this method to be able to override the transition
+        Intent intent = new Intent();
+        if (statusBefore == statusAfter) {
+            intent.putExtra("categoryChanged", false);
+        } else {
+            intent.putExtra("categoryChanged", true);
+        }
+        setResult(RESULT_OK, intent);
         super.onBackPressed();
         overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
     }
