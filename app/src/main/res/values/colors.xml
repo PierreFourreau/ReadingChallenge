@@ -2,8 +2,6 @@
 <resources>
     <color name="primary">#009689</color>
     <color name="primaryDark">#00796b</color>
-    <color name="accent">#eeff41</color>
-    <color name="accentLight">#F4FF81</color>
 
     <color name="light_green">#3eb74e</color>
     <color name="light_purple">#8c61b3</color>
