@@ -25,9 +25,10 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .show();
     }
 
-    protected void displayAlertDialog(String message) {
+    protected void displayAlertDialog(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message)
+                .setTitle(title)
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

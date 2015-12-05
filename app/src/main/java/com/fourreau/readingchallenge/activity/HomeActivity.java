@@ -38,6 +38,7 @@ public class HomeActivity extends BaseActivity {
     private String level;
 
     static final int CATEGORY_REQUEST = 1;
+    static final int SETTINGS_REQUEST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,16 +105,19 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CATEGORY_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Boolean categoryChanged = data.getExtras().getBoolean("categoryChanged");
-                if(categoryChanged) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == CATEGORY_REQUEST) {
+                if (data.getExtras().getBoolean("categoryChanged")) {
+                    gridView.setAdapter(null);
+                    getCategories();
+                }
+            } else if (requestCode == SETTINGS_REQUEST) {
+                if (data.getExtras().getBoolean("levelChanged")) {
                     gridView.setAdapter(null);
                     getCategories();
                 }
             }
         }
-
     }
 
     @Override
@@ -155,7 +159,7 @@ public class HomeActivity extends BaseActivity {
 
         if (id == R.id.action_settings) {
             Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, SETTINGS_REQUEST);
             overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
             return true;
         }

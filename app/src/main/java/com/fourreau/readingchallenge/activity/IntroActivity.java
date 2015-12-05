@@ -31,7 +31,7 @@ import com.gc.materialdesign.views.CheckBox;
 public class IntroActivity extends BaseActivity {
 
     private static final String SAVING_STATE_SLIDER_ANIMATION = "SliderAnimationSavingState";
-    private boolean isSliderAnimation = true;
+    private boolean isSliderAnimation = false;
 
     private ButtonFlat buttonPassIntro;
     private CheckBox checkBoxIntro;

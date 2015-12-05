@@ -161,7 +161,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                                                 apiService.addProposition(libelle_fr, libelle_en, categoryId, new Callback<Integer>() {
                                                     @Override
                                                     public void success(Integer id, Response response) {
-                                                        displayAlertDialog(getString(R.string.dialog_suggestion_success));
+                                                        displayAlertDialog(getString(R.string.dialog_suggestion_success_title), getString(R.string.dialog_suggestion_success));
                                                     }
 
                                                     @Override
@@ -376,13 +376,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         int id = item.getItemId();
         switch (id) {
             case android.R.id.home:
-                Intent intent = new Intent();
-                if (statusBefore == statusAfter) {
-                    intent.putExtra("categoryChanged", false);
-                } else {
-                    intent.putExtra("categoryChanged", true);
-                }
-                setResult(RESULT_OK, intent);
+                backToPreviousActivity();
                 finish();
                 overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
                 return true;
@@ -403,7 +397,12 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
     @Override
     public void onBackPressed() {
-        // finish() is called in super: we only override this method to be able to override the transition
+        backToPreviousActivity();
+        super.onBackPressed();
+        overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+    }
+
+    protected void backToPreviousActivity() {
         Intent intent = new Intent();
         if (statusBefore == statusAfter) {
             intent.putExtra("categoryChanged", false);
@@ -411,7 +410,5 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             intent.putExtra("categoryChanged", true);
         }
         setResult(RESULT_OK, intent);
-        super.onBackPressed();
-        overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
     }
 }

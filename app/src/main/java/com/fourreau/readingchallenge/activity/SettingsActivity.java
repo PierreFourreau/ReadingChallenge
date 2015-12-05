@@ -1,5 +1,6 @@
 package com.fourreau.readingchallenge.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,7 +11,7 @@ import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 
 public class SettingsActivity extends BaseActivity {
 
-    private int level;
+    private int level, levelBefore;
     private RadioButton radioButtonLevel1, radioButtonLevel2, radioButtonLevel3;
 
     @Override
@@ -19,6 +20,7 @@ public class SettingsActivity extends BaseActivity {
         setContentView(R.layout.activity_settings);
 
         level = ((ReadingChallengeApplication) this.getApplication()).getLevel();
+        levelBefore = level;
 
         radioButtonLevel1 = (RadioButton) findViewById(R.id.settingsLevel1);
         radioButtonLevel2 = (RadioButton) findViewById(R.id.settingsLevel2);
@@ -48,7 +50,7 @@ public class SettingsActivity extends BaseActivity {
         int id = item.getItemId();
         switch (id) {
             case android.R.id.home:
-                getAndSetLevelByRadio();
+                backToPreviousActivity();
                 finish();
                 overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
                 return true;
@@ -59,10 +61,20 @@ public class SettingsActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        // finish() is called in super: we only override this method to be able to override the transition
+        backToPreviousActivity();
         super.onBackPressed();
-        getAndSetLevelByRadio();
         overridePendingTransition(R.anim.activity_back_in, R.anim.activity_back_out);
+    }
+
+    protected void backToPreviousActivity() {
+        getAndSetLevelByRadio();
+        Intent intent = new Intent();
+        if (levelBefore == ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).getLevel()) {
+            intent.putExtra("levelChanged", false);
+        } else {
+            intent.putExtra("levelChanged", true);
+        }
+        setResult(RESULT_OK, intent);
     }
 
     protected void getAndSetLevelByRadio() {
