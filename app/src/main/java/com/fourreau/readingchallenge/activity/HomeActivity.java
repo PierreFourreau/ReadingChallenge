@@ -1,12 +1,15 @@
 package com.fourreau.readingchallenge.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baoyz.widget.PullRefreshLayout;
@@ -15,6 +18,7 @@ import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.service.ApiService;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,6 +40,9 @@ public class HomeActivity extends BaseActivity {
     private PullRefreshLayout layout;
 
     private String level;
+
+    private CategoryAdapter.Item categoryChoosen;
+    private ImageView categoryChoosenPictureRead;
 
     static final int CATEGORY_REQUEST = 1;
     static final int SETTINGS_REQUEST = 2;
@@ -91,6 +98,10 @@ public class HomeActivity extends BaseActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                categoryChoosen = categoryAdapter.getItem(position);
+                categoryChoosenPictureRead = (ImageView) view.getTag(R.id.picture_category_read);
+
                 //get id category from hidden textview
                 String idCategory = ((TextView) view.findViewById(R.id.id_category)).getText().toString();
                 Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
@@ -107,16 +118,27 @@ public class HomeActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == CATEGORY_REQUEST) {
-                if (data.getExtras().getBoolean("categoryChanged")) {
-                    gridView.setAdapter(null);
-                    getCategories();
-                }
+                    setImageReadOnCategory();
             } else if (requestCode == SETTINGS_REQUEST) {
                 if (data.getExtras().getBoolean("levelChanged")) {
                     gridView.setAdapter(null);
                     getCategories();
                 }
             }
+        }
+    }
+
+    /**
+     * When user go to category and go back to home -> refresh icon read
+     */
+    protected void setImageReadOnCategory() {
+        //if book is already read or not
+        SharedPreferences sharedPref = getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
+        if (sharedPref.getInt(getString(R.string.category_id) + categoryChoosen.id, 0) == 1) {
+            Picasso.with(this).load(R.drawable.circle_check).into(categoryChoosenPictureRead);
+            categoryChoosenPictureRead.setVisibility(View.VISIBLE);
+        } else {
+            categoryChoosenPictureRead.setVisibility(View.GONE);
         }
     }
 

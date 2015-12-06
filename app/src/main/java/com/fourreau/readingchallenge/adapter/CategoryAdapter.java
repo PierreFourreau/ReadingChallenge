@@ -128,7 +128,7 @@ public final class CategoryAdapter extends BaseAdapter {
         return v;
     }
 
-    private static class Item {
+    public static class Item {
         public final String id;
         public final String name;
         public final String name_fr;

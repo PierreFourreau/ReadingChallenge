@@ -51,7 +51,6 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private Boolean frLanguage;
     private ButtonRectangle buttonAddSuggestion;
     private EditText editTextLibelle;
-    private int statusBefore, statusAfter;
 
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
 
@@ -122,12 +121,8 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         //get if read or not
         if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
             setTitle(getTitle() + " " + getString(R.string.read));
-            statusBefore = 1;
-            statusAfter = 1;
         } else {
             setTitle(getTitle() + " " + getString(R.string.unread));
-            statusBefore = 0;
-            statusAfter = 0;
         }
 
         //add suggestion open a dialog
@@ -190,12 +185,10 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                     displayErrorSnackBar(getString(R.string.category_unread));
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 0);
                     setTitle(getTitle() + " " + getString(R.string.unread));
-                    statusAfter = 0;
                 } else {
                     displayErrorSnackBar(getString(R.string.category_read));
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 1);
                     setTitle(getTitle() + " " + getString(R.string.read));
-                    statusAfter = 1;
                 }
 
             }
@@ -404,11 +397,6 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
     protected void backToPreviousActivity() {
         Intent intent = new Intent();
-        if (statusBefore == statusAfter) {
-            intent.putExtra("categoryChanged", false);
-        } else {
-            intent.putExtra("categoryChanged", true);
-        }
         setResult(RESULT_OK, intent);
     }
 }
