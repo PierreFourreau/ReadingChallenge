@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,13 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
+import com.fourreau.readingchallenge.model.CircleDisplay;
 import com.fourreau.readingchallenge.service.ApiService;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,9 +37,11 @@ public class ProgressActivity extends BaseActivity {
     @Inject
     ApiService apiService;
 
-    private TextView numberReadCategoriesTextView, numberTotalCategoriesTextView, progressCommentTextView, percentageRead;
+    private TextView numberReadCategoriesTextView, numberTotalCategoriesTextView, progressCommentTextView;
     private int numberReadCategories = 0, totalCategories = 0;
     private ProgressDialog mProgressDialog;
+    private ImageView imageHeader, progressIcon;
+    private CircleDisplay circleDisplay;
 
     private String level;
 
@@ -46,6 +52,12 @@ public class ProgressActivity extends BaseActivity {
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
         level = String.valueOf(((ReadingChallengeApplication) this.getApplication()).getLevel());
+
+        //images
+        imageHeader = (ImageView) findViewById(R.id.imageHeader);
+        progressIcon = (ImageView) findViewById(R.id.progressIcon);
+        Picasso.with(this).load(R.drawable.default_category1).fit().centerCrop().into(imageHeader);
+        Picasso.with(this).load(R.drawable.progress).into(progressIcon);
 
         getCategories();
     }
@@ -73,8 +85,6 @@ public class ProgressActivity extends BaseActivity {
     }
 
     public void calculateNumberOfReadCategories(List<Category> categories) {
-        Timber.d("Number of categories retrieved : " + categories.size());
-
         String key = getString(R.string.category_id);
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
         for (Category cat : categories) {
@@ -87,16 +97,25 @@ public class ProgressActivity extends BaseActivity {
         numberReadCategoriesTextView = (TextView) findViewById(R.id.progress_number_read);
         numberTotalCategoriesTextView = (TextView) findViewById(R.id.progress_number_total);
         progressCommentTextView = (TextView) findViewById(R.id.progress_comment);
-        percentageRead = (TextView) findViewById(R.id.progress_percentage);
 
         numberReadCategoriesTextView.setText(" " + numberReadCategories + " ");
         numberTotalCategoriesTextView.setText(" " + totalCategories + " ");
+
         //percentage
-        if (numberReadCategories == 0) {
-            percentageRead.setText("0 %");
-        } else {
-            percentageRead.setText(totalCategories / numberReadCategories + " %");
+        float percentage = 0.0f;
+        if (numberReadCategories != 0) {
+            percentage = ((float)numberReadCategories) / totalCategories;
         }
+        CircleDisplay cd = (CircleDisplay) findViewById(R.id.circleDisplay);
+        cd.setAnimDuration(1500);
+        cd.setValueWidthPercent(20f);
+        cd.setTextSize(20f);
+        cd.setColor(Color.LTGRAY);
+        cd.setTouchEnabled(false);
+        cd.setFormatDigits(1);
+        cd.setUnit("%");
+        cd.setStepSize(0.5f);
+        cd.showValue(percentage*100, 100f, true);
 
         //if user read all categories
         if (numberReadCategories == totalCategories) {

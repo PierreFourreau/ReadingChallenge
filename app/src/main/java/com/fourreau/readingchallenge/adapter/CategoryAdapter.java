@@ -2,10 +2,6 @@ package com.fourreau.readingchallenge.adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
-import com.fourreau.readingchallenge.activity.BaseActivity;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.util.Utils;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import timber.log.Timber;
 
 /**
  * Created by Pierre on 06/07/2015.

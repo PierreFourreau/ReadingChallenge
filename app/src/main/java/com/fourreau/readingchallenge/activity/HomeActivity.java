@@ -118,7 +118,7 @@ public class HomeActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == CATEGORY_REQUEST) {
-                    setImageReadOnCategory();
+                setImageReadOnCategory();
             } else if (requestCode == SETTINGS_REQUEST) {
                 if (data.getExtras().getBoolean("levelChanged")) {
                     gridView.setAdapter(null);
@@ -134,11 +134,13 @@ public class HomeActivity extends BaseActivity {
     protected void setImageReadOnCategory() {
         //if book is already read or not
         SharedPreferences sharedPref = getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
-        if (sharedPref.getInt(getString(R.string.category_id) + categoryChoosen.id, 0) == 1) {
-            Picasso.with(this).load(R.drawable.circle_check).into(categoryChoosenPictureRead);
-            categoryChoosenPictureRead.setVisibility(View.VISIBLE);
-        } else {
-            categoryChoosenPictureRead.setVisibility(View.GONE);
+        if(categoryChoosen != null) {
+            if (sharedPref.getInt(getString(R.string.category_id) + categoryChoosen.id, 0) == 1) {
+                Picasso.with(this).load(R.drawable.circle_check).into(categoryChoosenPictureRead);
+                categoryChoosenPictureRead.setVisibility(View.VISIBLE);
+            } else {
+                categoryChoosenPictureRead.setVisibility(View.GONE);
+            }
         }
     }
 
