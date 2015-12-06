@@ -18,6 +18,8 @@ import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.service.ApiService;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -53,6 +55,7 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
+
         gridView = (GridView) findViewById(R.id.gridview);
 
         //listen refresh event
@@ -64,6 +67,11 @@ public class HomeActivity extends BaseActivity {
             }
         });
         getCategories();
+
+        //admobs
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     public void getCategories() {
@@ -134,7 +142,7 @@ public class HomeActivity extends BaseActivity {
     protected void setImageReadOnCategory() {
         //if book is already read or not
         SharedPreferences sharedPref = getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
-        if(categoryChoosen != null) {
+        if (categoryChoosen != null) {
             if (sharedPref.getInt(getString(R.string.category_id) + categoryChoosen.id, 0) == 1) {
                 Picasso.with(this).load(R.drawable.circle_check).into(categoryChoosenPictureRead);
                 categoryChoosenPictureRead.setVisibility(View.VISIBLE);

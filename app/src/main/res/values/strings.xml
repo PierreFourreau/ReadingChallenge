@@ -22,9 +22,11 @@
     <string name="filter">filter</string>
     <string name="intro">intro</string>
     <string name="level">level</string>
-    <string name="title_activity_intro">Introduction</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <!--<string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>-->
 
     <!--Intro activity-->
+    <string name="title_activity_intro">Introduction</string>
     <string name="checkboxRemember">Do not display anymore</string>
     <string name="intro_title1">WELCOME</string>
     <string name="intro_title2">MAINTAIN</string>
