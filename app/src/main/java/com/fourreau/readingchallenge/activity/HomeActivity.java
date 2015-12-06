@@ -55,8 +55,9 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
-
         gridView = (GridView) findViewById(R.id.gridview);
+
+        ((ReadingChallengeApplication) this.getApplication()).setDisplay(readSharedPreferences(getString(R.string.display)));
 
         //listen refresh event
         layout = (PullRefreshLayout) findViewById(R.id.swipeRefreshLayout);
@@ -118,6 +119,8 @@ public class HomeActivity extends BaseActivity {
                 overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
             }
         });
+
+        gridView.setNumColumns(((ReadingChallengeApplication) this.getApplication()).getDisplay());
         gridView.setAdapter(categoryAdapter);
     }
 
@@ -128,7 +131,7 @@ public class HomeActivity extends BaseActivity {
             if (requestCode == CATEGORY_REQUEST) {
                 setImageReadOnCategory();
             } else if (requestCode == SETTINGS_REQUEST) {
-                if (data.getExtras().getBoolean("levelChanged")) {
+                if (data.getExtras().getBoolean("levelChanged") || data.getExtras().getBoolean("displayChanged")) {
                     gridView.setAdapter(null);
                     getCategories();
                 }

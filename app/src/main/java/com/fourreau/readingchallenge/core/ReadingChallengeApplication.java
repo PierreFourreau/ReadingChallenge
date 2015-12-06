@@ -25,6 +25,8 @@ public class ReadingChallengeApplication extends Application {
     public int filterCategories;
     //level -> 1 : beginner, 2 -> intermediate, 3 -> expert
     public int level;
+    //display number of columns
+    public int display;
 
     private ObjectGraph applicationGraph;
 
@@ -75,6 +77,14 @@ public class ReadingChallengeApplication extends Application {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(int display) {
+        this.display = display;
     }
 
     /**

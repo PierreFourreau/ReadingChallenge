@@ -48,8 +48,6 @@
                 android:text="@string/level_expert" />
         </RadioGroup>
 
-        <View style="@style/Divider" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,5 +65,41 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/dialog_level_content3" />
+
+
+        <View style="@style/Divider" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_display_label" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupDisplaySettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="40dp">
+
+            <RadioButton
+                android:id="@+id/settingsDisplay1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
+
+            <RadioButton
+                android:id="@+id/settingsDisplay2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2" />
+
+            <RadioButton
+                android:id="@+id/settingsDisplay3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3" />
+        </RadioGroup>
+
     </LinearLayout>
 </RelativeLayout>
