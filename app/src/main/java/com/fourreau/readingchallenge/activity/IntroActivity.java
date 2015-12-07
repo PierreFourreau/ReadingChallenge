@@ -91,7 +91,14 @@ public class IntroActivity extends BaseActivity {
         buttonPassIntro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                writeSharedPreferences(getString(R.string.display), 2);
+                //set display
+                int display = readSharedPreferences(getString(R.string.display));
+                if (display == 0) {
+                    writeSharedPreferences(getString(R.string.display), 2);
+                } else {
+                    writeSharedPreferences(getString(R.string.display), display);
+                }
+
                 if (checkBoxIntro.isCheck()) {
                     writeSharedPreferences(getString(R.string.intro), 1);
                 } else {

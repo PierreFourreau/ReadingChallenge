@@ -117,13 +117,13 @@ public class SettingsActivity extends BaseActivity {
     protected void getAndSetDisplayByRadio() {
         if (radioButtonDisplay1.isChecked()) {
             ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setDisplay(1);
-            writeSharedPreferences(getString(R.string.level), 1);
+            writeSharedPreferences(getString(R.string.display), 1);
         } else if (radioButtonDisplay2.isChecked()) {
             ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setDisplay(2);
-            writeSharedPreferences(getString(R.string.level), 2);
+            writeSharedPreferences(getString(R.string.display), 2);
         } else if (radioButtonDisplay3.isChecked()) {
             ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).setDisplay(3);
-            writeSharedPreferences(getString(R.string.level), 3);
+            writeSharedPreferences(getString(R.string.display), 3);
         }
     }
 }
