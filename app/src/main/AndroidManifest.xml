@@ -61,6 +61,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.fourreau.readingchallenge.activity.HomeActivity" />
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="716379d161ce8d9095b9551b72c3710edd8576f0" />
     </application>
 
 </manifest>
