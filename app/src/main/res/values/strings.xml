@@ -11,9 +11,9 @@
     <string name="ok">OK</string>
     <string name="pass">Continue</string>
     <string name="please_wait">Please wait...</string>
-    <string name="level_beginner">Beginner</string>
-    <string name="level_intermediate">Intermediate</string>
-    <string name="level_expert">Expert</string>
+    <string name="level_beginner">Beginner (10 categories)</string>
+    <string name="level_intermediate">Intermediate (22 categories)</string>
+    <string name="level_expert">Expert (52 categories)</string>
     <string name="activity_category_error">Error when getting category</string>
     <string name="activity_category_suggestions_error">Error when getting suggestions</string>
 
@@ -116,9 +116,9 @@ Quam libero nulla netus eu porta curae, ut nulla bibendum facilisis et urna sed,
 
     <!--Dialog level-->
     <string name="dialog_level_title">Please setup the level</string>
-    <string name="dialog_level_content">The number of categories may vary with the choosen level</string>
+    <string name="dialog_level_content">One by month? Two by month? One by week? Or one when you want! \n\n You will can change after.</string>
     <string name="dialog_level_content1">Beginner : 10 categories</string>
     <string name="dialog_level_content2">Intermediate : 22 categories</string>
-    <string name="dialog_level_content3">Intermediate : 52 categories, 1 by week !</string>
+    <string name="dialog_level_content3">Expert : 52 categories, 1 by week !</string>
 
 </resources>

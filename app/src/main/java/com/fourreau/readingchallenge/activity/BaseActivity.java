@@ -21,7 +21,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         new com.github.mrengineer13.snackbar.SnackBar.Builder(this)
                 .withMessage(message)
                 .withActionMessage("OK")
-                .withDuration(new Short("5000"))
+                .withDuration(new Short("2000"))
                 .show();
     }
 

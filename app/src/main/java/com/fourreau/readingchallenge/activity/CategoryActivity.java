@@ -235,7 +235,8 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             }
             //set description category
             if (category.getDescription_fr() != null) {
-                textViewDescription.setText(category.getDescription_fr() + "\n\n" + getString(R.string.lipsum_short));
+//                textViewDescription.setText(category.getDescription_fr() + "\n\n" + getString(R.string.lipsum_short));
+                textViewDescription.setText(category.getDescription_fr());
             }
         } else {
             //set title category
@@ -246,6 +247,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             //set description category
             if (category.getDescription_en() != null) {
                 textViewDescription.setText(category.getDescription_en() + "\n\n" + getString(R.string.lipsum_short));
+//                textViewDescription.setText(category.getDescription_en());
             }
         }
 

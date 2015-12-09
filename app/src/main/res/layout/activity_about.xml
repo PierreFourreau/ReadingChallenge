@@ -25,16 +25,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+                android:textSize="@dimen/text_Medium"
                 android:text="@string/about_application_label" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:text="@string/about_application" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:layout_marginTop="15dp"
                 android:textStyle="bold"
                 android:text="@string/about_contact_label" />
@@ -42,11 +45,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:text="@string/about_contact" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:layout_marginTop="15dp"
                 android:textStyle="bold"
                 android:text="@string/about_developer_label" />
@@ -54,12 +59,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:autoLink="web"
                 android:text="@string/about_developer" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:layout_marginTop="15dp"
                 android:textStyle="bold"
                 android:text="@string/about_more_label" />
@@ -67,20 +74,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:text="@string/about_more1" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:text="@string/about_more2" />
 
             <com.gc.materialdesign.views.ButtonRectangle
                 android:id="@+id/see_projects_open_source_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/text_Medium"
                 android:layout_marginTop="5dp"
                 android:text="@string/about_projects_button"
-                android:background="@color/primary" />
+                android:background="@color/accent" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -94,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/button_donate"
-                android:background="@color/primary" />
+                android:background="@color/accent" />
         </LinearLayout>
     </ScrollView>
 </tools:LinearLayout>

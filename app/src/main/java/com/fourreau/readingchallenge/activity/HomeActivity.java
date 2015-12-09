@@ -88,7 +88,7 @@ public class HomeActivity extends BaseActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                displayErrorSnackBar(getString(R.string.activity_home_error));
+                displayAlertDialog(getString(R.string.error), getString(R.string.activity_home_error));
                 layout.setRefreshing(false);
                 Timber.e("Error get categories : " + error.getMessage());
             }
