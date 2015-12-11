@@ -27,6 +27,8 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.squareup.picasso.Picasso;
@@ -214,6 +216,12 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 //mScrollView.scrollTo(0, 0);
             }
         });
+
+        //analytics
+        ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.setScreenName("CategoryActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     /**

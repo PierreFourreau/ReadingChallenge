@@ -8,6 +8,8 @@ import android.widget.RadioButton;
 
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 public class SettingsActivity extends BaseActivity {
 
@@ -55,6 +57,12 @@ public class SettingsActivity extends BaseActivity {
                 radioButtonDisplay3.setChecked(true);
                 break;
         }
+
+        //analytics
+        ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.setScreenName("SettingsActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
 

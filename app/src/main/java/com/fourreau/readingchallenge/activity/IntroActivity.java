@@ -26,6 +26,8 @@ import com.fourreau.readingchallenge.model.ColorShades;
 import com.fourreau.readingchallenge.view.CirclePageIndicator;
 import com.gc.materialdesign.views.ButtonFlat;
 import com.gc.materialdesign.views.CheckBox;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 
 public class IntroActivity extends BaseActivity {
@@ -182,7 +184,11 @@ public class IntroActivity extends BaseActivity {
             }
         });
 
-
+        //analytics
+        ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.setScreenName("IntroActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     public class ViewPagerAdapter extends PagerAdapter {

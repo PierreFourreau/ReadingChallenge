@@ -20,6 +20,8 @@ import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.service.ApiService;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -73,6 +75,12 @@ public class HomeActivity extends BaseActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        //analytics
+        ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.setScreenName("HomeActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     public void getCategories() {

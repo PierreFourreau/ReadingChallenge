@@ -9,8 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.fourreau.readingchallenge.R;
+import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.util.Utils;
 import com.gc.materialdesign.views.ButtonRectangle;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -40,6 +43,12 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //analytics
+        ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.setScreenName("AboutActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
 

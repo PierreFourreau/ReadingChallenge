@@ -21,6 +21,8 @@ import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.CircleDisplay;
 import com.fourreau.readingchallenge.service.ApiService;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -60,6 +62,12 @@ public class ProgressActivity extends BaseActivity {
         Picasso.with(this).load(R.drawable.progress).into(progressIcon);
 
         getCategories();
+
+        //analytics
+        ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.setScreenName("ProgressActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     public void getCategories() {

@@ -11,8 +11,11 @@ import android.view.View;
 import android.webkit.WebView;
 
 import com.fourreau.readingchallenge.R;
+import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.util.Utils;
 import com.gc.materialdesign.views.ButtonRectangle;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 public class LicensesActivity extends AppCompatActivity {
 
@@ -21,6 +24,12 @@ public class LicensesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_licences);
         ((WebView) findViewById(R.id.web_view)).loadUrl("file:///android_asset/licenses.html");
+
+        //analytics
+        ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+        mTracker.setScreenName("LicensesActivity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
 
