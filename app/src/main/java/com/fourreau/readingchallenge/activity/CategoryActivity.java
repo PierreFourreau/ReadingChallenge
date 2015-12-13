@@ -137,7 +137,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 alertDialogBuilder.setView(promptsView);
                 editTextLibelle = (EditText) promptsView.findViewById(R.id.editTextLibelle);
                 alertDialogBuilder
-                        .setCancelable(false)
+                        .setCancelable(true)
                         .setPositiveButton(R.string.ok,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {

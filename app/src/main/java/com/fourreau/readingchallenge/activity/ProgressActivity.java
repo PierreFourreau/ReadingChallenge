@@ -74,6 +74,7 @@ public class ProgressActivity extends BaseActivity {
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setTitle(getString(R.string.progress_loading));
         mProgressDialog.setMessage(getString(R.string.please_wait));
+        mProgressDialog.setCancelable(false);
         mProgressDialog.show();
 
         //get categories from api
