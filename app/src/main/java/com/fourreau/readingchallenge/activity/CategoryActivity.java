@@ -254,7 +254,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             }
             //set description category
             if (category.getDescription_en() != null) {
-                textViewDescription.setText(category.getDescription_en() + "\n\n" + getString(R.string.lipsum_short));
+                textViewDescription.setText(category.getDescription_en());
 //                textViewDescription.setText(category.getDescription_en());
             }
         }

@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">ReadNow</string>
+
+    <string name="action_about">A propos</string>
+    <string name="action_settings">Réglages</string>
+
+    <!--Miscellaneous-->
+    <string name="error">Erreur</string>
+    <string name="refresh">Rafraîchir</string>
+    <string name="none">None</string>
+    <string name="ok">OK</string>
+    <string name="pass">Continuer</string>
+    <string name="please_wait">Veuillez-patienter s\'il vous plaît...</string>
+    <string name="level_beginner">Débutant (10 categories)</string>
+    <string name="level_intermediate">Intermédiaire (22 categories)</string>
+    <string name="level_expert">Expert (52 categories)</string>
+    <string name="activity_category_error">Erreur de récupération des catégories</string>
+    <string name="activity_category_suggestions_error">Erreur de récupération des suggestions</string>
+
+    <!--Only for dev-->
+    <string name="category_id">cat_id</string>
+    <string name="filter">filter</string>
+    <string name="intro">intro</string>
+    <string name="level">level</string>
+    <string name="display">display</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <!--<string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>-->
+
+    <!--Intro activity-->
+    <string name="title_activity_intro">Introduction</string>
+    <string name="checkboxRemember">Ne plus afficher</string>
+    <string name="intro_title1">BIENVENUE</string>
+    <string name="intro_title2">SUIVEZ</string>
+    <string name="intro_title3">PARTAGEZ</string>
+    <string name="intro_content1">dans l\'application ReadNow, le challenge de lecture. Prêt à lire ?</string>
+    <string name="intro_content2">votre progression au fil des différentes catégories de livres. </string>
+    <string name="intro_content3">votre progression avec vos amis.</string>
+
+    <!--Home activity-->
+    <string name="action_change_display">Changer l\'ffichage</string>
+    <string name="activity_home_error">Erreur dans l\'affichage des catégories</string>
+    <string name="radio_categories">Toutes les categories</string>
+    <string name="radio_categories_read">Catégories lues</string>
+    <string name="radio_categories_unread">Catégories non lues</string>
+    <string name="loading_title">Téléhargement de vos catégories</string>
+
+    <!--Category activity-->
+    <string name="title_activity_category">Catégorie</string>
+    <string name="read">lue</string>
+    <string name="unread">non lue</string>
+    <string name="suggestions_title">Suggestions</string>
+    <string name="category_read">Catégorie lue !</string>
+    <string name="category_unread">Catégorie non lue !</string>
+    <string name="button_add_suggestion">Suggérer un livre</string>
+    <string name="dialog_suggestion_intro">Avez-vous une idée de livre entrant dans cette catégorie ?</string>
+    <string name="dialog_suggestion_error">Erreur dans la suggestion</string>
+    <string name="dialog_suggestion_success_title">Merci !</string>
+    <string name="dialog_suggestion_success">La suggestion sera soumise à la validation d\'un administrateur avant publication.</string>
+
+    <!--About activity-->
+    <string name="title_activity_about">A propos</string>
+    <string name="about_application_label">Application</string>
+    <string name="about_application">ReadNow</string>
+    <string name="about_contact_label">Contact</string>
+    <string name="about_contact">readingchallenge.contact@gmail.com</string>
+    <string name="about_developer_label">Concepteurs</string>
+    <string name="about_developer"><a href="www.pierrefourreau.fr">www.pierrefourreau.fr</a> et Chloé Schiery</string>
+    <string name="about_more_label">Plus...</string>
+    <string name="about_more1">Si vous appréciez cette application, merci de la noter.</string>
+    <string name="about_more2">Une erreur dans l\'application ? Veuillez nous le signaler et nous mettrons l\'application à jour au plus tôt.</string>
+    <string name="about_projects_button">Licences open source</string>
+    <string name="title_activity_open_source_projects_used">Licences</string>
+    <string name="donate_label">Vous souhaitez nous soutenir ?</string>
+    <string name="button_donate">Faire un don</string>
+
+    <!--Licences activity-->
+    <string name="title_activity_licences">Licences</string>
+
+    <!--Share action-->
+    <string name="action_share">Partager</string>
+    <string name="action_share_category">\@ReadNow Je viens de terminer une catégorie de mon challenge de lecture :</string>
+    <string name="action_share_progress1">\@ReadNw J\'ai déjà lu</string>
+    <string name="action_share_progress2">des</string>
+    <string name="action_share_progress3">catégories de mon challenge de lecture !</string>
+
+    <!--Progress activity-->
+    <string name="action_progress">Ma progression</string>
+    <string name="title_activity_progress">Ma progression</string>
+    <string name="progress_intro">Voici votre avancement dans le challenge de lecture</string>
+    <string name="progress_number_label1">Vous avez lu</string>
+    <string name="progress_number_label2">des</string>
+    <string name="progress_number_label3">catégories de votre challenge !</string>
+    <string name="progress_loading">Chargement de votre progression</string>
+    <string name="progress_comment0">Il est temps de vous y mettre!</string>
+    <string name="progress_comment10">C\'est un bon début !</string>
+    <string name="progress_comment20">Continues !</string>
+    <string name="progress_comment30">Vous êtes sur la bonne voie !</string>
+    <string name="progress_comment40">Très bien, continuez !</string>
+    <string name="progress_comment50">Vous y êtes presque, encore un petit effort !</string>
+    <string name="progress_comment_all">Félicitations, vous avez lu un livre de chaque catégorie. Vous pouvez être fier(e) de vous. N\'hésitez pas à partager cette nouvelle !</string>
+
+    <!--Settings activity-->
+    <string name="title_activity_settings">Réglages</string>
+    <string name="settings_level_label">Changer le niveau de votre challenge de lecture.</string>
+    <string name="settings_display_label">Changer le nombre de colonnes dans l\'affichage des catégories.</string>
+    <string name="settings_display_columns1">1 colonne</string>
+    <string name="settings_display_columns2">2 colonnes</string>
+    <string name="settings_display_columns3">3 colonnes</string>
+    <string name="settings_level_content1">Débutant : 12 catégories par an (1 livre par mois)</string>
+    <string name="settings_level_content2">Intermédiaire : 24 catégories par an (2 livres par mois)</string>
+    <string name="settings_level_content3">Expert : 52 catégories par an (1 livre par semaine)</string>
+
+    <!--Dialog level-->
+    <string name="dialog_level_title">Veuillez choisir un niveau</string>
+    <string name="dialog_level_content">Un livre par mois ? Deux livres par mois ? Un livre par semaine ? Ou un livre quand vous le voulez ! Vous pourrez toujours changer de niveau ultérieurement.</string>
+    <string name="dialog_level_beginner">Débutant (10 catégories)</string>
+    <string name="dialog_level_intermediate">Intermédiaire (22 catégories)</string>
+    <string name="dialog_level_expert">Expert (52 catégories)</string>
+
+</resources>
