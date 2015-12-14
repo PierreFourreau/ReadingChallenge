@@ -5,12 +5,13 @@ package com.fourreau.readingchallenge.util;
  */
 public final class Utils {
 
-    private Utils() {}
+    private Utils() {
+    }
 
-    public static String BASE_URL_API = "http://readingchallenge-api.herokuapp.com";
+    //    public static String BASE_URL_API = "http://readingchallenge-api.herokuapp.com";
+    public static String BASE_URL_API = "http://pierrefourreau.fr/readingchallenge/readingchallenge-api";
     public static String BASE_URL = "http://pierrefourreau.fr/readingchallenge/readingchallenge-admin/";
     public static String URL_UPLOAD = "img/";
-    public static String URL_CLOUDFARE = "https://www.cloudflare.com/a/caching/pierrefourreau.fr";
 
     public static String DONATION_URL = "https://www.paypal.me/PierreFourreau";
 

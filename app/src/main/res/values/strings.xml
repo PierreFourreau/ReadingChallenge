@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ReadNow</string>
+    <string name="app_name">ReadBoard</string>
 
     <string name="action_about">About</string>
     <string name="action_settings">Settings</string>
@@ -32,7 +32,7 @@
     <string name="intro_title1">WELCOME</string>
     <string name="intro_title2">FOLLOW</string>
     <string name="intro_title3">SHARE</string>
-    <string name="intro_content1">to ReadNow, the reading challenge application. Are you ready to read ?</string>
+    <string name="intro_content1">to ReadBoard, the reading challenge application. Are you ready to read ?</string>
     <string name="intro_content2">your progression through a chosen number of reading categories.</string>
     <string name="intro_content3">your progression with yours friends !</string>
 
@@ -60,7 +60,7 @@
     <!--About activity-->
     <string name="title_activity_about">About</string>
     <string name="about_application_label">Application</string>
-    <string name="about_application">ReadNow</string>
+    <string name="about_application">ReadBoard</string>
     <string name="about_contact_label">Contact</string>
     <string name="about_contact">readingchallenge.contact@gmail.com</string>
     <string name="about_developer_label">Designers</string>
@@ -78,8 +78,8 @@
 
     <!--Share action-->
     <string name="action_share">Share</string>
-    <string name="action_share_category">\@ReadNow I just read a new category in my reading challenge : </string>
-    <string name="action_share_progress1">\@ReadNow I have already read</string>
+    <string name="action_share_category">\@ReadBoard I just read a new category in my reading challenge : </string>
+    <string name="action_share_progress1">\@ReadBoard I have already read</string>
     <string name="action_share_progress2">out of</string>
     <string name="action_share_progress3">categories in my reading challenge !</string>
 

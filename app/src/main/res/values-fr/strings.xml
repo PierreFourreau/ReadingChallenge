@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ReadNow</string>
+    <string name="app_name">ReadBoard</string>
 
     <string name="action_about">A propos</string>
     <string name="action_settings">Réglages</string>
@@ -32,7 +32,7 @@
     <string name="intro_title1">BIENVENUE</string>
     <string name="intro_title2">SUIVEZ</string>
     <string name="intro_title3">PARTAGEZ</string>
-    <string name="intro_content1">dans l\'application ReadNow, le challenge de lecture. Prêt à lire ?</string>
+    <string name="intro_content1">dans l\'application ReadBoard, le challenge de lecture. Prêt à lire ?</string>
     <string name="intro_content2">votre progression au fil des différentes catégories de livres. </string>
     <string name="intro_content3">votre progression avec vos amis.</string>
 
@@ -60,7 +60,7 @@
     <!--About activity-->
     <string name="title_activity_about">A propos</string>
     <string name="about_application_label">Application</string>
-    <string name="about_application">ReadNow</string>
+    <string name="about_application">ReadBoard</string>
     <string name="about_contact_label">Contact</string>
     <string name="about_contact">readingchallenge.contact@gmail.com</string>
     <string name="about_developer_label">Concepteurs</string>
@@ -78,8 +78,8 @@
 
     <!--Share action-->
     <string name="action_share">Partager</string>
-    <string name="action_share_category">\@ReadNow Je viens de terminer une catégorie de mon challenge de lecture :</string>
-    <string name="action_share_progress1">\@ReadNw J\'ai déjà lu</string>
+    <string name="action_share_category">\@ReadBoard Je viens de terminer une catégorie de mon challenge de lecture :</string>
+    <string name="action_share_progress1">\@ReadBoard J\'ai déjà lu</string>
     <string name="action_share_progress2">des</string>
     <string name="action_share_progress3">catégories de mon challenge de lecture !</string>
 
