@@ -238,24 +238,20 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         if (frLanguage) {
             //set title category
             if (category.getLibelle_fr() != null) {
-//                mTitleView.setText(category.getLibelle_fr());
                 textViewTitle.setText(category.getLibelle_fr());
             }
             //set description category
             if (category.getDescription_fr() != null) {
-//                textViewDescription.setText(category.getDescription_fr() + "\n\n" + getString(R.string.lipsum_short));
                 textViewDescription.setText(category.getDescription_fr());
             }
         } else {
             //set title category
             if (category.getLibelle_en() != null) {
-//                mTitleView.setText(category.getLibelle_en());
                 textViewTitle.setText(category.getLibelle_en());
             }
             //set description category
             if (category.getDescription_en() != null) {
                 textViewDescription.setText(category.getDescription_en());
-//                textViewDescription.setText(category.getDescription_en());
             }
         }
 

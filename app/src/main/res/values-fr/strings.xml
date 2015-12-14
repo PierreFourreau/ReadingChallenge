@@ -7,7 +7,7 @@
     <!--Miscellaneous-->
     <string name="error">Erreur</string>
     <string name="refresh">Rafraîchir</string>
-    <string name="none">None</string>
+    <string name="none">Aucune</string>
     <string name="ok">OK</string>
     <string name="pass">Continuer</string>
     <string name="please_wait">Veuillez-patienter s\'il vous plaît...</string>
@@ -64,7 +64,7 @@
     <string name="about_contact_label">Contact</string>
     <string name="about_contact">readingchallenge.contact@gmail.com</string>
     <string name="about_developer_label">Concepteurs</string>
-    <string name="about_developer"><a href="www.pierrefourreau.fr">www.pierrefourreau.fr</a> et Chloé Schiery</string>
+    <string name="about_developer">Pierre Fourreau (<a href="www.pierrefourreau.fr">pierrefourreau.fr</a>) et Chloé Schiery</string>
     <string name="about_more_label">Plus...</string>
     <string name="about_more1">Si vous appréciez cette application, merci de la noter.</string>
     <string name="about_more2">Une erreur dans l\'application ? Veuillez nous le signaler et nous mettrons l\'application à jour au plus tôt.</string>
@@ -87,6 +87,7 @@
     <string name="action_progress">Ma progression</string>
     <string name="title_activity_progress">Ma progression</string>
     <string name="progress_intro">Voici votre avancement dans le challenge de lecture</string>
+    <string name="progress_error">Erreur chargement progression</string>
     <string name="progress_number_label1">Vous avez lu</string>
     <string name="progress_number_label2">des</string>
     <string name="progress_number_label3">catégories de votre challenge !</string>

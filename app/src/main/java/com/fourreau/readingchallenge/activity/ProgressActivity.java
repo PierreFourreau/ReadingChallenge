@@ -39,7 +39,7 @@ public class ProgressActivity extends BaseActivity {
     @Inject
     ApiService apiService;
 
-    private TextView numberReadCategoriesTextView, numberTotalCategoriesTextView, progressCommentTextView;
+    private TextView progressLine, progressCommentTextView;
     private int numberReadCategories = 0, totalCategories = 0;
     private ProgressDialog mProgressDialog;
     private ImageView imageHeader, progressIcon;
@@ -86,7 +86,7 @@ public class ProgressActivity extends BaseActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                displayErrorSnackBar(getString(R.string.activity_home_error));
+                displayErrorSnackBar(getString(R.string.progress_error));
                 mProgressDialog.dismiss();
                 Timber.e("Error get categories progress : " + error.getMessage());
             }
@@ -103,12 +103,9 @@ public class ProgressActivity extends BaseActivity {
         }
 
         totalCategories = categories.size();
-        numberReadCategoriesTextView = (TextView) findViewById(R.id.progress_number_read);
-        numberTotalCategoriesTextView = (TextView) findViewById(R.id.progress_number_total);
+        progressLine = (TextView) findViewById(R.id.progress_line);
         progressCommentTextView = (TextView) findViewById(R.id.progress_comment);
-
-        numberReadCategoriesTextView.setText(" " + numberReadCategories + " ");
-        numberTotalCategoriesTextView.setText(" " + totalCategories + " ");
+        progressLine.setText(getString(R.string.progress_number_label1) + " " + numberReadCategories + " " + getString(R.string.progress_number_label2) + " " + totalCategories);
 
         //percentage
         float percentage = 0.0f;

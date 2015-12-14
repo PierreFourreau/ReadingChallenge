@@ -87,6 +87,7 @@
     <string name="action_progress">My progress</string>
     <string name="title_activity_progress">My progress</string>
     <string name="progress_intro">You can see here your progress in the challenge</string>
+    <string name="progress_error">Error when loading your progress</string>
     <string name="progress_number_label1">You have read </string>
     <string name="progress_number_label2">of the</string>
     <string name="progress_number_label3">categories of the challenge !</string>
