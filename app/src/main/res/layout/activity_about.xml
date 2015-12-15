@@ -12,100 +12,141 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin">
+            android:layout_height="fill_parent">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="@dimen/text_Medium"
-                android:text="@string/about_application_label" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:text="@string/about_application" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_Medium"
+                    android:text="@string/about_application_label" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:layout_marginTop="15dp"
-                android:textStyle="bold"
-                android:text="@string/about_contact_label" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:text="@string/about_application" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:text="@string/about_contact" />
+            <View style="@style/Divider" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:layout_marginTop="15dp"
-                android:textStyle="bold"
-                android:text="@string/about_developer_label" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:autoLink="web"
-                android:text="@string/about_developer" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:textStyle="bold"
+                    android:text="@string/about_contact_label" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:layout_marginTop="15dp"
-                android:textStyle="bold"
-                android:text="@string/about_more_label" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:text="@string/about_contact" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:text="@string/about_more1" />
+            <View style="@style/Divider" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:text="@string/about_more2" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
 
-            <com.gc.materialdesign.views.ButtonRectangle
-                android:id="@+id/see_projects_open_source_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:layout_marginTop="5dp"
-                android:text="@string/about_projects_button"
-                android:background="@color/primary" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:textStyle="bold"
+                    android:text="@string/about_developer_label" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/text_Medium"
-                android:layout_marginTop="10dp"
-                android:text="@string/donate_label" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:autoLink="web"
+                    android:text="@string/about_developer" />
+            </LinearLayout>
 
-            <com.gc.materialdesign.views.ButtonRectangle
-                android:id="@+id/button_donate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/button_donate"
-                android:background="@color/primary" />
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:textStyle="bold"
+                    android:text="@string/about_more_label" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:text="@string/about_more1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:text="@string/about_more2" />
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:id="@+id/see_projects_open_source_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/about_projects_button"
+                    android:background="@color/primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/text_Medium"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/donate_label" />
+
+                <com.gc.materialdesign.views.ButtonRectangle
+                    android:id="@+id/button_donate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/button_donate"
+                    android:background="@color/primary" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </tools:LinearLayout>

@@ -92,9 +92,9 @@
     <string name="progress_number_label2">des</string>
     <string name="progress_number_label3">catégories de votre challenge !</string>
     <string name="progress_loading">Chargement de votre progression</string>
-    <string name="progress_comment0">Il est temps de vous y mettre!</string>
+    <string name="progress_comment0">Il est temps de vous y mettre !</string>
     <string name="progress_comment10">C\'est un bon début !</string>
-    <string name="progress_comment20">Continues !</string>
+    <string name="progress_comment20">Continuez !</string>
     <string name="progress_comment30">Vous êtes sur la bonne voie !</string>
     <string name="progress_comment40">Très bien, continuez !</string>
     <string name="progress_comment50">Vous y êtes presque, encore un petit effort !</string>
