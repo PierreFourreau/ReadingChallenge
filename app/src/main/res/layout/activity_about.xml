@@ -90,7 +90,7 @@
                 android:textSize="@dimen/text_Medium"
                 android:layout_marginTop="5dp"
                 android:text="@string/about_projects_button"
-                android:background="@color/accent" />
+                android:background="@color/primary" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="@string/button_donate"
-                android:background="@color/accent" />
+                android:background="@color/primary" />
         </LinearLayout>
     </ScrollView>
 </tools:LinearLayout>

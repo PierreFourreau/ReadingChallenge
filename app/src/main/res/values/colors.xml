@@ -42,4 +42,7 @@
 
     <color name="transparent">#00000000</color>
 
+    <color name="frame">#b4b4b4</color>
+    <color name="frame_solid">#607D8B</color>
+
 </resources>

@@ -1,6 +1,7 @@
 package com.fourreau.readingchallenge.activity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -53,6 +55,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private Boolean frLanguage;
     private ButtonRectangle buttonAddSuggestion;
     private EditText editTextLibelle;
+    private LinearLayout containerSuggestions;
 
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
 
@@ -62,7 +65,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private TextView mTitleView;
     private TextView textViewTitle;
     private TextView textViewDescription;
-    private TextView textViewSuggestions;
+    private TextView textViewSuggestionsNone;
     private View mFab;
     private int mActionBarSize;
     private int mFlexibleSpaceShowFabOffset;
@@ -117,6 +120,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         mScrollView.setScrollViewCallbacks(this);
         mTitleView = (TextView) findViewById(R.id.title);
         mFab = findViewById(R.id.fab);
+        containerSuggestions = (LinearLayout) findViewById(R.id.container_suggestions);
         buttonAddSuggestion = (ButtonRectangle) findViewById(R.id.button_add_suggestion);
         setTitle(R.string.title_activity_category);
 
@@ -269,22 +273,33 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
      * @param suggestions
      */
     public void displaySuggestions(List<Suggestion> suggestions) {
-        textViewSuggestions = (TextView) findViewById(R.id.text_view_suggestions);
+        textViewSuggestionsNone = (TextView) findViewById(R.id.text_view_suggestions_none);
 
         if (suggestions.size() > 0) {
-            String suggestionsText = "";
-            if (frLanguage) {
-                for (Suggestion s : suggestions) {
-                    suggestionsText += " - " + s.getLibelle_fr() + "\n";
+            for (Suggestion s : suggestions) {
+
+                //add row
+                LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                final View addView = layoutInflater.inflate(R.layout.suggestion_row, null);
+
+                //get fields
+                TextView textViewSuggestion = (TextView) addView.findViewById(R.id.textViewSuggestion);
+                //set fields
+                if (frLanguage) {
+                    textViewSuggestion.setText(s.getLibelle_fr());
+                } else {
+                    textViewSuggestion.setText(s.getLibelle_en());
                 }
-            } else {
-                for (Suggestion s : suggestions) {
-                    suggestionsText += " - " + s.getLibelle_en() + "\n";
-                }
+                addView.setBackgroundResource(R.drawable.frame);
+                addView.setPadding(10, 10, 20, 10);
+                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                lp.setMargins(2, 5, 2, 5);
+                addView.setLayoutParams(lp);
+                //add row to container
+                containerSuggestions.addView(addView);
             }
-            textViewSuggestions.setText(suggestionsText);
         } else {
-            textViewSuggestions.setText(R.string.none);
+            textViewSuggestionsNone.setVisibility(View.VISIBLE);
         }
         Timber.d("Number of suggestions retrieved : " + suggestions.size());
     }
