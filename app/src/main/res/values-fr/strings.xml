@@ -11,9 +11,9 @@
     <string name="ok">OK</string>
     <string name="pass">Continuer</string>
     <string name="please_wait">Veuillez-patienter s\'il vous plaît...</string>
-    <string name="level_beginner">Débutant (10 categories)</string>
-    <string name="level_intermediate">Intermédiaire (22 categories)</string>
-    <string name="level_expert">Expert (52 categories)</string>
+    <string name="level_beginner">Débutant</string>
+    <string name="level_intermediate">Intermédiaire</string>
+    <string name="level_expert">Expert</string>
     <string name="activity_category_error">Erreur de récupération des catégories</string>
     <string name="activity_category_suggestions_error">Erreur de récupération des suggestions</string>
 

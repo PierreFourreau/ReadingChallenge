@@ -5,18 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
-import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.CircleDisplay;
@@ -59,7 +54,7 @@ public class ProgressActivity extends BaseActivity {
         imageHeader = (ImageView) findViewById(R.id.imageHeader);
         progressIcon = (ImageView) findViewById(R.id.progressIcon);
         Picasso.with(this).load(R.drawable.default_category1).fit().centerCrop().into(imageHeader);
-        Picasso.with(this).load(R.drawable.progress).into(progressIcon);
+        Picasso.with(this).load(R.mipmap.ic_launcher).into(progressIcon);
 
         getCategories();
 

@@ -23,7 +23,7 @@
                 android:layout_alignParentStart="true"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin">
+                android:paddingTop="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -128,7 +128,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_Medium"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
                     android:text="@string/about_projects_button"
                     android:background="@color/primary" />
 
@@ -136,14 +136,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_Medium"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="3dp"
                     android:text="@string/donate_label" />
 
                 <com.gc.materialdesign.views.ButtonRectangle
                     android:id="@+id/button_donate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
                     android:text="@string/button_donate"
                     android:background="@color/primary" />
             </LinearLayout>
