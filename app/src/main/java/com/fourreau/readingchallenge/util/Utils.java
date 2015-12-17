@@ -8,7 +8,6 @@ public final class Utils {
     private Utils() {
     }
 
-    //    public static String BASE_URL_API = "http://readingchallenge-api.herokuapp.com";
     public static String BASE_URL_API = "http://pierrefourreau.fr/readingchallenge/readingchallenge-api";
     public static String BASE_URL = "http://pierrefourreau.fr/readingchallenge/readingchallenge-admin/";
     public static String URL_UPLOAD = "img/";

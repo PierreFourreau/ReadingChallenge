@@ -23,8 +23,8 @@
     <string name="intro">intro</string>
     <string name="level">level</string>
     <string name="display">display</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <!--<string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>-->
+    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
+    <string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>
 
     <!--Intro activity-->
     <string name="title_activity_intro">Introduction</string>
@@ -67,7 +67,7 @@
     <string name="about_developer"><a href="www.pierrefourreau.fr">www.pierrefourreau.fr</a> and Chloé Schiery</string>
     <string name="about_more_label">More</string>
     <string name="about_more1">If you like this app, please rate it.</string>
-    <string name="about_more2">If you found any errors in the app, please report them to me and the app will be updated as soon as possible.</string>
+    <string name="about_more2">If you found any errors in the app, please report them to me and the app will be updated whithin the next 24 hours.</string>
     <string name="about_projects_button">Open source licenses</string>
     <string name="title_activity_open_source_projects_used">Licences</string>
     <string name="donate_label">Want to support us?</string>
