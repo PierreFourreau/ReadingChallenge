@@ -23,8 +23,8 @@
     <string name="intro">intro</string>
     <string name="level">level</string>
     <string name="display">display</string>
-    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
-    <string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <!--<string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>-->
 
     <!--Intro activity-->
     <string name="title_activity_intro">Introduction</string>
@@ -115,7 +115,10 @@
     <string name="dialog_level_title">Please choose a level</string>
     <string name="dialog_level_content">One book per month? Two books per month? One book per week? Or a book whenever you want! \n\n You can change the level later.</string>
     <string name="dialog_level_beginner">Beginner (10 categories)</string>
-    <string name="dialog_level_intermediate">Intermediate (22 categories)</string>
+    <string name="dialog_level_intermediate">Intermediate (24 categories)</string>
     <string name="dialog_level_expert">Expert (52 categories)</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

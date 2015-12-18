@@ -8,6 +8,8 @@ public class Suggestion {
     private String id;
     private String libelle_en;
     private String libelle_fr;
+    private String url_en;
+    private String url_fr;
     private String categorie_id;
 
     public Suggestion() {}
@@ -36,6 +38,22 @@ public class Suggestion {
         this.libelle_fr = libelle_fr;
     }
 
+    public String getUrl_en() {
+        return url_en;
+    }
+
+    public void setUrl_en(String url_en) {
+        this.url_en = url_en;
+    }
+
+    public String getUrl_fr() {
+        return url_fr;
+    }
+
+    public void setUrl_fr(String url_fr) {
+        this.url_fr = url_fr;
+    }
+
     public String getCategorie_id() {
         return categorie_id;
     }
@@ -50,6 +68,8 @@ public class Suggestion {
                 "id='" + id + '\'' +
                 ", libelle_en='" + libelle_en + '\'' +
                 ", libelle_fr='" + libelle_fr + '\'' +
+                ", url_en='" + url_en + '\'' +
+                ", url_fr='" + url_fr + '\'' +
                 ", categorie_id='" + categorie_id + '\'' +
                 '}';
     }

@@ -14,8 +14,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.fourreau.readingchallenge.R;
@@ -275,6 +273,8 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     public void displaySuggestions(List<Suggestion> suggestions) {
         textViewSuggestionsNone = (TextView) findViewById(R.id.text_view_suggestions_none);
 
+//        AssociatesAPI.initialize(new AssociatesAPI.Config(APPLICATION_KEY, this));
+
         if (suggestions.size() > 0) {
             for (Suggestion s : suggestions) {
 
@@ -294,6 +294,13 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 addView.setPadding(10, 10, 20, 10);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(2, 5, 2, 5);
+                addView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent webViewIntent = new Intent(CategoryActivity.this, WebViewActivity.class);
+                        startActivity(webViewIntent);
+                    }
+                });
                 addView.setLayoutParams(lp);
                 //add row to container
                 containerSuggestions.addView(addView);
