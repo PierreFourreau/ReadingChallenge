@@ -25,18 +25,18 @@
     <string name="level">level</string>
     <string name="display">display</string>
     <string name="user_email">user_email</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <!--<string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>-->
+    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
+    <string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>
 
     <!--Intro activity-->
     <string name="title_activity_intro">Introduction</string>
     <string name="checkboxRemember">Do not display anymore</string>
     <string name="intro_title1">WELCOME ON READBOARD</string>
-    <string name="intro_title2">FOLLOW</string>
+    <string name="intro_title2">PROGRESSION</string>
     <string name="intro_title3">SHARE</string>
-    <string name="intro_content1">to ReadBoard, the reading challenge application. Are you ready to read ?</string>
-    <string name="intro_content2">your progression through a chosen number of reading categories.</string>
-    <string name="intro_content3">your progression with yours friends !</string>
+    <string name="intro_content1">This application is a reading challenge. Read at least one book for each proposed categories.</string>
+    <string name="intro_content2">Follow your progression through a chosen number of reading categories.</string>
+    <string name="intro_content3">Feel free to submit your suggestion and share your progression with yours friends. Are you ready to read ?</string>
 
     <!--Home activity-->
     <string name="action_change_display">Change display</string>

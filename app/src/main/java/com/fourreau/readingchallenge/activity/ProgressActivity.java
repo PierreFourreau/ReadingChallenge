@@ -127,7 +127,7 @@ public class ProgressActivity extends BaseActivity {
             progressCommentTextView.setText(getString(R.string.progress_comment0));
         }
         //beginner
-        else if (level == "1") {
+        else if (level.equals("1")) {
             if (numberReadCategories < 2)
                 progressCommentTextView.setText(getString(R.string.progress_comment10));
             else if (numberReadCategories < 4)
@@ -140,7 +140,7 @@ public class ProgressActivity extends BaseActivity {
                 progressCommentTextView.setText(getString(R.string.progress_comment50));
         }
         //intermediate
-        else if (level == "2") {
+        else if (level.equals("2")) {
             if (numberReadCategories < 4)
                 progressCommentTextView.setText(getString(R.string.progress_comment10));
             else if (numberReadCategories < 8)
@@ -153,7 +153,7 @@ public class ProgressActivity extends BaseActivity {
                 progressCommentTextView.setText(getString(R.string.progress_comment50));
         }
         //expert
-        else if (level == "3") {
+        else if (level.equals("3")) {
             if (numberReadCategories < 10)
                 progressCommentTextView.setText(getString(R.string.progress_comment10));
             else if (numberReadCategories < 20)
