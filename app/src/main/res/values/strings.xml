@@ -53,6 +53,8 @@
     <string name="category_unread">Category unread !</string>
     <string name="button_add_suggestion">Suggest a book</string>
     <string name="dialog_suggestion_intro">Do you have an idea of a book blending into this category?</string>
+    <string name="dialog_suggestion_book">Book</string>
+    <string name="dialog_suggestion_email">Your email (optional, to be notified of validation)</string>
     <string name="dialog_suggestion_error">Error during suggestion</string>
     <string name="dialog_suggestion_success_title">Thanks !</string>
     <string name="dialog_suggestion_success">The suggestion will be approved by administrator before publishing.</string>
@@ -62,7 +64,7 @@
     <string name="about_application_label">Application</string>
     <string name="about_application">ReadBoard</string>
     <string name="about_contact_label">Contact</string>
-    <string name="about_contact">readingchallenge.contact@gmail.com</string>
+    <string name="about_contact">read.board.contact@gmail.com</string>
     <string name="about_developer_label">Designers</string>
     <string name="about_developer"><a href="www.pierrefourreau.fr">www.pierrefourreau.fr</a> and Chloé Schiery</string>
     <string name="about_more_label">More</string>

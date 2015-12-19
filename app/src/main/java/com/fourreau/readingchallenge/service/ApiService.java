@@ -39,5 +39,5 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("/propositions")
-    void addProposition(@Field("libelle_fr") String libelle_fr, @Field("libelle_en") String libelle_en, @Field("categorie_id") String last, Callback<Integer> callback);
+    void addProposition(@Field("libelle_fr") String libelle_fr, @Field("libelle_en") String libelle_en, @Field("user_email") String user_email, @Field("user_language") String user_language, @Field("categorie_id") String last, Callback<Integer> callback);
 }

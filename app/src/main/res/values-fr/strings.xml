@@ -53,7 +53,9 @@
     <string name="category_unread">Catégorie non lue !</string>
     <string name="button_add_suggestion">Suggérer un livre</string>
     <string name="dialog_suggestion_intro">Avez-vous une idée de livre entrant dans cette catégorie ?</string>
-    <string name="dialog_suggestion_error">Erreur dans la suggestion</string>
+    <string name="dialog_suggestion_book">Livre</string>
+    <string name="dialog_suggestion_email">Votre email (optionnel, pour être notifié lors de la validation)</string>
+    <string name="dialog_suggestion_error">Erreur suggestion</string>
     <string name="dialog_suggestion_success_title">Merci !</string>
     <string name="dialog_suggestion_success">La suggestion sera soumise à la validation d\'un administrateur avant publication sous 24 heures.</string>
 
@@ -62,7 +64,7 @@
     <string name="about_application_label">Application</string>
     <string name="about_application">ReadBoard</string>
     <string name="about_contact_label">Contact</string>
-    <string name="about_contact">readingchallenge.contact@gmail.com</string>
+    <string name="about_contact">read.board.contact@gmail.com</string>
     <string name="about_developer_label">Concepteurs</string>
     <string name="about_developer">Pierre Fourreau (<a href="www.pierrefourreau.fr">pierrefourreau.fr</a>) et Chloé Schiery</string>
     <string name="about_more_label">Plus...</string>

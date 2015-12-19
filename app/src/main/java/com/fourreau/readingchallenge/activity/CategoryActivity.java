@@ -56,7 +56,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     private String categoryId;
     private Boolean frLanguage;
     private ButtonRectangle buttonAddSuggestion;
-    private EditText editTextLibelle;
+    private EditText editTextLibelle, editTextEmail;
     private LinearLayout containerSuggestions;
 
     private static final float MAX_TEXT_SCALE_DELTA = 0.3f;
@@ -142,6 +142,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(CategoryActivity.this);
                 alertDialogBuilder.setView(promptsView);
                 editTextLibelle = (EditText) promptsView.findViewById(R.id.editTextLibelle);
+                editTextEmail = (EditText) promptsView.findViewById(R.id.editTextEmail);
                 alertDialogBuilder
                         .setCancelable(true)
                         .setPositiveButton(R.string.ok,
@@ -150,6 +151,8 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
                                         String libelle_fr = "";
                                         String libelle_en = "";
+                                        String user_email = "";
+                                        String user_language = "";
 
                                         if (editTextLibelle.getText() != null) {
                                             String lib = editTextLibelle.getText().toString();
@@ -157,11 +160,18 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                                                 //detect language
                                                 if (frLanguage) {
                                                     libelle_fr = lib;
+                                                    user_language = "fr";
                                                 } else {
                                                     libelle_en = lib;
+                                                    user_language = "en";
                                                 }
 
-                                                apiService.addProposition(libelle_fr, libelle_en, categoryId, new Callback<Integer>() {
+                                                //email
+                                                String email = editTextEmail.getText().toString();
+                                                if (email != null && email.trim() != "" && email.length() > 1) {
+                                                    user_email = email;
+                                                }
+                                                apiService.addProposition(libelle_fr, libelle_en, user_email, user_language, categoryId, new Callback<Integer>() {
                                                     @Override
                                                     public void success(Integer id, Response response) {
                                                         displayAlertDialog(getString(R.string.dialog_suggestion_success_title), getString(R.string.dialog_suggestion_success));
