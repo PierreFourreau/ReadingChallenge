@@ -16,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.amazon.device.associates.AssociatesAPI;
+import com.amazon.device.associates.LinkService;
+import com.amazon.device.associates.NotInitializedException;
+import com.amazon.device.associates.OpenSearchPageRequest;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
@@ -273,7 +277,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     public void displaySuggestions(List<Suggestion> suggestions) {
         textViewSuggestionsNone = (TextView) findViewById(R.id.text_view_suggestions_none);
 
-//        AssociatesAPI.initialize(new AssociatesAPI.Config(APPLICATION_KEY, this));
+        AssociatesAPI.initialize(new AssociatesAPI.Config(Utils.AMAZON_API_KEY, this));
 
         if (suggestions.size() > 0) {
             for (Suggestion s : suggestions) {
@@ -285,20 +289,29 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 //get fields
                 TextView textViewSuggestion = (TextView) addView.findViewById(R.id.textViewSuggestion);
                 //set fields
+                final String libelle;
+                final String category = Utils.AMAZON_URL_CATEGORY;
                 if (frLanguage) {
-                    textViewSuggestion.setText(s.getLibelle_fr());
+                    libelle = s.getLibelle_fr();
                 } else {
-                    textViewSuggestion.setText(s.getLibelle_en());
+                    libelle = s.getLibelle_en();
                 }
+                textViewSuggestion.setText(libelle);
                 addView.setBackgroundResource(R.drawable.frame);
                 addView.setPadding(10, 10, 20, 10);
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(2, 5, 2, 5);
+                //link to amazon search
                 addView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent webViewIntent = new Intent(CategoryActivity.this, WebViewActivity.class);
-                        startActivity(webViewIntent);
+                        OpenSearchPageRequest request = new OpenSearchPageRequest(category, libelle);
+                        try {
+                            LinkService linkService = AssociatesAPI.getLinkService();
+                            linkService.openRetailPage(request);
+                        } catch (NotInitializedException e) {
+                            Timber.e("Category activity : Amazon link error" + e.toString());
+                        }
                     }
                 });
                 addView.setLayoutParams(lp);
