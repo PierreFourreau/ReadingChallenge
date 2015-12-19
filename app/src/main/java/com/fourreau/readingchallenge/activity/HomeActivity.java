@@ -194,6 +194,12 @@ public class HomeActivity extends BaseActivity {
             overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
         }
 
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(HomeActivity.this, HelpActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
+        }
+
         if (id == R.id.action_about) {
             Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
             startActivity(intent);

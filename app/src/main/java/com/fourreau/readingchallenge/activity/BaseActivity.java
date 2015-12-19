@@ -59,4 +59,16 @@ public abstract class BaseActivity extends AppCompatActivity {
         SharedPreferences sharedPref = BaseActivity.this.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
         return sharedPref.getInt(key, 0);
     }
+
+    protected void writeSharedPreferencesString(String key, String value) {
+        SharedPreferences sharedPref = BaseActivity.this.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    protected String readSharedPreferencesString(String key) {
+        SharedPreferences sharedPref = BaseActivity.this.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
+        return sharedPref.getString(key, "");
+    }
 }

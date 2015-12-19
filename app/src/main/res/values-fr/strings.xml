@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ReadBoard</string>
 
+    <string name="action_help">Aide</string>
     <string name="action_about">A propos</string>
     <string name="action_settings">Réglages</string>
 
@@ -23,13 +24,14 @@
     <string name="intro">intro</string>
     <string name="level">level</string>
     <string name="display">display</string>
+    <string name="user_email">user_email</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <!--<string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>-->
 
     <!--Intro activity-->
     <string name="title_activity_intro">Introduction</string>
     <string name="checkboxRemember">Ne plus afficher</string>
-    <string name="intro_title1">BIENVENUE</string>
+    <string name="intro_title1">BIENVENUE SUR READBORD</string>
     <string name="intro_title2">SUIVEZ</string>
     <string name="intro_title3">PARTAGEZ</string>
     <string name="intro_content1">dans l\'application ReadBoard, le challenge de lecture. Prêt à lire ?</string>
@@ -74,6 +76,18 @@
     <string name="title_activity_open_source_projects_used">Licences</string>
     <string name="donate_label">Vous souhaitez nous soutenir ?</string>
     <string name="button_donate">Faire un don</string>
+
+    <!--Help Activity-->
+    <string name="title_activity_help">Aide</string>
+    <string name="help_title1">Principe</string>
+    <string name="help_content1">ReadBoard est un challenge de lecture. Selon votre capacité de lecture, choisissez le niveau qui vous convient le mieux. L\'application vous proposera un nombre de catégories approprié. Une catégorie est une sorte de thème comportant une description et des suggestions de livres.</string>
+    <string name="help_title2">Application</string>
+    <string name="help_content2">L\'objectif est de lire un livre qui correspond à chaque catégorie du challenge ! Dès que le livre que vous avez terminé votre livre, valider la catégorie associée. Vous pouvez vous aider des differentes suggestions qui vous sont faites. N\'hésitez pas à proposer une nouvelle suggestion de livre afin d\'aider les autres utilisateurs dans leur challenge.</string>
+    <string name="help_title3">Fonctionnalités</string>
+    <string name="help_content3">Vous pouvez consulter votre progression afin de connaître le nombre de catégories à lire et le pourcentage d\'avancement.
+Vous pouvez partagez avec vos amis votre progression ou une catégorie choisie que vous venez de lire !
+Vous pouvez changer de niveau à tout moment. Les catégories déjà lues sont toujours enregistrées.
+En cliquant sur les suggestions de livres vous serez redirigés vers une recherche Amazon sur le livre choisi.</string>
 
     <!--Licences activity-->
     <string name="title_activity_licences">Licences</string>

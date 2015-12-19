@@ -143,6 +143,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 alertDialogBuilder.setView(promptsView);
                 editTextLibelle = (EditText) promptsView.findViewById(R.id.editTextLibelle);
                 editTextEmail = (EditText) promptsView.findViewById(R.id.editTextEmail);
+                editTextEmail.setText(readSharedPreferencesString(getString(R.string.user_email)));
                 alertDialogBuilder
                         .setCancelable(true)
                         .setPositiveButton(R.string.ok,
@@ -170,6 +171,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                                                 String email = editTextEmail.getText().toString();
                                                 if (email != null && email.trim() != "" && email.length() > 1) {
                                                     user_email = email;
+                                                    writeSharedPreferencesString(getString(R.string.user_email), user_email);
                                                 }
                                                 apiService.addProposition(libelle_fr, libelle_en, user_email, user_language, categoryId, new Callback<Integer>() {
                                                     @Override

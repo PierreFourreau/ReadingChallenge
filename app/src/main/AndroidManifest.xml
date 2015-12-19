@@ -76,6 +76,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.fourreau.readingchallenge.activity.CategoryActivity" />
         </activity>
+        <activity
+            android:name=".activity.HelpActivity"
+            android:label="@string/title_activity_help"
+            android:parentActivityName=".activity.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fourreau.readingchallenge.activity.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

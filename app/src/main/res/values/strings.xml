@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ReadBoard</string>
 
+    <string name="action_help">Help</string>
     <string name="action_about">About</string>
     <string name="action_settings">Settings</string>
 
@@ -23,13 +24,14 @@
     <string name="intro">intro</string>
     <string name="level">level</string>
     <string name="display">display</string>
+    <string name="user_email">user_email</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <!--<string name="banner_ad_unit_id">ca-app-pub-4193483750293542/9614713115</string>-->
 
     <!--Intro activity-->
     <string name="title_activity_intro">Introduction</string>
     <string name="checkboxRemember">Do not display anymore</string>
-    <string name="intro_title1">WELCOME</string>
+    <string name="intro_title1">WELCOME ON READBOARD</string>
     <string name="intro_title2">FOLLOW</string>
     <string name="intro_title3">SHARE</string>
     <string name="intro_content1">to ReadBoard, the reading challenge application. Are you ready to read ?</string>
@@ -74,6 +76,19 @@
     <string name="title_activity_open_source_projects_used">Licences</string>
     <string name="donate_label">Want to support us?</string>
     <string name="button_donate">Donate</string>
+
+    <!--Help Activity-->
+    <string name="title_activity_help">Help</string>
+    <string name="help_title1">Principle</string>
+    <string name="help_content1">ReadBoard is a reading challenge. Depending on your reading ability, choose the level that best suits you. The application will offer an appropriate number of categories. A category is a kind of theme including a description and suggestions of books.</string>
+    <string name="help_title2">Goal</string>
+    <string name="help_content2">The goal is to read a book that corresponds to each type of challenge ! As soon as the book you have finished your book, validate the associated category. You can help you with various suggestions made ​​to you. Feel free to suggest a new book suggestion to help others in their challenge.</string>
+    <string name="help_title3">Features</string>
+    <string name="help_content3">You can check your progress in order to know the number of categories to read and the percentage of completion.
+You can share your progress with friends or a selected category you just read !
+You can change the level at any time. The categories already read are always saved.
+By clicking on the suggestions of books you will be redirected to an Amazon search on selected book.</string>
+
 
     <!--Licences activity-->
     <string name="title_activity_licences">Licences</string>
@@ -120,7 +135,5 @@
     <string name="dialog_level_intermediate">Intermediate (24 categories)</string>
     <string name="dialog_level_expert">Expert (52 categories)</string>
     <string name="title_activity_web_view">WebViewActivity</string>
-
-    <string name="hello_world">Hello world!</string>
 
 </resources>
