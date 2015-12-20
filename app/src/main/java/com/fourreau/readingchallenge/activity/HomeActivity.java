@@ -137,7 +137,12 @@ public class HomeActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == CATEGORY_REQUEST) {
-                setImageReadOnCategory();
+                if (data.getExtras() != null && data.getExtras().getBoolean("checkChanged") && ((ReadingChallengeApplication) getApplicationContext()).getFilterCategories() != 0) {
+                    gridView.setAdapter(null);
+                    getCategories();
+                } else {
+                    setImageReadOnCategory();
+                }
             } else if (requestCode == SETTINGS_REQUEST) {
                 if (data.getExtras().getBoolean("levelChanged") || data.getExtras().getBoolean("displayChanged")) {
                     gridView.setAdapter(null);

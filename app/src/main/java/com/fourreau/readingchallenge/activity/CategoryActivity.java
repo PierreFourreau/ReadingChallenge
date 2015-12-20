@@ -47,8 +47,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     @Inject
     ApiService apiService;
 
-    private List<Suggestion> suggestions;
-    private Category category;
+    private int checkBefore, checkAfter;
     private String categoryId;
     private Boolean frLanguage;
     private ButtonRectangle buttonAddSuggestion;
@@ -125,8 +124,12 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
         //get if read or not
         if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
             setTitle(getTitle() + " " + getString(R.string.read));
+            checkBefore = 1;
+            checkAfter = 1;
         } else {
             setTitle(getTitle() + " " + getString(R.string.unread));
+            checkBefore = 0;
+            checkAfter = 0;
         }
 
         //add suggestion open a dialog
@@ -205,11 +208,13 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 0);
                     setTitle(getTitle() + " " + getString(R.string.unread));
                     mFab.setBackgroundColor(getResources().getColor(R.color.primary));
+                    checkAfter = 0;
                 } else {
                     displayErrorSnackBar(getString(R.string.category_read));
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 1);
                     setTitle(getTitle() + " " + getString(R.string.read));
                     mFab.setBackgroundColor(getResources().getColor(R.color.accent));
+                    checkAfter = 1;
                 }
 
             }
@@ -451,6 +456,9 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
 
     protected void backToPreviousActivity() {
         Intent intent = new Intent();
+        if (checkBefore != checkAfter) {
+            intent.putExtra("checkChanged", true);
+        }
         setResult(RESULT_OK, intent);
     }
 }
