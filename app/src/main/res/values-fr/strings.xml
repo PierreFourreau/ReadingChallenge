@@ -134,4 +134,7 @@ En cliquant sur les suggestions de livres vous serez redirigés vers une recherc
     <string name="dialog_level_intermediate">Intermédiaire (24 catégories)</string>
     <string name="dialog_level_expert">Expert (52 catégories)</string>
 
+    <!--WebView Activity-->
+    <string name="title_activity_web_view">Suggestion</string>
+    <string name="activity_web_view_no_content">Contenu indisponible pour cette suggestion</string>
 </resources>

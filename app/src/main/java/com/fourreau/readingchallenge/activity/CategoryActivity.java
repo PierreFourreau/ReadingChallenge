@@ -16,10 +16,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.amazon.device.associates.AssociatesAPI;
-import com.amazon.device.associates.LinkService;
-import com.amazon.device.associates.NotInitializedException;
-import com.amazon.device.associates.OpenSearchPageRequest;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
@@ -293,9 +289,6 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
      */
     public void displaySuggestions(List<Suggestion> suggestions) {
         textViewSuggestionsNone = (TextView) findViewById(R.id.text_view_suggestions_none);
-
-        AssociatesAPI.initialize(new AssociatesAPI.Config(Utils.AMAZON_API_KEY, this));
-
         if (suggestions.size() > 0) {
             for (Suggestion s : suggestions) {
 
@@ -307,11 +300,13 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 TextView textViewSuggestion = (TextView) addView.findViewById(R.id.textViewSuggestion);
                 //set fields
                 final String libelle;
-                final String category = Utils.AMAZON_URL_CATEGORY;
+                final String url;
                 if (frLanguage) {
                     libelle = s.getLibelle_fr();
+                    url = s.getUrl_fr();
                 } else {
                     libelle = s.getLibelle_en();
+                    url = s.getUrl_en();
                 }
                 textViewSuggestion.setText(libelle);
                 addView.setBackgroundResource(R.drawable.frame);
@@ -322,12 +317,13 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 addView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        OpenSearchPageRequest request = new OpenSearchPageRequest(category, libelle);
-                        try {
-                            LinkService linkService = AssociatesAPI.getLinkService();
-                            linkService.openRetailPage(request);
-                        } catch (NotInitializedException e) {
-                            Timber.e("Category activity : Amazon link error" + e.toString());
+                        if (url == null) {
+                            displayErrorSnackBar(getString(R.string.activity_web_view_no_content));
+                        } else {
+                            Intent intent = new Intent(CategoryActivity.this, WebViewActivity.class);
+                            intent.putExtra("url", url);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.activity_in, R.anim.activity_out);
                         }
                     }
                 });
