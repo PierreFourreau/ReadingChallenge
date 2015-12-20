@@ -146,7 +146,7 @@
         android:layout_gravity="left|top"
         android:scaleType="center"
         android:src="@drawable/ic_action_accept"
-        app:fab_colorNormal="@color/accent"
-        app:fab_colorPressed="@color/primary" />
+        app:fab_colorNormal="@color/primary"
+        app:fab_colorPressed="@color/light_primary" />
 
 </tools:FrameLayout>

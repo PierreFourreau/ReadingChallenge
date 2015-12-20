@@ -39,12 +39,12 @@
     <string name="intro_content3">Proposez votre suggestion de livre et partagez votre progression avec vos amis. Prêt à lire ?</string>
 
     <!--Home activity-->
-    <string name="action_change_display">Changer l\'ffichage</string>
+    <string name="action_change_display">Changer l\'affichage</string>
     <string name="activity_home_error">Erreur dans l\'affichage des catégories</string>
-    <string name="radio_categories">Toutes les categories</string>
+    <string name="radio_categories">Toutes les catégories</string>
     <string name="radio_categories_read">Catégories lues</string>
     <string name="radio_categories_unread">Catégories non lues</string>
-    <string name="loading_title">Téléhargement de vos catégories</string>
+    <string name="loading_title">Chargement de vos catégories</string>
 
     <!--Category activity-->
     <string name="title_activity_category">Catégorie</string>

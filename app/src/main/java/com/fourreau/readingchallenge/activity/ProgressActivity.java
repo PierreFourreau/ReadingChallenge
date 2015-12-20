@@ -111,7 +111,7 @@ public class ProgressActivity extends BaseActivity {
         cd.setAnimDuration(1500);
         cd.setValueWidthPercent(20f);
         cd.setTextSize(20f);
-        cd.setColor(Color.LTGRAY);
+        cd.setColor(getResources().getColor(R.color.primary));
         cd.setTouchEnabled(false);
         cd.setFormatDigits(1);
         cd.setUnit("%");

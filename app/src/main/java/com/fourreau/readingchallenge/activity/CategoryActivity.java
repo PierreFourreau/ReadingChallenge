@@ -196,6 +196,9 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
             }
         });
 
+        if (readSharedPreferences(getString(R.string.category_id) + categoryId) == 1) {
+            mFab.setBackgroundColor(getResources().getColor(R.color.accent));
+        }
         //read/unread button
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,10 +208,12 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                     displayErrorSnackBar(getString(R.string.category_unread));
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 0);
                     setTitle(getTitle() + " " + getString(R.string.unread));
+                    mFab.setBackgroundColor(getResources().getColor(R.color.primary));
                 } else {
                     displayErrorSnackBar(getString(R.string.category_read));
                     writeSharedPreferences(getString(R.string.category_id) + categoryId, 1);
                     setTitle(getTitle() + " " + getString(R.string.read));
+                    mFab.setBackgroundColor(getResources().getColor(R.color.accent));
                 }
 
             }
