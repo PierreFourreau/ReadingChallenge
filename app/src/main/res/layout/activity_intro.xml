@@ -22,11 +22,10 @@
         android:id="@+id/buttonPassIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:textSize="@dimen/text_Large"
+        android:textSize="@dimen/text_Xlarge"
         android:visibility="invisible"
-        android:paddingRight="10dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="40dp"
         android:background="@color/primary_text_default_material_dark"
         android:text="@string/pass" />
