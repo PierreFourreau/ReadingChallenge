@@ -13,6 +13,7 @@
 
         <GridView
             android:id="@+id/gridview"
+            android:drawSelectorOnTop="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:verticalSpacing="2dp"
