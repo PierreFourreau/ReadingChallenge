@@ -34,9 +34,9 @@
     <string name="intro_title1">WELCOME ON READBOARD</string>
     <string name="intro_title2">PROGRESSION</string>
     <string name="intro_title3">SHARE</string>
-    <string name="intro_content1">This application is a reading challenge. Read at least one book for each proposed categories.</string>
-    <string name="intro_content2">Follow your progression through a chosen number of reading categories.</string>
-    <string name="intro_content3">Feel free to submit your suggestion and share your progression with yours friends. Are you ready to read ?</string>
+    <string name="intro_content1">This application helps you to achieve a reading challenge. Choose a number of books to read in a year. Each book must fit into a given category. Read at least one book from each category and achieve your goal !</string>
+    <string name="intro_content2">Follow your progression through the number of categories you\'ve chosen.\n\n</string>
+    <string name="intro_content3">Feel free to submit your suggestions of books fitting in the categories and share your progression with yours friends. \n\nAre you ready to read ?</string>
 
     <!--Home activity-->
     <string name="action_change_display">Change display</string>
@@ -80,14 +80,14 @@
     <!--Help Activity-->
     <string name="title_activity_help">Help</string>
     <string name="help_title1">Principle</string>
-    <string name="help_content1">ReadBoard is a reading challenge. Depending on your reading ability, choose the level that best suits you. The application will offer an appropriate number of categories. A category is a kind of theme including a description and suggestions of books.</string>
+    <string name="help_content1">ReadBoard is a reading challenge. Depending on your reading ability, choose the level that best suits you. \n\nThe application will offer an appropriate number of categories. A category is a kind of theme including a description and suggestions of books.</string>
     <string name="help_title2">Goal</string>
     <string name="help_content2">The goal is to read a book that corresponds to each type of challenge ! As soon as the book you have finished your book, validate the associated category. You can help you with various suggestions made ​​to you. Feel free to suggest a new book suggestion to help others in their challenge.</string>
     <string name="help_title3">Features</string>
     <string name="help_content3">You can check your progress in order to know the number of categories to read and the percentage of completion.
-You can share your progress with friends or a selected category you just read !
-You can change the level at any time. The categories already read are always saved.
-By clicking on the suggestions of books you will be redirected to an Amazon search on selected book.</string>
+\n\nYou can share your progress with friends or a selected category you just read !
+\n\nYou can change the level at any time. The categories already read are always saved.
+\n\nBy clicking on the suggestions of books you will be redirected to an Amazon search on selected book.</string>
 
 
     <!--Licences activity-->

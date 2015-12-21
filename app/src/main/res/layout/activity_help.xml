@@ -12,7 +12,9 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:paddingTop="3dp"
+            android:paddingBottom="10dp">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -30,12 +32,13 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
-                    android:textSize="@dimen/text_Medium"
+                    android:textSize="@dimen/text_Large"
                     android:text="@string/help_title1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:textSize="@dimen/text_Medium"
                     android:text="@string/help_content1" />
             </LinearLayout>
@@ -55,7 +58,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_Medium"
+                    android:textSize="@dimen/text_Large"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:text="@string/help_title2" />
@@ -63,6 +66,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:textSize="@dimen/text_Medium"
                     android:text="@string/help_content2" />
             </LinearLayout>
@@ -82,7 +86,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/text_Medium"
+                    android:textSize="@dimen/text_Large"
                     android:textStyle="bold"
                     android:layout_marginTop="5dp"
                     android:text="@string/help_title3" />
@@ -90,8 +94,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:textSize="@dimen/text_Medium"
-                    android:autoLink="web"
                     android:text="@string/help_content3" />
             </LinearLayout>
         </LinearLayout>
