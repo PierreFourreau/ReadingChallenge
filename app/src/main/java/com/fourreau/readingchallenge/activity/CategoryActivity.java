@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
@@ -302,7 +303,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 //add row
                 LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 final View addView = layoutInflater.inflate(R.layout.suggestion_row, null);
-
+                final MaterialRippleLayout rippleView = (MaterialRippleLayout) addView.findViewById(R.id.suggestionRipple);
                 //get fields
                 TextView textViewSuggestion = (TextView) addView.findViewById(R.id.textViewSuggestion);
                 //set fields
@@ -321,7 +322,7 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 lp.setMargins(2, 5, 2, 5);
                 //link to amazon search
-                addView.setOnClickListener(new View.OnClickListener() {
+                rippleView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (url == null) {
