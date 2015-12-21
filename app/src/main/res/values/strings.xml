@@ -80,14 +80,14 @@
     <!--Help Activity-->
     <string name="title_activity_help">Help</string>
     <string name="help_title1">Principle</string>
-    <string name="help_content1">ReadBoard is a reading challenge. Depending on your reading ability, choose the level that best suits you. \n\nThe application will offer an appropriate number of categories. A category is a kind of theme including a description and suggestions of books.</string>
+    <string name="help_content1">ReadBoard is an app helping you to achieve a reading challenge. According to your reading abilities, choose the level that suits the best to you. \n\nAccording to the level you\'ve chosen, you will have a given number of books to read in order to achieve your challenge. The higher the level, the more books you will have to read.A category is a kind of theme including a description and suggestions of books. \n\nBe careful ! You can\'t read any book ! The point is to read at least one book from each given categories. A category is a thema ; but don\'t worry, it\'s really easy : you just have to choose a category to learn more about it ! Lack of ideas ? We propose you suggestions of books fitting in the category.</string>
     <string name="help_title2">Goal</string>
-    <string name="help_content2">The goal is to read a book that corresponds to each type of challenge ! As soon as the book you have finished your book, validate the associated category. You can help you with various suggestions made ​​to you. Feel free to suggest a new book suggestion to help others in their challenge.</string>
+    <string name="help_content2">The goal is to read a book that fits into each category of the challenge ! As soon as you finished your book, you can check the associated category. \n\nYou can find help with various suggestions of books fitting into the category. Feel free to suggest a new book suggestion to help other users in their challenge !</string>
     <string name="help_title3">Features</string>
-    <string name="help_content3">You can check your progress in order to know the number of categories to read and the percentage of completion.
-\n\nYou can share your progress with friends or a selected category you just read !
-\n\nYou can change the level at any time. The categories already read are always saved.
-\n\nBy clicking on the suggestions of books you will be redirected to an Amazon search on selected book.</string>
+    <string name="help_content3">You can check your progress in order to know the number of categories left to read and the percentage of completion.
+\n\nYou can share your progress with your friends or a selected category you just checked !
+\n\nYou dreamed too big ? Tou think the challenge is too easy ? It\'s okay, you can change the level anytime ! The read categories will stay saved.
+\n\nBy clicking on the suggestions of books, you will be redirected to the Wikipedia page which describes the chosen book. Is it doesn\'t exist, don\'t hesitate to create it !</string>
 
 
     <!--Licences activity-->
@@ -95,8 +95,8 @@
 
     <!--Share action-->
     <string name="action_share">Share</string>
-    <string name="action_share_category">\@ReadBoard I just read a new category in my reading challenge : </string>
-    <string name="action_share_progress1">\@ReadBoard I have already read</string>
+    <string name="action_share_category">\@Read_Board I just read a new category in my reading challenge : </string>
+    <string name="action_share_progress1">\@Read_Board I have already read</string>
     <string name="action_share_progress2">out of</string>
     <string name="action_share_progress3">categories in my reading challenge !</string>
 
@@ -109,11 +109,11 @@
     <string name="progress_number_label2">of the</string>
     <string name="progress_number_label3">categories of the challenge !</string>
     <string name="progress_loading">Loading your progress</string>
-    <string name="progress_comment0">It\'s time to get started !</string>
+    <string name="progress_comment0">Lack of motivation ? Cheer up, and start with the easier categories !</string>
     <string name="progress_comment10">It\'s a good start !</string>
-    <string name="progress_comment20">You can go on again !</string>
-    <string name="progress_comment30">You are on the right track !</string>
-    <string name="progress_comment40">Very good, continue !</string>
+    <string name="progress_comment20">Continue, you are on the right track !</string>
+    <string name="progress_comment30">Woohoo, there\'s a great reader amongst us !</string>
+    <string name="progress_comment40">Your success in this challenge comes closer and closer...</string>
     <string name="progress_comment50">You\'re almost there, still a small effort!</string>
     <string name="progress_comment_all">Congratulations, you have read one book in each category. You can be proud of you. Feel free to share the good news !</string>
 

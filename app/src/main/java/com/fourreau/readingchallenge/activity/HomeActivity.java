@@ -12,6 +12,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.balysv.materialripple.MaterialRippleLayout;
 import com.baoyz.widget.PullRefreshLayout;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.adapter.CategoryAdapter;
