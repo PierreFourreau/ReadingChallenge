@@ -59,8 +59,8 @@ android {
         applicationId "com.fourreau.readingchallenge"
         minSdkVersion 15
         targetSdkVersion 22
-        versionCode 2
-        versionName "1.1 beta"
+        versionCode 3
+        versionName "1.2 beta"
     }
     buildTypes {
         release {
