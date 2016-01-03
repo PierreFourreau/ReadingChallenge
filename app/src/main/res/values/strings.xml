@@ -15,7 +15,7 @@
     <string name="level_beginner">Beginner</string>
     <string name="level_intermediate">Intermediate</string>
     <string name="level_expert">Expert</string>
-    <string name="activity_category_error">Error when getting category</string>
+    <string name="activity_category_error">Error when getting themes</string>
     <string name="activity_category_suggestions_error">Error when getting suggestions</string>
 
     <!--Only for dev-->
@@ -34,27 +34,27 @@
     <string name="intro_title1">WELCOME ON READBOARD</string>
     <string name="intro_title2">PROGRESSION</string>
     <string name="intro_title3">SHARE</string>
-    <string name="intro_content1">This application helps you to achieve a reading challenge. Choose a number of books to read in a year. Each book must fit into a given category. Read at least one book from each category and achieve your goal !</string>
-    <string name="intro_content2">Follow your progression through the number of categories you\'ve chosen.\n\n</string>
-    <string name="intro_content3">Feel free to submit your suggestions of books fitting in the categories and share your progression with yours friends. \n\nAre you ready to read ?</string>
+    <string name="intro_content1">This application helps you to achieve a reading challenge. Choose a number of books to read in a year. Each book must fit into a given theme. Read at least one book from each theme and achieve your goal !</string>
+    <string name="intro_content2">Follow your progression through the number of themes you\'ve chosen.\n\n</string>
+    <string name="intro_content3">Feel free to submit your suggestions of books fitting in the themes and share your progression with yours friends. \n\nAre you ready to read ?</string>
 
     <!--Home activity-->
     <string name="action_change_display">Change display</string>
-    <string name="activity_home_error">Error when getting categories</string>
-    <string name="radio_categories">All categories</string>
-    <string name="radio_categories_read">Read categories</string>
-    <string name="radio_categories_unread">Unread categories</string>
-    <string name="loading_title">Loading your categories</string>
+    <string name="activity_home_error">Error when getting themes</string>
+    <string name="radio_categories">All themes</string>
+    <string name="radio_categories_read">Read themes</string>
+    <string name="radio_categories_unread">Unread themes</string>
+    <string name="loading_title">Loading your themes</string>
 
     <!--Category activity-->
-    <string name="title_activity_category">Category</string>
+    <string name="title_activity_category">Theme</string>
     <string name="read">read</string>
     <string name="unread">unread</string>
     <string name="suggestions_title">Suggestions</string>
-    <string name="category_read">Category read !</string>
-    <string name="category_unread">Category unread !</string>
+    <string name="category_read">Theme read !</string>
+    <string name="category_unread">Theme unread !</string>
     <string name="button_add_suggestion">Suggest a book</string>
-    <string name="dialog_suggestion_intro">Do you have an idea of a book blending into this category?</string>
+    <string name="dialog_suggestion_intro">Do you have an idea of a book blending into this theme?</string>
     <string name="dialog_suggestion_book">Book</string>
     <string name="dialog_suggestion_email">Your email (optional, to be notified of validation)</string>
     <string name="dialog_suggestion_error">Error during suggestion</string>
@@ -80,13 +80,13 @@
     <!--Help Activity-->
     <string name="title_activity_help">Help</string>
     <string name="help_title1">Principle</string>
-    <string name="help_content1">ReadBoard is an app helping you to achieve a reading challenge. According to your reading abilities, choose the level that suits the best to you. \n\nAccording to the level you\'ve chosen, you will have a given number of books to read in order to achieve your challenge. The higher the level, the more books you will have to read.A category is a kind of theme including a description and suggestions of books. \n\nBe careful ! You can\'t read any book ! The point is to read at least one book from each given categories. A category is a thema ; but don\'t worry, it\'s really easy : you just have to choose a category to learn more about it ! Lack of ideas ? We propose you suggestions of books fitting in the category.</string>
+    <string name="help_content1">ReadBoard is an app helping you to achieve a reading challenge. According to your reading abilities, choose the level that suits the best to you. \n\nAccording to the level you\'ve chosen, you will have a given number of books to read in order to achieve your challenge. The higher the level, the more books you will have to read. Each theme include a description and suggestions of books. \n\nBe careful ! You can\'t read any book ! The point is to read at least one book from each given themes. It\'s really easy : you just have to choose a theme to learn more about it ! Lack of ideas ? We propose you suggestions of books fitting in the theme.</string>
     <string name="help_title2">Goal</string>
-    <string name="help_content2">The goal is to read a book that fits into each category of the challenge ! As soon as you finished your book, you can check the associated category. \n\nYou can find help with various suggestions of books fitting into the category. Feel free to suggest a new book suggestion to help other users in their challenge !</string>
+    <string name="help_content2">The goal is to read a book that fits into each theme of the challenge ! As soon as you finished your book, you can check the associated theme. \n\nYou can find help with various suggestions of books fitting into the theme. Feel free to suggest a new book suggestion to help other users in their challenge !</string>
     <string name="help_title3">Features</string>
-    <string name="help_content3">You can check your progress in order to know the number of categories left to read and the percentage of completion.
-\n\nYou can share your progress with your friends or a selected category you just checked !
-\n\nYou dreamed too big ? Tou think the challenge is too easy ? It\'s okay, you can change the level anytime ! The read categories will stay saved.
+    <string name="help_content3">You can check your progress in order to know the number of themes left to read and the percentage of completion.
+\n\nYou can share your progress with your friends or a selected theme you just checked !
+\n\nYou dreamed too big ? Tou think the challenge is too easy ? It\'s okay, you can change the level anytime ! The read themes will stay saved.
 \n\nBy clicking on the suggestions of books, you will be redirected to the Wikipedia page which describes the chosen book. Is it doesn\'t exist, don\'t hesitate to create it !</string>
 
 
@@ -95,10 +95,10 @@
 
     <!--Share action-->
     <string name="action_share">Share</string>
-    <string name="action_share_category">\@Read_Board I just read a new category in my reading challenge : </string>
+    <string name="action_share_category">\@Read_Board I just read a new theme in my reading challenge : </string>
     <string name="action_share_progress1">\@Read_Board I have already read</string>
     <string name="action_share_progress2">out of</string>
-    <string name="action_share_progress3">categories in my reading challenge !</string>
+    <string name="action_share_progress3">themes in my reading challenge !</string>
 
     <!--Progress activity-->
     <string name="action_progress">My progress</string>
@@ -107,33 +107,33 @@
     <string name="progress_error">Error when loading your progress</string>
     <string name="progress_number_label1">You have read </string>
     <string name="progress_number_label2">of the</string>
-    <string name="progress_number_label3">categories of the challenge !</string>
+    <string name="progress_number_label3">themes of the challenge !</string>
     <string name="progress_loading">Loading your progress</string>
-    <string name="progress_comment0">Lack of motivation ? Cheer up, and start with the easier categories !</string>
+    <string name="progress_comment0">Lack of motivation ? Cheer up, and start with the easier themes !</string>
     <string name="progress_comment10">It\'s a good start !</string>
     <string name="progress_comment20">Continue, you are on the right track !</string>
     <string name="progress_comment30">Woohoo, there\'s a great reader amongst us !</string>
     <string name="progress_comment40">Your success in this challenge comes closer and closer...</string>
     <string name="progress_comment50">You\'re almost there, still a small effort!</string>
-    <string name="progress_comment_all">Congratulations, you have read one book in each category. You can be proud of you. Feel free to share the good news !</string>
+    <string name="progress_comment_all">Congratulations, you have read one book in each theme. You can be proud of you. Feel free to share the good news !</string>
 
     <!--Settings activity-->
     <string name="title_activity_settings">Settings</string>
     <string name="settings_level_label">Change the level of your reading challenge.</string>
-    <string name="settings_display_label">Change the number of columns in categories display.</string>
+    <string name="settings_display_label">Change the number of columns in themes display.</string>
     <string name="settings_display_columns1">1 column</string>
     <string name="settings_display_columns2">2 columns</string>
     <string name="settings_display_columns3">3 columns</string>
-    <string name="settings_level_content1">Beginner : 12 categories per year (1 book per month)</string>
-    <string name="settings_level_content2">Intermediate : 24 categories per yeat (2 books per month)</string>
-    <string name="settings_level_content3">Expert : 52 categories per yeat (1 book per week)</string>
+    <string name="settings_level_content1">Beginner : 12 themes per year (1 book per month)</string>
+    <string name="settings_level_content2">Intermediate : 24 themes per year (2 books per month)</string>
+    <string name="settings_level_content3">Expert : 52 themes per year (1 book per week)</string>
 
     <!--Dialog level-->
     <string name="dialog_level_title">Please choose a level</string>
     <string name="dialog_level_content">One book per month? Two books per month? One book per week? Or a book whenever you want! \n\n You can change the level later.</string>
-    <string name="dialog_level_beginner">Beginner (10 categories)</string>
-    <string name="dialog_level_intermediate">Intermediate (24 categories)</string>
-    <string name="dialog_level_expert">Expert (52 categories)</string>
+    <string name="dialog_level_beginner">Beginner (10 themes)</string>
+    <string name="dialog_level_intermediate">Intermediate (24 themes)</string>
+    <string name="dialog_level_expert">Expert (52 themes)</string>
 
     <!--WebView Activity-->
     <string name="title_activity_web_view">Suggestion</string>
