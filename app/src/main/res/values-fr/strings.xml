@@ -31,12 +31,14 @@
     <!--Intro activity-->
     <string name="title_activity_intro">Introduction</string>
     <string name="checkboxRemember">Ne plus afficher</string>
-    <string name="intro_title1">BIENVENUE SUR READBORD</string>
+    <string name="intro_title1">BIENVENUE SUR READBOARD</string>
     <string name="intro_title2">PROGRESSION</string>
     <string name="intro_title3">PARTAGEZ</string>
+    <string name="intro_title4">Prêt à lire ?</string>
     <string name="intro_content1">Cette application vous aide à suivre (et réussir !) un challenge de lecture. Choisissez un nombre de livres à lire en une année. Chaque livre doit entrer dans un thème donné. Lisez au moins un livre de chaque thème et réussissez votre challenge !</string>
     <string name="intro_content2">Suivez votre progression au fil des différents thèmes validés. \n \n \n \n </string>
-    <string name="intro_content3">Proposez vos suggestions de livres pour les différents thèmes et partagez votre progression avec vos amis. \n \n Prêt à lire ? \n </string>
+    <string name="intro_content3">Proposez vos suggestions de livres pour les différents thèmes et partagez votre progression avec vos amis. \n \n</string>
+    <string name="intro_content4"></string>
 
     <!--Home activity-->
     <string name="action_change_display">Changer l\'affichage</string>

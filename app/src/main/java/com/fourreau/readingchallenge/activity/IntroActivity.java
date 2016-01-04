@@ -171,7 +171,7 @@ public class IntroActivity extends BaseActivity {
             }
 
             public void onPageSelected(int position) {
-                if (position == 2) {
+                if (position == 3) {
                     layoutNotAnymore.setVisibility(View.VISIBLE);
                     buttonPassIntro.setVisibility(View.VISIBLE);
                 } else {

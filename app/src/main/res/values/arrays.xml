@@ -14,6 +14,7 @@
         <item>@drawable/intro_book</item>
         <item>@drawable/intro_notes</item>
         <item>@drawable/intro_social</item>
+        <item>@drawable/intro4</item>
 
     </array>
 
@@ -22,6 +23,7 @@
         <item>@string/intro_title1</item>
         <item>@string/intro_title2</item>
         <item>@string/intro_title3</item>
+        <item>@string/intro_title4</item>
 
     </string-array>
 
@@ -30,6 +32,7 @@
         <item>@string/intro_content1</item>
         <item>@string/intro_content2</item>
         <item>@string/intro_content3</item>
+        <item>@string/intro_content4</item>
 
     </string-array>
 </resources>

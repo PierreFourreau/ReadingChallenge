@@ -34,9 +34,11 @@
     <string name="intro_title1">WELCOME ON READBOARD</string>
     <string name="intro_title2">PROGRESSION</string>
     <string name="intro_title3">SHARE</string>
+    <string name="intro_title4">Are you ready to read ?</string>
     <string name="intro_content1">This application helps you to achieve a reading challenge. Choose a number of books to read in a year. Each book must fit into a given theme. Read at least one book from each theme and achieve your goal !</string>
     <string name="intro_content2">Follow your progression through the number of themes you\'ve chosen.\n\n</string>
-    <string name="intro_content3">Feel free to submit your suggestions of books fitting in the themes and share your progression with yours friends. \n\nAre you ready to read ?</string>
+    <string name="intro_content3">Feel free to submit your suggestions of books fitting in the themes and share your progression with yours friends. \n\n</string>
+    <string name="intro_content4"></string>
 
     <!--Home activity-->
     <string name="action_change_display">Change display</string>
