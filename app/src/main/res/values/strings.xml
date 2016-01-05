@@ -97,8 +97,10 @@
 
     <!--Share action-->
     <string name="action_share">Share</string>
-    <string name="action_share_category">\@Read_Board I just read a new theme in my reading challenge : </string>
-    <string name="action_share_progress1">\@Read_Board I have already read</string>
+    <string name="action_share_category">I just read a new theme in my reading challenge : </string>
+    <string name="action_share_hashtag_fr">\@Read_Board_fr #ReadingChallenge</string>
+    <string name="action_share_hashtag_en">\@Read_Board #ReadingChallenge</string>
+    <string name="action_share_progress1">I have already read</string>
     <string name="action_share_progress2">out of</string>
     <string name="action_share_progress3">themes in my reading challenge !</string>
 

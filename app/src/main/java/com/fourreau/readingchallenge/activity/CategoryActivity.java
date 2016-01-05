@@ -441,7 +441,14 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                 //share content
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_category) + " " + title.getText());
+                String hashtag;
+                if(frLanguage) {
+                    hashtag = getString(R.string.action_share_hashtag_fr);
+                }
+                else {
+                    hashtag = getString(R.string.action_share_hashtag_en);
+                }
+                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_category) + " " + title.getText() + " " + hashtag);
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
                 return true;

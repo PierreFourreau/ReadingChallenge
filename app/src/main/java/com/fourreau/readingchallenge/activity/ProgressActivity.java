@@ -16,6 +16,7 @@ import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.CircleDisplay;
 import com.fourreau.readingchallenge.service.ApiService;
+import com.fourreau.readingchallenge.util.Utils;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
@@ -40,6 +41,7 @@ public class ProgressActivity extends BaseActivity {
     private ImageView imageHeader, progressIcon;
     private CircleDisplay circleDisplay;
 
+    private Boolean frLanguage;
     private String level;
 
     @Override
@@ -49,6 +51,7 @@ public class ProgressActivity extends BaseActivity {
         ((ReadingChallengeApplication) getApplication()).inject(this);
 
         level = String.valueOf(((ReadingChallengeApplication) this.getApplication()).getLevel());
+        frLanguage = ((ReadingChallengeApplication) getApplicationContext()).getLanguage().equals(Utils.FR);
 
         //images
         imageHeader = (ImageView) findViewById(R.id.imageHeader);
@@ -186,7 +189,14 @@ public class ProgressActivity extends BaseActivity {
             case R.id.action_share:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_progress1) + " " + numberReadCategories + " " + getString(R.string.action_share_progress2) + " " + totalCategories + " " + getString(R.string.action_share_progress3));
+                String hashtag;
+                if(frLanguage) {
+                    hashtag = getString(R.string.action_share_hashtag_fr);
+                }
+                else {
+                    hashtag = getString(R.string.action_share_hashtag_en);
+                }
+                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.action_share_progress1) + " " + numberReadCategories + " " + getString(R.string.action_share_progress2) + " " + totalCategories + " " + getString(R.string.action_share_progress3) + " " + hashtag);
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
                 return true;

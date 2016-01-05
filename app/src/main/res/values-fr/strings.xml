@@ -96,8 +96,10 @@
 
     <!--Share action-->
     <string name="action_share">Partager</string>
-    <string name="action_share_category">\@Read_Board Je viens de valider un thème de mon challenge de lecture :</string>
-    <string name="action_share_progress1">\@Read_Board J\'ai déjà lu</string>
+    <string name="action_share_category">Je viens de valider un thème de mon challenge de lecture :</string>
+    <string name="action_share_hashtag_fr">\@Read_Board_fr #ReadingChallenge</string>
+    <string name="action_share_hashtag_en">\@Read_Board #ReadingChallenge</string>
+    <string name="action_share_progress1">J\'ai déjà lu</string>
     <string name="action_share_progress2">des</string>
     <string name="action_share_progress3">thèmes de mon challenge de lecture !</string>
 
