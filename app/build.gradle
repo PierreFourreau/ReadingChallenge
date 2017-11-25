@@ -49,6 +49,7 @@ dependencies {
     compile 'com.baoyz.pullrefreshlayout:library:1.2.0'
     //ripple effect
     compile 'com.balysv:material-ripple:1.0.2'
+    compile 'com.google.code.gson:gson:2.8.2'
 }
 
 android {
