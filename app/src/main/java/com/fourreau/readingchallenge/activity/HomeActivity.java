@@ -11,12 +11,12 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.baoyz.widget.PullRefreshLayout;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.adapter.CategoryAdapter;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
-import com.fourreau.readingchallenge.service.ApiService;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.HitBuilders;
@@ -24,16 +24,14 @@ import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 
 public class HomeActivity extends BaseActivity {
-
-  @Inject ApiService apiService;
 
   private GridView gridView;
   private CategoryAdapter categoryAdapter;
@@ -50,7 +48,6 @@ public class HomeActivity extends BaseActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_home);
-    ((ReadingChallengeApplication) getApplication()).inject(this);
 
     gridView = (GridView) findViewById(R.id.gridview);
 

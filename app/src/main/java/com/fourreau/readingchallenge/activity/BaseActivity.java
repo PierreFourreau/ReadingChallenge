@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
+import android.widget.Toast;
 
 import com.fourreau.readingchallenge.R;
 import com.gc.materialdesign.widgets.SnackBar;
@@ -18,12 +19,15 @@ import com.gc.materialdesign.widgets.SnackBar;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected void displayErrorSnackBar(String message) {
-        new com.github.mrengineer13.snackbar.SnackBar.Builder(this)
-                .withMessage(message)
-                .withActionMessage("OK")
-                .withDuration(new Short("2000"))
-                .show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+//        new com.github.mrengineer13.snackbar.SnackBar.Builder(this)
+//                .withMessage(message)
+//                .withActionMessage("OK")
+//                .withDuration(new Short("2000"))
+//                .show();
     }
+
+
 
     protected void displayAlertDialog(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

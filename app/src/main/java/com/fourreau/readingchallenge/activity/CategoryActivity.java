@@ -15,12 +15,12 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.Suggestion;
-import com.fourreau.readingchallenge.service.ApiService;
 import com.fourreau.readingchallenge.util.Utils;
 import com.gc.materialdesign.views.ButtonRectangle;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -33,16 +33,12 @@ import com.melnykov.fab.FloatingActionButton;
 import com.nineoldandroids.view.ViewHelper;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
-import javax.inject.Inject;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+
 import timber.log.Timber;
 
 public class CategoryActivity extends BaseActivity implements ObservableScrollViewCallbacks {
-
-  @Inject ApiService apiService;
 
   private int checkBefore, checkAfter;
   private String categoryId;
@@ -70,7 +66,6 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_category);
-    ((ReadingChallengeApplication) getApplication()).inject(this);
 
     categoryId = ((ReadingChallengeApplication) this.getApplication()).getCategoryId();
     frLanguage = ((ReadingChallengeApplication) getApplicationContext()).getLanguage().equals(Utils.FR);
@@ -144,16 +139,6 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
                   user_email = email;
                   writeSharedPreferencesString(getString(R.string.user_email), user_email);
                 }
-                apiService.addProposition(libelle_fr, libelle_en, user_email, user_language, categoryId, new Callback<Integer>() {
-                  @Override public void success(Integer id, Response response) {
-                    displayAlertDialog(getString(R.string.dialog_suggestion_success_title), getString(R.string.dialog_suggestion_success));
-                  }
-
-                  @Override public void failure(RetrofitError error) {
-                    displayErrorSnackBar(getString(R.string.dialog_suggestion_error));
-                    Timber.e("Error add suggestion : " + error.getMessage());
-                  }
-                });
               }
             }
           }
@@ -248,10 +233,11 @@ public class CategoryActivity extends BaseActivity implements ObservableScrollVi
     //set image
     if (category.getImage() != null && !category.getImage().isEmpty()) {
       Picasso.with(getApplicationContext())
-          .load(Utils.BASE_URL + Utils.URL_UPLOAD + category.getImage())
+          .load(getResources().getIdentifier(category.getImage(), "drawable", getPackageName()))
           .fit()
           .centerCrop()
           .into((ImageView) mImageView);
+
     } else {
       Picasso.with(getApplicationContext()).load(R.drawable.default_category).fit().centerCrop().into((ImageView) mImageView);
     }

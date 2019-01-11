@@ -9,21 +9,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.core.ReadingChallengeApplication;
 import com.fourreau.readingchallenge.model.Category;
 import com.fourreau.readingchallenge.model.CircleDisplay;
-import com.fourreau.readingchallenge.service.ApiService;
 import com.fourreau.readingchallenge.util.Utils;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.squareup.picasso.Picasso;
+
 import java.util.List;
-import javax.inject.Inject;
 
 public class ProgressActivity extends BaseActivity {
-
-  @Inject ApiService apiService;
 
   private TextView progressLine, progressCommentTextView;
   private int numberReadCategories = 0, totalCategories = 0;
@@ -37,7 +35,6 @@ public class ProgressActivity extends BaseActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_progress);
-    ((ReadingChallengeApplication) getApplication()).inject(this);
 
     level = String.valueOf(((ReadingChallengeApplication) this.getApplication()).getLevel());
     frLanguage = ((ReadingChallengeApplication) getApplicationContext()).getLanguage().equals(Utils.FR);

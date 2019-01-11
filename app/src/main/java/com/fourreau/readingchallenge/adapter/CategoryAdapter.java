@@ -2,6 +2,8 @@ package com.fourreau.readingchallenge.adapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,22 +101,41 @@ public final class CategoryAdapter extends BaseAdapter {
         id.setText(item.id);
         //image
         if (!item.image_name.isEmpty()) {
-            Picasso.with(context).load(Utils.BASE_URL + Utils.URL_UPLOAD + item.image_name).fit().centerCrop().into(picture);
-        } else {
+            try {
+                Picasso.with(context).load(context.getResources().getIdentifier(item.image_name, "drawable", context.getPackageName())).fit().centerCrop().into(picture);
+            } catch (Exception e) {
+                // Do nothing
+            }
+        } else
+
+        {
             Picasso.with(context).load(R.drawable.default_category).fit().centerCrop().into(picture);
         }
+
         //if book is already read or not
         SharedPreferences sharedPref = context.getSharedPreferences("readingchallenge", Context.MODE_PRIVATE);
-        if (sharedPref.getInt(context.getString(R.string.category_id) + item.id, 0) == 1) {
+        if (sharedPref.getInt(context.getString(R.string.category_id) + item.id, 0) == 1)
+
+        {
             Picasso.with(context).load(R.drawable.circle_check).into(pictureRead);
             pictureRead.setVisibility(View.VISIBLE);
-        } else {
+        } else
+
+        {
             pictureRead.setVisibility(View.GONE);
         }
         //label
-        if (((ReadingChallengeApplication) context.getApplicationContext()).getLanguage().equals(Utils.FR)) {
+        if (((ReadingChallengeApplication) context.getApplicationContext()).
+
+                getLanguage().
+
+                equals(Utils.FR))
+
+        {
             name.setText(item.name_fr);
-        } else {
+        } else
+
+        {
             name.setText(item.name);
         }
         return v;

@@ -5,7 +5,6 @@ import android.util.Log;
 import com.crashlytics.android.Crashlytics;
 import com.fourreau.readingchallenge.BuildConfig;
 import com.fourreau.readingchallenge.R;
-import com.fourreau.readingchallenge.core.module.RestModule;
 import com.fourreau.readingchallenge.model.Category;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
@@ -33,8 +32,6 @@ public class ReadingChallengeApplication extends Application {
   //display number of columns
   public int display;
 
-  private ObjectGraph applicationGraph;
-
   private Tracker mTracker;
 
   @Override public void onCreate() {
@@ -50,8 +47,6 @@ public class ReadingChallengeApplication extends Application {
 
     //set device language
     setLanguage(Locale.getDefault().getLanguage());
-
-    applicationGraph = ObjectGraph.create(getModules().toArray());
   }
 
   public String getCategoryId() {
@@ -100,18 +95,6 @@ public class ReadingChallengeApplication extends Application {
 
   public void setCategories(List<Category> categories) {
     this.categories = categories;
-  }
-
-  /**
-   * A list of modules to use for the application graph. Subclasses can override this method to
-   * provide additional modules provided they call {@code super.getModules()}.
-   */
-  protected List<Object> getModules() {
-    return Arrays.<Object>asList(new RestModule(this));
-  }
-
-  public void inject(Object target) {
-    applicationGraph.inject(target);
   }
 
   /** A tree which logs important information for crash reporting. */
