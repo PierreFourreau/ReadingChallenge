@@ -41,7 +41,7 @@ public class SettingsActivity extends BaseActivity {
         }
 
         //display
-        display = ((ReadingChallengeApplication) this.getApplication()).getDisplay();
+        display = ((ReadingChallengeApplication) this.getApplication()).getDisplayColumns();
         displayBefore = display;
         radioButtonDisplay1 = (RadioButton) findViewById(R.id.settingsDisplay1);
         radioButtonDisplay2 = (RadioButton) findViewById(R.id.settingsDisplay2);
@@ -101,7 +101,7 @@ public class SettingsActivity extends BaseActivity {
         } else {
             intent.putExtra("levelChanged", true);
         }
-        if (displayBefore == ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).getDisplay()) {
+        if (displayBefore == ((ReadingChallengeApplication) getApplicationContext().getApplicationContext()).getDisplayColumns()) {
             intent.putExtra("displayChanged", false);
         } else {
             intent.putExtra("displayChanged", true);

@@ -77,6 +77,7 @@
     <string name="about_projects_button">Open source licenses</string>
     <string name="title_activity_open_source_projects_used">Licences</string>
     <string name="donate_label">Want to support us?</string>
+    <string name="privacy_label">Privacy policy</string>
     <string name="button_donate">Donate</string>
 
     <!--Help Activity-->

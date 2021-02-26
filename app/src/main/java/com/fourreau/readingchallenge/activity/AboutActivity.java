@@ -17,7 +17,7 @@ import com.google.android.gms.analytics.Tracker;
 
 public class AboutActivity extends AppCompatActivity {
 
-    private ButtonRectangle buttonDonate, buttonOpenSourceProjects;
+    private ButtonRectangle buttonDonate, buttonOpenSourceProjects, buttonPrivacyPolicy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,16 @@ public class AboutActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        buttonPrivacyPolicy = (ButtonRectangle) findViewById(R.id.button_privacy);
+        buttonPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse(Utils.PRIVACY_URL);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
         //analytics
         ReadingChallengeApplication application = (ReadingChallengeApplication) getApplication();
@@ -50,7 +60,6 @@ public class AboutActivity extends AppCompatActivity {
         mTracker.setScreenName("AboutActivity");
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -36,13 +36,13 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 30
     buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "com.fourreau.readingchallenge"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 30
         versionCode 9
         versionName "2.0"
     }

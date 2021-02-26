@@ -9,6 +9,7 @@ public final class Utils {
     }
 
     public static String DONATION_URL = "https://www.paypal.me/PierreFourreau";
+    public static String PRIVACY_URL = "https://pierrefourreau.github.io/policy/readingchallenge_privacy_policy.html";
 
     public static String FR = "fr";
 }

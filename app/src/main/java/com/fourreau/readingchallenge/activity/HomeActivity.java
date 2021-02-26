@@ -132,7 +132,7 @@ public class HomeActivity extends BaseActivity {
       }
     });
 
-    gridView.setNumColumns(((ReadingChallengeApplication) this.getApplication()).getDisplay());
+    gridView.setNumColumns(((ReadingChallengeApplication) this.getApplication()).getDisplayColumns());
     gridView.setAdapter(categoryAdapter);
   }
 

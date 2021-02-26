@@ -1,18 +1,13 @@
 package com.fourreau.readingchallenge.core;
 
 import android.app.Application;
-import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 import com.fourreau.readingchallenge.BuildConfig;
 import com.fourreau.readingchallenge.R;
 import com.fourreau.readingchallenge.model.Category;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
-import dagger.ObjectGraph;
-
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,8 +39,6 @@ public class ReadingChallengeApplication extends Application {
         //init logger
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
-        } else {
-            Timber.plant(new CrashReportingTree());
         }
 
         //set device language
@@ -84,7 +77,7 @@ public class ReadingChallengeApplication extends Application {
         this.level = level;
     }
 
-    public int getDisplay() {
+    public int getDisplayColumns() {
         return display;
     }
 
@@ -98,29 +91,6 @@ public class ReadingChallengeApplication extends Application {
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
-    }
-
-    /**
-     * A tree which logs important information for crash reporting.
-     */
-    private static class CrashReportingTree extends Timber.Tree {
-        @Override
-        protected void log(int priority, String tag, String message, Throwable t) {
-            if (priority == Log.VERBOSE || priority == Log.DEBUG) {
-                return;
-            }
-
-            // TODO e.g., Crashlytics.log(String.format(message, args));
-            Crashlytics.log(priority, tag, message);
-
-            if (t != null) {
-                if (priority == Log.ERROR) {
-                    Crashlytics.logException(t);
-                } else if (priority == Log.WARN) {
-                    Crashlytics.log(t.toString());
-                }
-            }
-        }
     }
 
     /**
