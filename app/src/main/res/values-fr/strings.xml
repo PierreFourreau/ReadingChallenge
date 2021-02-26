@@ -70,7 +70,7 @@
     <string name="about_contact_label">Contact</string>
     <string name="about_contact">read.board.contact@gmail.com</string>
     <string name="about_developer_label">Concepteurs</string>
-    <string name="about_developer">Pierre Fourreau (<a href="www.pierrefourreau.fr">pierrefourreau.fr</a>) et Chloé Schiery</string>
+    <string name="about_developer">Pierre Fourreau</string>
     <string name="about_more_label">Plus...</string>
     <string name="about_more1">Si vous appréciez cette application, merci de la noter.</string>
     <string name="about_more2">Une erreur dans l\'application ? Veuillez nous le signaler et nous mettrons l\'application à jour au plus tôt.</string>
