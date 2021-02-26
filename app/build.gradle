@@ -1,19 +1,5 @@
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
-}
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
 apply plugin: 'com.google.gms.google-services'
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -32,9 +18,6 @@ dependencies {
     //Picasso
     compile 'com.squareup.picasso:picasso:2.5.2'
     //crashlytics
-    compile('com.crashlytics.sdk.android:crashlytics:2.5.2@aar') {
-        transitive = true;
-    }
     //material design library
     compile 'com.github.navasmdc:MaterialDesign:1.+@aar'
     //observablescrollview

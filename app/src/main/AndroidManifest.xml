@@ -64,10 +64,6 @@
                 android:value="com.fourreau.readingchallenge.activity.HomeActivity" />
         </activity>
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="716379d161ce8d9095b9551b72c3710edd8576f0" />
-
         <activity
             android:name=".activity.WebViewActivity"
             android:label="@string/title_activity_web_view"

@@ -70,7 +70,7 @@
     <string name="about_contact_label">Contact</string>
     <string name="about_contact">read.board.contact@gmail.com</string>
     <string name="about_developer_label">Designers</string>
-    <string name="about_developer"><a href="www.pierrefourreau.fr">www.pierrefourreau.fr</a> and Chloé Schiery</string>
+    <string name="about_developer">Pierre Fourreau</string>
     <string name="about_more_label">More</string>
     <string name="about_more1">If you like this app, please rate it.</string>
     <string name="about_more2">If you found any errors in the app, please report them to me and the app will be updated whithin the next 24 hours.</string>
