@@ -76,9 +76,7 @@
     <string name="about_more2">Une erreur dans l\'application ? Veuillez nous le signaler et nous mettrons l\'application à jour au plus tôt.</string>
     <string name="about_projects_button">Licences open source</string>
     <string name="title_activity_open_source_projects_used">Licences</string>
-    <string name="donate_label">Vous souhaitez nous soutenir ?</string>
     <string name="privacy_label">Politique de confidentialité</string>
-    <string name="button_donate">Faire un don</string>
 
     <!--Help Activity-->
     <string name="title_activity_help">Aide</string>

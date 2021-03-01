@@ -137,21 +137,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="@string/donate_label"
-                        android:textSize="@dimen/text_Medium" />
-
-                <com.gc.materialdesign.views.ButtonRectangle
-                        android:id="@+id/button_donate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:background="@color/primary"
-                        android:text="@string/button_donate" />
-
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
                         android:text="@string/privacy_label"
                         android:textSize="@dimen/text_Medium" />
 

@@ -17,22 +17,12 @@ import com.google.android.gms.analytics.Tracker;
 
 public class AboutActivity extends AppCompatActivity {
 
-    private ButtonRectangle buttonDonate, buttonOpenSourceProjects, buttonPrivacyPolicy;
+    private ButtonRectangle buttonOpenSourceProjects, buttonPrivacyPolicy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-
-        buttonDonate = (ButtonRectangle) findViewById(R.id.button_donate);
-        buttonDonate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse(Utils.DONATION_URL);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
 
         buttonOpenSourceProjects = (ButtonRectangle) findViewById(R.id.see_projects_open_source_button);
         buttonOpenSourceProjects.setOnClickListener(new View.OnClickListener() {

@@ -76,9 +76,7 @@
     <string name="about_more2">If you found any errors in the app, please report them to me and the app will be updated whithin the next 24 hours.</string>
     <string name="about_projects_button">Open source licenses</string>
     <string name="title_activity_open_source_projects_used">Licences</string>
-    <string name="donate_label">Want to support us?</string>
     <string name="privacy_label">Privacy policy</string>
-    <string name="button_donate">Donate</string>
 
     <!--Help Activity-->
     <string name="title_activity_help">Help</string>
